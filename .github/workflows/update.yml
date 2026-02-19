@@ -10,7 +10,7 @@ on:
         description: 'Beatport Chart URL'
         required: false
         type: string
-        default: 'https://www.beatport.com/chart/weekend-picks-2026-week-2/876342'
+        default: ''
 
 jobs:
   update:
