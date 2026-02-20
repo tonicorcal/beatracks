@@ -156,9 +156,17 @@ def get_all_links():
     return rows
 
 # ============================
+# Helper: short artist (first 2 only)
+# ============================
+def short_artist(artist_str):
+    parts = [a.strip() for a in artist_str.split(",")]
+    if len(parts) <= 2:
+        return artist_str
+    return ", ".join(parts[:2]) + " ..."
+
+# ============================
 # Initial links
 # ============================
-# Read from environment variable or use default
 chart_url = os.getenv('CHART_URL', 'https://www.beatport.com/chart/weekend-picks-2026-week-2/876342').strip()
 input_links = [chart_url]
 
@@ -194,7 +202,7 @@ for url in input_links:
         row_title = row.select_one("div[class*=title] span")
         row_title = row_title.text.strip() if row_title else None
 
-        # ✅ תיקון: שליפת כל האומנים (לא רק הראשון)
+        # ✅ שליפת כל האומנים
         artist_tags = row.select("div[class*=ArtistNames] a")
         row_artist = ", ".join(a.text.strip() for a in artist_tags) if artist_tags else None
 
@@ -245,17 +253,18 @@ print(f"✅ DB updated. Added: {total_added}, Skipped: {total_skipped}")
 # ============================
 # Prepare HTML data by chart
 # ============================
-charts = {}  # chart_name => {date, image, tracks:[]}
+charts = {}
 genres = set()
 labels = set()
 label_images = {}
-track_duplicates = {}  # key=(artist+title) => list of charts
+track_duplicates = {}
 
 for row in get_all_links():
     chart_name, chart_date_created, chart_image, artist, title, url, genre, label, label_img, artwork, release_dt_str, release_str, is_dup = row
     release_dt = datetime.fromisoformat(release_dt_str) if release_dt_str else None
     track = {
         "artist": artist,
+        "artist_short": short_artist(artist),  # ✅ גרסה מקוצרת
         "title": title,
         "genre": genre,
         "label": label,
@@ -264,7 +273,7 @@ for row in get_all_links():
         "release_dt": release_dt,
         "release_str": release_str,
         "is_duplicate": is_dup,
-        "chart": chart_name  # Current chart
+        "chart": chart_name
     }
     key = f"{artist}|{title}"
     if key not in track_duplicates: track_duplicates[key] = []
@@ -288,20 +297,18 @@ label_colors = {l: f"rgb({random.randint(140,255)},{random.randint(140,255)},{ra
 # Sort charts by date: newest on top
 # ============================
 def get_chart_sort_date(chart_data):
-    """Returns date for sorting - newest date on top"""
     date_str = chart_data[1]["date"]
     if date_str:
         try:
             return datetime.strptime(date_str, "%Y-%m-%d")
         except:
             pass
-    return datetime.min  # If no date, send to bottom
+    return datetime.min
 
-# Sort charts by creation date (newest on top)
 sorted_charts = sorted(charts.items(), key=get_chart_sort_date, reverse=True)
 
 # ============================
-# HTML + sidebar + duplicate marking + chart image
+# HTML
 # ============================
 html = []
 html.append(f"""
@@ -329,6 +336,10 @@ body {{margin:0;background:#000;color:#ccc;font-family:Consolas;}}
 .label-tag {{padding:2px 6px; border-radius:5px; color:#000; font-weight:bold; margin-left:5px; flex-shrink:0; cursor:pointer;}}
 .label-tag:hover {{outline:2px solid #fff;}}
 .track-title {{cursor:pointer; flex: none; overflow: hidden; text-overflow: ellipsis;}}
+.artist-short {{color:#ccc;}}
+.artist-full {{display:none; color:#ff0;}}
+.track.expanded .artist-short {{display:none;}}
+.track.expanded .artist-full {{display:inline;}}
 .artwork-box {{max-height:0; overflow:hidden; transition:max-height .3s ease; margin-left:0; display:flex; gap:10px;}}
 .track.expanded .artwork-box {{max-height:420px;}}
 .artwork-box img {{width:400px;height:400px; object-fit:cover;}}
@@ -361,17 +372,13 @@ body {{margin:0;background:#000;color:#ccc;font-family:Consolas;}}
 for g in sorted(genres):
     html.append(f'<span class="genre-filter" style="background:{genre_colors[g]}" data-genre="{escape(g)}">[{escape(g)}]</span>')
 
-html.append("</div>")  # End sidebar
-html.append("<div id='content'>")  # Start content
+html.append("</div>")
+html.append("<div id='content'>")
 
-# ============================
-# All charts and their tracks (sorted - newest on top)
-# ============================
 for chart_name, chart_data in sorted_charts:
     chart_image = chart_data["image"]
     chart_date = chart_data["date"] if chart_data["date"] else ""
     
-    # Convert date to DD|MM|YY format
     if chart_date:
         try:
             dt = datetime.strptime(chart_date, "%Y-%m-%d")
@@ -382,8 +389,6 @@ for chart_name, chart_data in sorted_charts:
         chart_date_formatted = ""
     
     chart_tracks = chart_data["tracks"]
-    
-    # Small chart image in header
     img_html = f'<img src="{escape(chart_image)}" alt="{escape(chart_name)}">' if chart_image else ''
     date_html = f'<span class="chart-date">{chart_date_formatted}</span>' if chart_date_formatted else ''
     
@@ -411,7 +416,10 @@ for chart_name, chart_data in sorted_charts:
   <div class="track-left">
     <span class="date-tag">{release_str}</span>
     <span class="genre-tag" style="background:{genre_colors[t['genre']]}">[{escape(t['genre'])}]</span>
-    <span class="track-title">{escape(t['artist'])} – {escape(t['title'])}</span>
+    <span class="track-title">
+      <span class="artist-short">{escape(t['artist_short'])} – {escape(t['title'])}</span>
+      <span class="artist-full">{escape(t['artist'])} – {escape(t['title'])}</span>
+    </span>
     <span class="label-tag" style="background:{label_colors[t['label']]}">[{escape(t['label'])}]</span>
     {dup_html}
   </div>
@@ -420,13 +428,10 @@ for chart_name, chart_data in sorted_charts:
 </div>
 """)
     
-    html.append('</div></div>')  # End chart-content and chart-block
+    html.append('</div></div>')
 
-html.append("</div></div>")  # End content and layout
+html.append("</div></div>")
 
-# ============================
-# JS: Filters + search + images + Expand/Collapse All + duplicate tooltip
-# ============================
 html.append("""
 <script>
 let activeGenre=null;
@@ -469,15 +474,12 @@ document.querySelectorAll('.genre-tag').forEach(tag=>{
   });
 });
 
-// Label filter with visual indication
+// Label filter
 document.querySelectorAll('.label-tag').forEach(tag=>{
   tag.addEventListener('click',e=>{
     e.stopPropagation();
     const l = tag.textContent.replace(/[\[\]]/g,'');
-    
-    // Remove active from all tags
     document.querySelectorAll('.label-tag').forEach(t=>t.classList.remove('active-label'));
-    
     if(activeLabel===l){ 
         activeLabel=null; 
     } else { 
@@ -499,24 +501,37 @@ document.querySelectorAll('.date-tag').forEach(tag=>{
   });
 });
 
-// Open / close image
+// ✅ Open / close track — מציג artist-short סגור, artist-full פתוח
 document.querySelectorAll('.track-title').forEach(title=>{
   title.addEventListener('click',()=>{
     const track = title.closest('.track');
     const box = track.querySelector('.artwork-box');
+    
+    // סגור את כל השאר
     document.querySelectorAll('.track.expanded').forEach(t=>{
-        if(t !== track){ t.classList.remove('expanded'); t.querySelector('.artwork-box').innerHTML=''; }
+        if(t !== track){
+            t.classList.remove('expanded');
+            t.querySelector('.artwork-box').innerHTML='';
+        }
     });
-    if(track.classList.contains('expanded')){ track.classList.remove('expanded'); box.innerHTML=''; return; }
+    
+    // טוגל על הנוכחי
+    if(track.classList.contains('expanded')){
+        track.classList.remove('expanded');
+        box.innerHTML='';
+        return;
+    }
+    
+    // טען תמונות
     const artHTML = track.dataset.artwork ? `<img src="${track.dataset.artwork}">` : '';
     const labelHTML = track.dataset.labelArtwork ? `<img class="label-img" src="${track.dataset.labelArtwork}">` : '';
-    if(!artHTML && !labelHTML) return;
-    box.innerHTML = artHTML + labelHTML;
+    if(artHTML || labelHTML) box.innerHTML = artHTML + labelHTML;
+    
     track.classList.add('expanded');
   });
 });
 
-// Search
+// Search — חיפוש על כל האומנים (data-artist מכיל את כולם)
 const searchInput = document.getElementById('search-input');
 searchInput.addEventListener('input', ()=>{
     const term = searchInput.value.toLowerCase();
@@ -544,9 +559,7 @@ document.getElementById('expand-collapse-btn').addEventListener('click', ()=>{
     });
 });
 
-// =========================
 // Duplicate tooltip
-// =========================
 document.querySelectorAll('.duplicate').forEach(icon=>{
     let tooltip;
     icon.addEventListener('mouseenter', e=>{
@@ -573,39 +586,27 @@ document.querySelectorAll('.duplicate').forEach(icon=>{
     });
 });
 
-// =========================
-// Display large chart image on mouse hover over small image
-// =========================
+// Hover preview on chart image
 document.querySelectorAll('.chart-header img').forEach(img=>{
     let preview;
     img.addEventListener('mouseenter', e=>{
         const imgSrc = img.src;
         if(!imgSrc) return;
-        
         preview = document.createElement('div');
         preview.className = 'hover-preview';
         const previewImg = document.createElement('img');
-        // Use full size original image
         previewImg.src = imgSrc;
         preview.appendChild(previewImg);
         document.body.appendChild(preview);
-        
-        // Position image next to mouse
-        const x = e.clientX + 20;
-        const y = e.clientY + 20;
-        preview.style.left = x + 'px';
-        preview.style.top = y + 'px';
+        preview.style.left = e.clientX + 20 + 'px';
+        preview.style.top = e.clientY + 20 + 'px';
     });
-    
     img.addEventListener('mousemove', e=>{
         if(preview){
-            const x = e.clientX + 20;
-            const y = e.clientY + 20;
-            preview.style.left = x + 'px';
-            preview.style.top = y + 'px';
+            preview.style.left = e.clientX + 20 + 'px';
+            preview.style.top = e.clientY + 20 + 'px';
         }
     });
-    
     img.addEventListener('mouseleave', ()=>{
         if(preview) preview.remove();
     });
