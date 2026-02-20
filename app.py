@@ -193,8 +193,11 @@ for url in input_links:
     for idx, row in enumerate(rows, 1):
         row_title = row.select_one("div[class*=title] span")
         row_title = row_title.text.strip() if row_title else None
-        row_artist = row.select_one("div[class*=ArtistNames] a")
-        row_artist = row_artist.text.strip() if row_artist else None
+
+        # ✅ תיקון: שליפת כל האומנים (לא רק הראשון)
+        artist_tags = row.select("div[class*=ArtistNames] a")
+        row_artist = ", ".join(a.text.strip() for a in artist_tags) if artist_tags else None
+
         if not row_title or not row_artist: continue
 
         # Genre
