@@ -1,0 +1,1294 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Beatport Tracks</title>
+<style>
+body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
+#layout {display:flex;}
+#genre-sidebar { width:180px; background:#050505; border-right:1px solid #222; padding:10px; box-sizing:border-box; }
+#genre-sidebar h3 {margin-top:0;color:#ffd;font-size:14px;}
+.genre-filter { display:block; margin-bottom:6px; padding:4px 6px; border-radius:6px; cursor:pointer; font-weight:bold; color:#000; }
+.genre-filter.active {outline:2px solid #fff;}
+#content {padding:10px; flex:1;}
+#expand-collapse-btn { margin-bottom:10px; padding:6px 12px; background:#222; color:#ff0; border:none; cursor:pointer; font-weight:bold; }
+.track {padding:4px;}
+.track:hover {background:#111;}
+.hidden {display:none;}
+.duplicate {background:yellow;color:#000; padding:0 3px; border-radius:3px; margin-left:5px; cursor:pointer;}
+.song-line {display:flex; width:100%; justify-content:flex-start; align-items:center;}
+.track-left {display:flex; align-items:center; gap:5px; white-space: nowrap;}
+.date-tag {padding:2px 6px; border-radius:5px; background:#666; font-weight:bold; color:#d0d0d0; margin-right:5px; cursor:pointer; flex-shrink:0;}
+.genre-tag {padding:2px 6px; border-radius:5px; color:#000; font-weight:bold; cursor:pointer; flex-shrink:0;}
+.label-tag {padding:2px 6px; border-radius:5px; color:#000; font-weight:bold; margin-left:5px; flex-shrink:0; cursor:pointer;}
+.label-tag:hover {outline:2px solid #fff;}
+.track-title {cursor:pointer; flex: none; overflow: hidden; text-overflow: ellipsis;}
+.artwork-box {max-height:0; overflow:hidden; transition:max-height .3s ease; margin-left:0; display:flex; gap:10px;}
+.track.expanded .artwork-box {max-height:420px;}
+.artwork-box img {width:400px;height:400px; object-fit:cover;}
+.artwork-box img.label-img {width:400px;height:400px; object-fit:cover;}
+.hover-preview {position:fixed; z-index:10000; pointer-events:none; border:3px solid #ff0; box-shadow:0 0 20px rgba(255,255,0,0.5);}
+.hover-preview img {display:block; max-width:none; max-height:none;}
+#search-bar input {width:50%; padding:6px; font-size:16px; background:#000; color:#fff; border:1px solid #555;}
+.chart-header { background:#111; color:#ff0; font-weight:bold; padding:6px; cursor:pointer; margin-bottom:2px; border-radius:4px; display:flex; align-items:center; gap:8px; }
+.chart-header img { width:40px; height:40px; border-radius:4px; object-fit:cover; }
+.chart-header-text { flex:1; }
+.chart-date { color:#999; font-size:12px; font-weight:normal; margin-left:10px; }
+.chart-content { max-height:0; overflow:hidden; transition:max-height .3s ease; }
+.chart-block.expanded .chart-content { max-height:5000px; }
+.dup-tooltip {position:fixed; background:#ff0; color:#000; padding:2px 6px; border-radius:4px; font-weight:bold; pointer-events:none; z-index:9999;}
+</style>
+<body>
+
+<div id="search-bar">
+  <input type="text" id="search-input" placeholder="Search artist, track or label...">
+</div>
+
+<button id="expand-collapse-btn">Expand All / Collapse All</button>
+<div id="track-count">Tracks: 48</div>
+
+<div id="layout">
+  <div id="genre-sidebar">
+    <h3>Genres</h3>
+<span class="genre-filter" style="background:rgb(143,222,185)" data-genre="Afro House">[Afro House]</span><span class="genre-filter" style="background:rgb(182,146,184)" data-genre="Afro House |  Afro / Latin">[Afro House |  Afro / Latin]</span><span class="genre-filter" style="background:rgb(255,143,246)" data-genre="House">[House]</span><span class="genre-filter" style="background:rgb(176,197,156)" data-genre="Indie Dance">[Indie Dance]</span><span class="genre-filter" style="background:rgb(222,157,251)" data-genre="Indie Dance |  Dark Disco">[Indie Dance |  Dark Disco]</span><span class="genre-filter" style="background:rgb(227,214,222)" data-genre="Melodic House &amp; Techno">[Melodic House &amp; Techno]</span><span class="genre-filter" style="background:rgb(144,253,142)" data-genre="Organic House">[Organic House]</span><span class="genre-filter" style="background:rgb(172,154,156)" data-genre="Progressive House">[Progressive House]</span></div><div id='content'><div class="chart-block"><div class="chart-header"><img src="https://geo-media.beatport.com/image_size/500x500/c0ab663a-5fec-4d1a-883b-273cee604843.jpg" alt="Weekend Picks Melodic 2026 Week 08"><div class="chart-header-text">📀 Weekend Picks Melodic 2026 Week 08 <span class="chart-date">[18|02|26]</span></div></div><div class="chart-content">
+<div class="track"
+ data-chart="Weekend Picks Melodic 2026 Week 08"
+ data-all-charts="Weekend Picks Melodic 2026 Week 08"
+ data-genre="Indie Dance"
+ data-label="fabric Records"
+ data-artist="Man Parrish, Red Axes, Roy Garrett"
+ data-title="Hot Rod To Hell And Back Extended Mix"
+ data-date="2026-02-18"
+ data-artwork="https://geo-media.beatport.com/image_size/500x500/659149d0-e626-4521-b756-b3de8b305755.jpg"
+ data-label-artwork="https://geo-media.beatport.com/image_size/500x500/820175a2-9926-4b27-9ae0-6f5518059623.jpg">
+ <div class="song-line">
+  <div class="track-left">
+    <span class="date-tag">2026-02-18</span>
+    <span class="genre-tag" style="background:rgb(176,197,156)">[Indie Dance]</span>
+    <span class="track-title">Man Parrish, Red Axes, Roy Garrett – Hot Rod To Hell And Back Extended Mix</span>
+    <span class="label-tag" style="background:rgb(209,215,151)">[fabric Records]</span>
+    
+  </div>
+ </div>
+ <div class="artwork-box"></div>
+</div>
+
+<div class="track"
+ data-chart="Weekend Picks Melodic 2026 Week 08"
+ data-all-charts="Weekend Picks Melodic 2026 Week 08"
+ data-genre="Melodic House &amp; Techno"
+ data-label="MADMINDS"
+ data-artist="Camden Cox, Layton Giordani"
+ data-title="Destiny Extended Mix"
+ data-date="2026-02-20"
+ data-artwork="https://geo-media.beatport.com/image_size/500x500/95724c4f-e889-4996-a7f3-3759c32bb6cf.jpg"
+ data-label-artwork="https://geo-media.beatport.com/image_size/500x500/9bd3a891-d0fb-45c1-bd0e-404c63cd4c49.jpg">
+ <div class="song-line">
+  <div class="track-left">
+    <span class="date-tag">2026-02-20</span>
+    <span class="genre-tag" style="background:rgb(227,214,222)">[Melodic House &amp; Techno]</span>
+    <span class="track-title">Camden Cox, Layton Giordani – Destiny Extended Mix</span>
+    <span class="label-tag" style="background:rgb(170,173,175)">[MADMINDS]</span>
+    
+  </div>
+ </div>
+ <div class="artwork-box"></div>
+</div>
+
+<div class="track"
+ data-chart="Weekend Picks Melodic 2026 Week 08"
+ data-all-charts="Weekend Picks Melodic 2026 Week 08"
+ data-genre="Afro House"
+ data-label="No Drama"
+ data-artist="Roy Rosenfeld"
+ data-title="Dubi Original Mix"
+ data-date="2026-02-20"
+ data-artwork="https://geo-media.beatport.com/image_size/500x500/81434805-1cde-4629-bf15-9aa1364320f8.jpg"
+ data-label-artwork="https://geo-media.beatport.com/image_size/500x500/3c098919-d4d4-4fa8-887a-1650ac5f2482.jpg">
+ <div class="song-line">
+  <div class="track-left">
+    <span class="date-tag">2026-02-20</span>
+    <span class="genre-tag" style="background:rgb(143,222,185)">[Afro House]</span>
+    <span class="track-title">Roy Rosenfeld – Dubi Original Mix</span>
+    <span class="label-tag" style="background:rgb(141,194,172)">[No Drama]</span>
+    
+  </div>
+ </div>
+ <div class="artwork-box"></div>
+</div>
+
+<div class="track"
+ data-chart="Weekend Picks Melodic 2026 Week 08"
+ data-all-charts="Weekend Picks Melodic 2026 Week 08"
+ data-genre="Afro House"
+ data-label="SPINNIN&#x27; DEEP"
+ data-artist="JUNO (DE)"
+ data-title="Que Rico Extended Mix"
+ data-date="2026-02-20"
+ data-artwork="https://geo-media.beatport.com/image_size/500x500/d4105b27-4040-4f06-8cd5-2d7a847dc1e8.jpg"
+ data-label-artwork="https://geo-media.beatport.com/image_size/500x500/cd5f70ed-0e01-49da-b8fb-af23a56861ac.jpg">
+ <div class="song-line">
+  <div class="track-left">
+    <span class="date-tag">2026-02-20</span>
+    <span class="genre-tag" style="background:rgb(143,222,185)">[Afro House]</span>
+    <span class="track-title">JUNO (DE) – Que Rico Extended Mix</span>
+    <span class="label-tag" style="background:rgb(240,164,183)">[SPINNIN&#x27; DEEP]</span>
+    
+  </div>
+ </div>
+ <div class="artwork-box"></div>
+</div>
+
+<div class="track"
+ data-chart="Weekend Picks Melodic 2026 Week 08"
+ data-all-charts="Weekend Picks Melodic 2026 Week 08"
+ data-genre="Indie Dance"
+ data-label="Feines Tier"
+ data-artist="Thomass Jackson"
+ data-title="Psychotically Friendly Original Mix"
+ data-date="2026-02-20"
+ data-artwork="https://geo-media.beatport.com/image_size/500x500/c5b80a6e-7a36-4229-bc04-248562051ae7.jpg"
+ data-label-artwork="https://geo-media.beatport.com/image_size/500x500/be8b41fd-e4d2-4def-889f-c42af45a14db.jpg">
+ <div class="song-line">
+  <div class="track-left">
+    <span class="date-tag">2026-02-20</span>
+    <span class="genre-tag" style="background:rgb(176,197,156)">[Indie Dance]</span>
+    <span class="track-title">Thomass Jackson – Psychotically Friendly Original Mix</span>
+    <span class="label-tag" style="background:rgb(225,181,227)">[Feines Tier]</span>
+    
+  </div>
+ </div>
+ <div class="artwork-box"></div>
+</div>
+
+<div class="track"
+ data-chart="Weekend Picks Melodic 2026 Week 08"
+ data-all-charts="Weekend Picks Melodic 2026 Week 08"
+ data-genre="Indie Dance"
+ data-label="Bedrock Records"
+ data-artist="derderwandert"
+ data-title="Diego Armando  Original Mix"
+ data-date="2026-02-20"
+ data-artwork="https://geo-media.beatport.com/image_size/500x500/9de977f3-1dd7-4b53-beca-20ff9c749fc5.jpg"
+ data-label-artwork="https://geo-media.beatport.com/image_size/500x500/92243990-5f43-4cc8-8fef-43e3ab7279d6.jpg">
+ <div class="song-line">
+  <div class="track-left">
+    <span class="date-tag">2026-02-20</span>
+    <span class="genre-tag" style="background:rgb(176,197,156)">[Indie Dance]</span>
+    <span class="track-title">derderwandert – Diego Armando  Original Mix</span>
+    <span class="label-tag" style="background:rgb(188,165,202)">[Bedrock Records]</span>
+    
+  </div>
+ </div>
+ <div class="artwork-box"></div>
+</div>
+
+<div class="track"
+ data-chart="Weekend Picks Melodic 2026 Week 08"
+ data-all-charts="Weekend Picks Melodic 2026 Week 08"
+ data-genre="House"
+ data-label="Diynamic"
+ data-artist="Fedele"
+ data-title="Gentle Dance Original Mix"
+ data-date="2026-02-20"
+ data-artwork="https://geo-media.beatport.com/image_size/500x500/9bf47cc0-f50b-483f-b58d-c76d9dad58a4.jpg"
+ data-label-artwork="https://geo-media.beatport.com/image_size/500x500/f9b12b7e-e32c-47c6-ac3a-6c4e8c4703ff.jpg">
+ <div class="song-line">
+  <div class="track-left">
+    <span class="date-tag">2026-02-20</span>
+    <span class="genre-tag" style="background:rgb(255,143,246)">[House]</span>
+    <span class="track-title">Fedele – Gentle Dance Original Mix</span>
+    <span class="label-tag" style="background:rgb(243,180,175)">[Diynamic]</span>
+    
+  </div>
+ </div>
+ <div class="artwork-box"></div>
+</div>
+
+<div class="track"
+ data-chart="Weekend Picks Melodic 2026 Week 08"
+ data-all-charts="Weekend Picks Melodic 2026 Week 08"
+ data-genre="Afro House"
+ data-label="Madorasindahouse Records"
+ data-artist="Hyenah, Miči, Soulroots, Chaleee"
+ data-title="This Moment Chaleee &amp; Soulroots Remix"
+ data-date="2026-02-20"
+ data-artwork="https://geo-media.beatport.com/image_size/500x500/d11eeb8d-641f-401f-95d2-0c367a9bbb91.jpg"
+ data-label-artwork="https://geo-media.beatport.com/image_size/500x500/ca559972-88b5-401f-acc4-e60353e1bb15.jpg">
+ <div class="song-line">
+  <div class="track-left">
+    <span class="date-tag">2026-02-20</span>
+    <span class="genre-tag" style="background:rgb(143,222,185)">[Afro House]</span>
+    <span class="track-title">Hyenah, Miči, Soulroots, Chaleee – This Moment Chaleee &amp; Soulroots Remix</span>
+    <span class="label-tag" style="background:rgb(155,177,189)">[Madorasindahouse Records]</span>
+    
+  </div>
+ </div>
+ <div class="artwork-box"></div>
+</div>
+
+<div class="track"
+ data-chart="Weekend Picks Melodic 2026 Week 08"
+ data-all-charts="Weekend Picks Melodic 2026 Week 08"
+ data-genre="Indie Dance"
+ data-label="Bordello A Parigi"
+ data-artist="Also Playable Mono"
+ data-title="Firenze Original Mix"
+ data-date="2026-02-16"
+ data-artwork="https://geo-media.beatport.com/image_size/500x500/47c4c301-e678-4e07-a542-2c9f4032885e.jpg"
+ data-label-artwork="https://geo-media.beatport.com/image_size/500x500/9e3590a6-e986-49bb-acfa-f08cbfd928b4.jpg">
+ <div class="song-line">
+  <div class="track-left">
+    <span class="date-tag">2026-02-16</span>
+    <span class="genre-tag" style="background:rgb(176,197,156)">[Indie Dance]</span>
+    <span class="track-title">Also Playable Mono – Firenze Original Mix</span>
+    <span class="label-tag" style="background:rgb(240,164,212)">[Bordello A Parigi]</span>
+    
+  </div>
+ </div>
+ <div class="artwork-box"></div>
+</div>
+
+<div class="track"
+ data-chart="Weekend Picks Melodic 2026 Week 08"
+ data-all-charts="Weekend Picks Melodic 2026 Week 08"
+ data-genre="Afro House"
+ data-label="MoBlack Records"
+ data-artist="blaqkongo, Skai Lounge"
+ data-title="Day One Extended Mix"
+ data-date="2026-02-20"
+ data-artwork="https://geo-media.beatport.com/image_size/500x500/474228a5-dbd1-4c5a-9967-9a2dc732968d.jpg"
+ data-label-artwork="https://geo-media.beatport.com/image_size/500x500/66f598d6-afa5-44f3-a6db-d902f4c89a55.jpg">
+ <div class="song-line">
+  <div class="track-left">
+    <span class="date-tag">2026-02-20</span>
+    <span class="genre-tag" style="background:rgb(143,222,185)">[Afro House]</span>
+    <span class="track-title">blaqkongo, Skai Lounge – Day One Extended Mix</span>
+    <span class="label-tag" style="background:rgb(157,235,188)">[MoBlack Records]</span>
+    
+  </div>
+ </div>
+ <div class="artwork-box"></div>
+</div>
+
+<div class="track"
+ data-chart="Weekend Picks Melodic 2026 Week 08"
+ data-all-charts="Weekend Picks Melodic 2026 Week 08"
+ data-genre="Indie Dance"
+ data-label="Maccabi House"
+ data-artist="Marina Maximilian, Adam Ten, Mita Gami, Kino Todo"
+ data-title="Million Pieces Kino Todo Remix"
+ data-date="2026-02-20"
+ data-artwork="https://geo-media.beatport.com/image_size/500x500/eb310c7c-f131-4eb4-9373-a7629576c8ed.jpg"
+ data-label-artwork="https://geo-media.beatport.com/image_size/500x500/5d32da93-7d82-4634-a17e-c001288601bb.jpg">
+ <div class="song-line">
+  <div class="track-left">
+    <span class="date-tag">2026-02-20</span>
+    <span class="genre-tag" style="background:rgb(176,197,156)">[Indie Dance]</span>
+    <span class="track-title">Marina Maximilian, Adam Ten, Mita Gami, Kino Todo – Million Pieces Kino Todo Remix</span>
+    <span class="label-tag" style="background:rgb(232,197,231)">[Maccabi House]</span>
+    
+  </div>
+ </div>
+ <div class="artwork-box"></div>
+</div>
+
+<div class="track"
+ data-chart="Weekend Picks Melodic 2026 Week 08"
+ data-all-charts="Weekend Picks Melodic 2026 Week 08"
+ data-genre="Indie Dance"
+ data-label="Diynamic"
+ data-artist="Fedele"
+ data-title="You Gonna Win Original Mix"
+ data-date="2026-02-20"
+ data-artwork="https://geo-media.beatport.com/image_size/500x500/9bf47cc0-f50b-483f-b58d-c76d9dad58a4.jpg"
+ data-label-artwork="https://geo-media.beatport.com/image_size/500x500/f9b12b7e-e32c-47c6-ac3a-6c4e8c4703ff.jpg">
+ <div class="song-line">
+  <div class="track-left">
+    <span class="date-tag">2026-02-20</span>
+    <span class="genre-tag" style="background:rgb(176,197,156)">[Indie Dance]</span>
+    <span class="track-title">Fedele – You Gonna Win Original Mix</span>
+    <span class="label-tag" style="background:rgb(243,180,175)">[Diynamic]</span>
+    
+  </div>
+ </div>
+ <div class="artwork-box"></div>
+</div>
+
+<div class="track"
+ data-chart="Weekend Picks Melodic 2026 Week 08"
+ data-all-charts="Weekend Picks Melodic 2026 Week 08"
+ data-genre="Afro House |  Afro / Latin"
+ data-label="Make The Girls Dance Records"
+ data-artist="Eran Hersh, Tekkman, Antho Decks"
+ data-title="Yoruba Extended Mix"
+ data-date="2026-02-20"
+ data-artwork="https://geo-media.beatport.com/image_size/500x500/c2438592-d9d9-4963-b6eb-d0b14465b853.jpg"
+ data-label-artwork="https://geo-media.beatport.com/image_size/500x500/29c60ccf-3c7b-4180-ad32-7d6048da2921.jpg">
+ <div class="song-line">
+  <div class="track-left">
+    <span class="date-tag">2026-02-20</span>
+    <span class="genre-tag" style="background:rgb(182,146,184)">[Afro House |  Afro / Latin]</span>
+    <span class="track-title">Eran Hersh, Tekkman, Antho Decks – Yoruba Extended Mix</span>
+    <span class="label-tag" style="background:rgb(196,242,181)">[Make The Girls Dance Records]</span>
+    
+  </div>
+ </div>
+ <div class="artwork-box"></div>
+</div>
+
+<div class="track"
+ data-chart="Weekend Picks Melodic 2026 Week 08"
+ data-all-charts="Weekend Picks Melodic 2026 Week 08"
+ data-genre="Progressive House"
+ data-label="Mango Alley"
+ data-artist="STEREO MUNK, goodkidd"
+ data-title="Seventy Owls Original Mix"
+ data-date="2026-02-19"
+ data-artwork="https://geo-media.beatport.com/image_size/500x500/3536a17f-dd56-4da6-a28a-75cd1904311c.jpg"
+ data-label-artwork="https://geo-media.beatport.com/image_size/500x500/12d10ff3-c5c5-430c-a7bd-96154bca0251.jpg">
+ <div class="song-line">
+  <div class="track-left">
+    <span class="date-tag">2026-02-19</span>
+    <span class="genre-tag" style="background:rgb(172,154,156)">[Progressive House]</span>
+    <span class="track-title">STEREO MUNK, goodkidd – Seventy Owls Original Mix</span>
+    <span class="label-tag" style="background:rgb(232,244,239)">[Mango Alley]</span>
+    
+  </div>
+ </div>
+ <div class="artwork-box"></div>
+</div>
+
+<div class="track"
+ data-chart="Weekend Picks Melodic 2026 Week 08"
+ data-all-charts="Weekend Picks Melodic 2026 Week 08"
+ data-genre="Progressive House"
+ data-label="Volt Crew"
+ data-artist="PAUL (AR)"
+ data-title="Flipped Original Mix"
+ data-date="2026-02-20"
+ data-artwork="https://geo-media.beatport.com/image_size/500x500/319032cd-7088-4b26-8ecb-15bb1fa83874.jpg"
+ data-label-artwork="https://geo-media.beatport.com/image_size/500x500/2ba15634-5fac-4119-b1e0-fe3144c6f814.jpg">
+ <div class="song-line">
+  <div class="track-left">
+    <span class="date-tag">2026-02-20</span>
+    <span class="genre-tag" style="background:rgb(172,154,156)">[Progressive House]</span>
+    <span class="track-title">PAUL (AR) – Flipped Original Mix</span>
+    <span class="label-tag" style="background:rgb(206,161,241)">[Volt Crew]</span>
+    
+  </div>
+ </div>
+ <div class="artwork-box"></div>
+</div>
+
+<div class="track"
+ data-chart="Weekend Picks Melodic 2026 Week 08"
+ data-all-charts="Weekend Picks Melodic 2026 Week 08"
+ data-genre="Indie Dance |  Dark Disco"
+ data-label="Make The Girls Dance Records"
+ data-artist="Amine K (Moroko Loko)"
+ data-title="TBW Extended Mix"
+ data-date="2026-02-20"
+ data-artwork="https://geo-media.beatport.com/image_size/500x500/0ac7f3d6-f7cb-4adf-9aa0-d2748f526e05.jpg"
+ data-label-artwork="https://geo-media.beatport.com/image_size/500x500/29c60ccf-3c7b-4180-ad32-7d6048da2921.jpg">
+ <div class="song-line">
+  <div class="track-left">
+    <span class="date-tag">2026-02-20</span>
+    <span class="genre-tag" style="background:rgb(222,157,251)">[Indie Dance |  Dark Disco]</span>
+    <span class="track-title">Amine K (Moroko Loko) – TBW Extended Mix</span>
+    <span class="label-tag" style="background:rgb(196,242,181)">[Make The Girls Dance Records]</span>
+    
+  </div>
+ </div>
+ <div class="artwork-box"></div>
+</div>
+
+<div class="track"
+ data-chart="Weekend Picks Melodic 2026 Week 08"
+ data-all-charts="Weekend Picks Melodic 2026 Week 08"
+ data-genre="Progressive House"
+ data-label="The Soundgarden"
+ data-artist="Solis [US]"
+ data-title="Superposition Extended Mix"
+ data-date="2026-02-20"
+ data-artwork="https://geo-media.beatport.com/image_size/500x500/e2e3549e-2835-4c49-9185-41ddcc153f39.jpg"
+ data-label-artwork="https://geo-media.beatport.com/image_size/500x500/ffded4d4-dabd-427c-bfd3-21c4bf89443e.jpg">
+ <div class="song-line">
+  <div class="track-left">
+    <span class="date-tag">2026-02-20</span>
+    <span class="genre-tag" style="background:rgb(172,154,156)">[Progressive House]</span>
+    <span class="track-title">Solis [US] – Superposition Extended Mix</span>
+    <span class="label-tag" style="background:rgb(190,238,189)">[The Soundgarden]</span>
+    
+  </div>
+ </div>
+ <div class="artwork-box"></div>
+</div>
+
+<div class="track"
+ data-chart="Weekend Picks Melodic 2026 Week 08"
+ data-all-charts="Weekend Picks Melodic 2026 Week 08"
+ data-genre="Organic House"
+ data-label="Deepalma"
+ data-artist="Sence"
+ data-title="Night Lady Extended Mix"
+ data-date="2026-02-20"
+ data-artwork="https://geo-media.beatport.com/image_size/500x500/ec2f5be8-6e22-4d38-baad-3b60507b1ccb.jpg"
+ data-label-artwork="https://geo-media.beatport.com/image_size/500x500/81e4aa14-89f5-4df4-b514-5976328e1358.jpg">
+ <div class="song-line">
+  <div class="track-left">
+    <span class="date-tag">2026-02-20</span>
+    <span class="genre-tag" style="background:rgb(144,253,142)">[Organic House]</span>
+    <span class="track-title">Sence – Night Lady Extended Mix</span>
+    <span class="label-tag" style="background:rgb(163,253,194)">[Deepalma]</span>
+    
+  </div>
+ </div>
+ <div class="artwork-box"></div>
+</div>
+
+<div class="track"
+ data-chart="Weekend Picks Melodic 2026 Week 08"
+ data-all-charts="Weekend Picks Melodic 2026 Week 08"
+ data-genre="Melodic House &amp; Techno"
+ data-label="Go Deeva Records"
+ data-artist="SOLECO, Florist (BE)"
+ data-title="Falling Down Original Mix"
+ data-date="2026-02-20"
+ data-artwork="https://geo-media.beatport.com/image_size/500x500/1ce368ef-0084-4abd-bb62-3eeedd42a2cb.jpg"
+ data-label-artwork="https://geo-media.beatport.com/image_size/500x500/90eb3cb9-3dac-4ce8-a282-152e81c05f87.jpg">
+ <div class="song-line">
+  <div class="track-left">
+    <span class="date-tag">2026-02-20</span>
+    <span class="genre-tag" style="background:rgb(227,214,222)">[Melodic House &amp; Techno]</span>
+    <span class="track-title">SOLECO, Florist (BE) – Falling Down Original Mix</span>
+    <span class="label-tag" style="background:rgb(160,169,176)">[Go Deeva Records]</span>
+    
+  </div>
+ </div>
+ <div class="artwork-box"></div>
+</div>
+
+<div class="track"
+ data-chart="Weekend Picks Melodic 2026 Week 08"
+ data-all-charts="Weekend Picks Melodic 2026 Week 08"
+ data-genre="Progressive House"
+ data-label="Sprout"
+ data-artist="DJ Zombi, Radical Fantasy"
+ data-title="Time to Be Alive Extended Mix"
+ data-date="2026-02-20"
+ data-artwork="https://geo-media.beatport.com/image_size/500x500/ce71d054-8e77-4fc2-9f09-8fe72d8809fd.jpg"
+ data-label-artwork="https://geo-media.beatport.com/image_size/500x500/7581d99f-0729-47f2-8915-f8075e5af345.jpg">
+ <div class="song-line">
+  <div class="track-left">
+    <span class="date-tag">2026-02-20</span>
+    <span class="genre-tag" style="background:rgb(172,154,156)">[Progressive House]</span>
+    <span class="track-title">DJ Zombi, Radical Fantasy – Time to Be Alive Extended Mix</span>
+    <span class="label-tag" style="background:rgb(176,248,213)">[Sprout]</span>
+    
+  </div>
+ </div>
+ <div class="artwork-box"></div>
+</div>
+
+<div class="track"
+ data-chart="Weekend Picks Melodic 2026 Week 08"
+ data-all-charts="Weekend Picks Melodic 2026 Week 08"
+ data-genre="Indie Dance"
+ data-label="Kompakt"
+ data-artist="Joyce Muniz, Andre VII, Alejandro Paz"
+ data-title="Quiero Tu Amor (feat. Alejandro Paz) feat. Alejandro Paz"
+ data-date="2026-02-20"
+ data-artwork="https://geo-media.beatport.com/image_size/500x500/5a107c6f-03ca-47f7-b6d0-62c6f40def4f.jpg"
+ data-label-artwork="https://geo-media.beatport.com/image_size/500x500/2a4c2937-e97c-40a7-8be8-605c7a9b5169.jpg">
+ <div class="song-line">
+  <div class="track-left">
+    <span class="date-tag">2026-02-20</span>
+    <span class="genre-tag" style="background:rgb(176,197,156)">[Indie Dance]</span>
+    <span class="track-title">Joyce Muniz, Andre VII, Alejandro Paz – Quiero Tu Amor (feat. Alejandro Paz) feat. Alejandro Paz</span>
+    <span class="label-tag" style="background:rgb(161,191,141)">[Kompakt]</span>
+    
+  </div>
+ </div>
+ <div class="artwork-box"></div>
+</div>
+
+<div class="track"
+ data-chart="Weekend Picks Melodic 2026 Week 08"
+ data-all-charts="Weekend Picks Melodic 2026 Week 08"
+ data-genre="Afro House"
+ data-label="Kunye"
+ data-artist="Blanka Mazimela"
+ data-title="My War Original Mix"
+ data-date="2026-02-20"
+ data-artwork="https://geo-media.beatport.com/image_size/500x500/af1b2da2-1bcc-4e0f-85ee-7d4a829a5916.jpg"
+ data-label-artwork="https://geo-media.beatport.com/image_size/500x500/bec12c52-fa90-414e-9d0d-411ee7c29424.jpg">
+ <div class="song-line">
+  <div class="track-left">
+    <span class="date-tag">2026-02-20</span>
+    <span class="genre-tag" style="background:rgb(143,222,185)">[Afro House]</span>
+    <span class="track-title">Blanka Mazimela – My War Original Mix</span>
+    <span class="label-tag" style="background:rgb(146,151,200)">[Kunye]</span>
+    
+  </div>
+ </div>
+ <div class="artwork-box"></div>
+</div>
+
+<div class="track"
+ data-chart="Weekend Picks Melodic 2026 Week 08"
+ data-all-charts="Weekend Picks Melodic 2026 Week 08"
+ data-genre="Organic House"
+ data-label="Univack"
+ data-artist="Sunchain, 8PAJ2"
+ data-title="Subterranean Rhythm Extended Mix"
+ data-date="2026-02-20"
+ data-artwork="https://geo-media.beatport.com/image_size/500x500/3420940e-c985-4c30-bf77-59094dd27d59.jpg"
+ data-label-artwork="https://geo-media.beatport.com/image_size/500x500/dfe6a815-0c51-415e-b2f1-58706455c24c.jpg">
+ <div class="song-line">
+  <div class="track-left">
+    <span class="date-tag">2026-02-20</span>
+    <span class="genre-tag" style="background:rgb(144,253,142)">[Organic House]</span>
+    <span class="track-title">Sunchain, 8PAJ2 – Subterranean Rhythm Extended Mix</span>
+    <span class="label-tag" style="background:rgb(192,172,242)">[Univack]</span>
+    
+  </div>
+ </div>
+ <div class="artwork-box"></div>
+</div>
+
+<div class="track"
+ data-chart="Weekend Picks Melodic 2026 Week 08"
+ data-all-charts="Weekend Picks Melodic 2026 Week 08"
+ data-genre="Afro House"
+ data-label="Pipe &amp; Pochet"
+ data-artist="Koni, Seba Campos, Aaron Sevilla"
+ data-title="Bella Ciao Aaron Sevilla Extended Remix"
+ data-date="2026-02-20"
+ data-artwork="https://geo-media.beatport.com/image_size/500x500/2a4c4ab3-9a6c-40f1-90be-ba2e145dacc8.jpg"
+ data-label-artwork="https://geo-media.beatport.com/image_size/500x500/890f36b9-c9a0-4771-8619-a5b756498952.jpg">
+ <div class="song-line">
+  <div class="track-left">
+    <span class="date-tag">2026-02-20</span>
+    <span class="genre-tag" style="background:rgb(143,222,185)">[Afro House]</span>
+    <span class="track-title">Koni, Seba Campos, Aaron Sevilla – Bella Ciao Aaron Sevilla Extended Remix</span>
+    <span class="label-tag" style="background:rgb(153,244,244)">[Pipe &amp; Pochet]</span>
+    
+  </div>
+ </div>
+ <div class="artwork-box"></div>
+</div>
+
+<div class="track"
+ data-chart="Weekend Picks Melodic 2026 Week 08"
+ data-all-charts="Weekend Picks Melodic 2026 Week 08"
+ data-genre="Melodic House &amp; Techno"
+ data-label="Interstellar Recordings (Insomniac)"
+ data-artist="Weska, Kyra Mastro"
+ data-title="Nowhere To Hide Extended Mix"
+ data-date="2026-02-20"
+ data-artwork="https://geo-media.beatport.com/image_size/500x500/f4d8c4ba-f0d6-4581-9d54-496741bb3157.jpg"
+ data-label-artwork="https://geo-media.beatport.com/image_size/500x500/c5f4ff6a-c560-411c-b49c-8034dbeece28.jpg">
+ <div class="song-line">
+  <div class="track-left">
+    <span class="date-tag">2026-02-20</span>
+    <span class="genre-tag" style="background:rgb(227,214,222)">[Melodic House &amp; Techno]</span>
+    <span class="track-title">Weska, Kyra Mastro – Nowhere To Hide Extended Mix</span>
+    <span class="label-tag" style="background:rgb(222,142,231)">[Interstellar Recordings (Insomniac)]</span>
+    
+  </div>
+ </div>
+ <div class="artwork-box"></div>
+</div>
+
+<div class="track"
+ data-chart="Weekend Picks Melodic 2026 Week 08"
+ data-all-charts="Weekend Picks Melodic 2026 Week 08"
+ data-genre="Afro House"
+ data-label="Bosom"
+ data-artist="Mac Dephoner"
+ data-title="Beat Repeat  Original Mix"
+ data-date="2026-02-20"
+ data-artwork="https://geo-media.beatport.com/image_size/500x500/f80891ff-7198-42df-99bc-724821f31bb6.jpg"
+ data-label-artwork="https://geo-media.beatport.com/image_size/500x500/4e36754b-2ab7-4c7c-a52f-5192889fd7a1.jpg">
+ <div class="song-line">
+  <div class="track-left">
+    <span class="date-tag">2026-02-20</span>
+    <span class="genre-tag" style="background:rgb(143,222,185)">[Afro House]</span>
+    <span class="track-title">Mac Dephoner – Beat Repeat  Original Mix</span>
+    <span class="label-tag" style="background:rgb(143,241,213)">[Bosom]</span>
+    
+  </div>
+ </div>
+ <div class="artwork-box"></div>
+</div>
+
+<div class="track"
+ data-chart="Weekend Picks Melodic 2026 Week 08"
+ data-all-charts="Weekend Picks Melodic 2026 Week 08"
+ data-genre="Afro House"
+ data-label="Maské Records"
+ data-artist="DJ Freespirit, Marasi"
+ data-title="Horizon  Original Mix"
+ data-date="2026-02-20"
+ data-artwork="https://geo-media.beatport.com/image_size/500x500/2be2c861-4778-4aaa-b59e-85b358e9bed9.jpg"
+ data-label-artwork="https://geo-media.beatport.com/image_size/500x500/593bf267-1c6a-4a55-8337-1ef587489f34.jpg">
+ <div class="song-line">
+  <div class="track-left">
+    <span class="date-tag">2026-02-20</span>
+    <span class="genre-tag" style="background:rgb(143,222,185)">[Afro House]</span>
+    <span class="track-title">DJ Freespirit, Marasi – Horizon  Original Mix</span>
+    <span class="label-tag" style="background:rgb(141,234,177)">[Maské Records]</span>
+    
+  </div>
+ </div>
+ <div class="artwork-box"></div>
+</div>
+
+<div class="track"
+ data-chart="Weekend Picks Melodic 2026 Week 08"
+ data-all-charts="Weekend Picks Melodic 2026 Week 08"
+ data-genre="Progressive House"
+ data-label="Stone Seed"
+ data-artist="Doppel"
+ data-title="Crucible Extended Mix"
+ data-date="2026-02-20"
+ data-artwork="https://geo-media.beatport.com/image_size/500x500/96a032f2-723e-4cdc-a17a-3b434f4f6bbb.jpg"
+ data-label-artwork="https://geo-media.beatport.com/image_size/500x500/0661f079-2ed9-433a-9a7b-4fabc33631ed.jpg">
+ <div class="song-line">
+  <div class="track-left">
+    <span class="date-tag">2026-02-20</span>
+    <span class="genre-tag" style="background:rgb(172,154,156)">[Progressive House]</span>
+    <span class="track-title">Doppel – Crucible Extended Mix</span>
+    <span class="label-tag" style="background:rgb(148,193,143)">[Stone Seed]</span>
+    
+  </div>
+ </div>
+ <div class="artwork-box"></div>
+</div>
+
+<div class="track"
+ data-chart="Weekend Picks Melodic 2026 Week 08"
+ data-all-charts="Weekend Picks Melodic 2026 Week 08"
+ data-genre="Indie Dance"
+ data-label="Moodmusic"
+ data-artist="Redfreya, Jepe"
+ data-title="Bell Jam Jepe Re-Vision"
+ data-date="2026-02-20"
+ data-artwork="https://geo-media.beatport.com/image_size/500x500/1291a653-e4cf-4db5-970b-d72fcee7d2ec.jpg"
+ data-label-artwork="https://geo-media.beatport.com/image_size/500x500/ae4d910d-6c48-48e2-8492-21390741c146.jpg">
+ <div class="song-line">
+  <div class="track-left">
+    <span class="date-tag">2026-02-20</span>
+    <span class="genre-tag" style="background:rgb(176,197,156)">[Indie Dance]</span>
+    <span class="track-title">Redfreya, Jepe – Bell Jam Jepe Re-Vision</span>
+    <span class="label-tag" style="background:rgb(158,246,216)">[Moodmusic]</span>
+    
+  </div>
+ </div>
+ <div class="artwork-box"></div>
+</div>
+
+<div class="track"
+ data-chart="Weekend Picks Melodic 2026 Week 08"
+ data-all-charts="Weekend Picks Melodic 2026 Week 08"
+ data-genre="Afro House"
+ data-label="Klub Record"
+ data-artist="Singhara, Birdsey"
+ data-title="Watch Me Extended"
+ data-date="2026-02-20"
+ data-artwork="https://geo-media.beatport.com/image_size/500x500/e9820169-02e8-4a85-ad64-e98485429147.jpg"
+ data-label-artwork="https://geo-media.beatport.com/image_size/500x500/a22e279c-89c0-4dff-be85-90b03542515d.jpg">
+ <div class="song-line">
+  <div class="track-left">
+    <span class="date-tag">2026-02-20</span>
+    <span class="genre-tag" style="background:rgb(143,222,185)">[Afro House]</span>
+    <span class="track-title">Singhara, Birdsey – Watch Me Extended</span>
+    <span class="label-tag" style="background:rgb(167,209,146)">[Klub Record]</span>
+    
+  </div>
+ </div>
+ <div class="artwork-box"></div>
+</div>
+
+<div class="track"
+ data-chart="Weekend Picks Melodic 2026 Week 08"
+ data-all-charts="Weekend Picks Melodic 2026 Week 08"
+ data-genre="Afro House"
+ data-label="Deep Root Tribe"
+ data-artist="QT-HIGH, notdanilo"
+ data-title="Hear Me Now Original Mix"
+ data-date="2026-02-20"
+ data-artwork="https://geo-media.beatport.com/image_size/500x500/df005b69-cfc9-4d11-992e-f3c050a27b5c.jpg"
+ data-label-artwork="https://geo-media.beatport.com/image_size/500x500/cac4c6b1-f259-48fc-afa4-266295076dfa.jpg">
+ <div class="song-line">
+  <div class="track-left">
+    <span class="date-tag">2026-02-20</span>
+    <span class="genre-tag" style="background:rgb(143,222,185)">[Afro House]</span>
+    <span class="track-title">QT-HIGH, notdanilo – Hear Me Now Original Mix</span>
+    <span class="label-tag" style="background:rgb(182,194,204)">[Deep Root Tribe]</span>
+    
+  </div>
+ </div>
+ <div class="artwork-box"></div>
+</div>
+
+<div class="track"
+ data-chart="Weekend Picks Melodic 2026 Week 08"
+ data-all-charts="Weekend Picks Melodic 2026 Week 08"
+ data-genre="Afro House"
+ data-label="Go Deeva Light Records"
+ data-artist="Swanky Tunes, Shapov"
+ data-title="Tumba La Casa Extended Mix"
+ data-date="2026-02-20"
+ data-artwork="https://geo-media.beatport.com/image_size/500x500/bdbecd73-99dd-40e1-9992-0e5ae945c89a.jpg"
+ data-label-artwork="https://geo-media.beatport.com/image_size/500x500/417c09bf-6b4c-4856-814f-8ce4aacdbbe1.jpg">
+ <div class="song-line">
+  <div class="track-left">
+    <span class="date-tag">2026-02-20</span>
+    <span class="genre-tag" style="background:rgb(143,222,185)">[Afro House]</span>
+    <span class="track-title">Swanky Tunes, Shapov – Tumba La Casa Extended Mix</span>
+    <span class="label-tag" style="background:rgb(255,215,166)">[Go Deeva Light Records]</span>
+    
+  </div>
+ </div>
+ <div class="artwork-box"></div>
+</div>
+
+<div class="track"
+ data-chart="Weekend Picks Melodic 2026 Week 08"
+ data-all-charts="Weekend Picks Melodic 2026 Week 08"
+ data-genre="Progressive House"
+ data-label="Dreaming Awake"
+ data-artist="Wild Dark, ariaano"
+ data-title="Short Story Original Mix"
+ data-date="2026-02-20"
+ data-artwork="https://geo-media.beatport.com/image_size/500x500/7a252f98-bc17-4322-aceb-8e7167c4fd37.jpg"
+ data-label-artwork="https://geo-media.beatport.com/image_size/500x500/3cfbe437-981e-448d-a235-cf138d0b49e9.jpg">
+ <div class="song-line">
+  <div class="track-left">
+    <span class="date-tag">2026-02-20</span>
+    <span class="genre-tag" style="background:rgb(172,154,156)">[Progressive House]</span>
+    <span class="track-title">Wild Dark, ariaano – Short Story Original Mix</span>
+    <span class="label-tag" style="background:rgb(188,234,200)">[Dreaming Awake]</span>
+    
+  </div>
+ </div>
+ <div class="artwork-box"></div>
+</div>
+
+<div class="track"
+ data-chart="Weekend Picks Melodic 2026 Week 08"
+ data-all-charts="Weekend Picks Melodic 2026 Week 08"
+ data-genre="Progressive House"
+ data-label="Plastic Fantastic Records"
+ data-artist="Jon Towell"
+ data-title="Break of Dawn Original Mix"
+ data-date="2026-02-20"
+ data-artwork="https://geo-media.beatport.com/image_size/500x500/d40cbbff-9f26-4cc6-88b2-d65044d8cdf4.jpg"
+ data-label-artwork="https://geo-media.beatport.com/image_size/500x500/8658609b-7358-4f8e-808f-70e703efd679.jpg">
+ <div class="song-line">
+  <div class="track-left">
+    <span class="date-tag">2026-02-20</span>
+    <span class="genre-tag" style="background:rgb(172,154,156)">[Progressive House]</span>
+    <span class="track-title">Jon Towell – Break of Dawn Original Mix</span>
+    <span class="label-tag" style="background:rgb(167,207,193)">[Plastic Fantastic Records]</span>
+    
+  </div>
+ </div>
+ <div class="artwork-box"></div>
+</div>
+
+<div class="track"
+ data-chart="Weekend Picks Melodic 2026 Week 08"
+ data-all-charts="Weekend Picks Melodic 2026 Week 08"
+ data-genre="Progressive House"
+ data-label="Movement Recordings"
+ data-artist="Ellroy"
+ data-title="Manice Original Mix"
+ data-date="2026-02-20"
+ data-artwork="https://geo-media.beatport.com/image_size/500x500/3c7c5896-38e6-4d58-8ad2-7843e9defb85.jpg"
+ data-label-artwork="https://geo-media.beatport.com/image_size/500x500/05cc5e84-06f5-4540-b576-c50a1bd8631e.jpg">
+ <div class="song-line">
+  <div class="track-left">
+    <span class="date-tag">2026-02-20</span>
+    <span class="genre-tag" style="background:rgb(172,154,156)">[Progressive House]</span>
+    <span class="track-title">Ellroy – Manice Original Mix</span>
+    <span class="label-tag" style="background:rgb(142,225,205)">[Movement Recordings]</span>
+    
+  </div>
+ </div>
+ <div class="artwork-box"></div>
+</div>
+
+<div class="track"
+ data-chart="Weekend Picks Melodic 2026 Week 08"
+ data-all-charts="Weekend Picks Melodic 2026 Week 08"
+ data-genre="Melodic House &amp; Techno"
+ data-label="Purified Records"
+ data-artist="Jonas Saalbach"
+ data-title="Data Romance Extended Mix"
+ data-date="2026-02-20"
+ data-artwork="https://geo-media.beatport.com/image_size/500x500/101ca13c-dc44-4af0-a0cc-e32a5cb0a17c.jpg"
+ data-label-artwork="https://geo-media.beatport.com/image_size/500x500/9f05e155-e555-4018-81c6-299909b0174c.jpg">
+ <div class="song-line">
+  <div class="track-left">
+    <span class="date-tag">2026-02-20</span>
+    <span class="genre-tag" style="background:rgb(227,214,222)">[Melodic House &amp; Techno]</span>
+    <span class="track-title">Jonas Saalbach – Data Romance Extended Mix</span>
+    <span class="label-tag" style="background:rgb(240,165,180)">[Purified Records]</span>
+    
+  </div>
+ </div>
+ <div class="artwork-box"></div>
+</div>
+
+<div class="track"
+ data-chart="Weekend Picks Melodic 2026 Week 08"
+ data-all-charts="Weekend Picks Melodic 2026 Week 08"
+ data-genre="Progressive House"
+ data-label="Future Romance"
+ data-artist="Solee"
+ data-title="Space Where I Can Go Deeper Original Mix"
+ data-date="2026-02-20"
+ data-artwork="https://geo-media.beatport.com/image_size/500x500/ba345a54-e7f8-4f2e-a3bd-6b39448da22e.jpg"
+ data-label-artwork="https://geo-media.beatport.com/image_size/500x500/5a68f1c7-482f-4da9-b39d-00950c8f7c1f.jpg">
+ <div class="song-line">
+  <div class="track-left">
+    <span class="date-tag">2026-02-20</span>
+    <span class="genre-tag" style="background:rgb(172,154,156)">[Progressive House]</span>
+    <span class="track-title">Solee – Space Where I Can Go Deeper Original Mix</span>
+    <span class="label-tag" style="background:rgb(207,234,160)">[Future Romance]</span>
+    
+  </div>
+ </div>
+ <div class="artwork-box"></div>
+</div>
+
+<div class="track"
+ data-chart="Weekend Picks Melodic 2026 Week 08"
+ data-all-charts="Weekend Picks Melodic 2026 Week 08"
+ data-genre="Progressive House"
+ data-label="UV Noir"
+ data-artist="Lucho Salari"
+ data-title="Problems Original Mix"
+ data-date="2026-02-20"
+ data-artwork="https://geo-media.beatport.com/image_size/500x500/01d7758c-fc4c-48df-9181-26d2e10aa3c5.jpg"
+ data-label-artwork="https://geo-media.beatport.com/image_size/500x500/035c54ee-8a80-4236-b3e5-0f605f9f3e7b.jpg">
+ <div class="song-line">
+  <div class="track-left">
+    <span class="date-tag">2026-02-20</span>
+    <span class="genre-tag" style="background:rgb(172,154,156)">[Progressive House]</span>
+    <span class="track-title">Lucho Salari – Problems Original Mix</span>
+    <span class="label-tag" style="background:rgb(243,208,163)">[UV Noir]</span>
+    
+  </div>
+ </div>
+ <div class="artwork-box"></div>
+</div>
+
+<div class="track"
+ data-chart="Weekend Picks Melodic 2026 Week 08"
+ data-all-charts="Weekend Picks Melodic 2026 Week 08"
+ data-genre="Melodic House &amp; Techno"
+ data-label="ISOLATE"
+ data-artist="Gumm"
+ data-title="Feel It Original Mix"
+ data-date="2026-02-20"
+ data-artwork="https://geo-media.beatport.com/image_size/500x500/797e0f60-a438-4fc8-8b1a-f8f97ee70669.jpg"
+ data-label-artwork="https://geo-media.beatport.com/image_size/500x500/acaf47cc-be6a-48e7-9238-f67d70cd3938.jpg">
+ <div class="song-line">
+  <div class="track-left">
+    <span class="date-tag">2026-02-20</span>
+    <span class="genre-tag" style="background:rgb(227,214,222)">[Melodic House &amp; Techno]</span>
+    <span class="track-title">Gumm – Feel It Original Mix</span>
+    <span class="label-tag" style="background:rgb(240,190,236)">[ISOLATE]</span>
+    
+  </div>
+ </div>
+ <div class="artwork-box"></div>
+</div>
+
+<div class="track"
+ data-chart="Weekend Picks Melodic 2026 Week 08"
+ data-all-charts="Weekend Picks Melodic 2026 Week 08"
+ data-genre="Progressive House"
+ data-label="Colorize (Enhanced)"
+ data-artist="ROARS, Hex &amp; Solstice"
+ data-title="Only Human Extended Mix"
+ data-date="2026-02-16"
+ data-artwork="https://geo-media.beatport.com/image_size/500x500/ffb91430-37f5-4554-b0ae-7c538303b775.jpg"
+ data-label-artwork="https://geo-media.beatport.com/image_size/500x500/9702c3ba-51ca-4b41-914b-090a2dc90844.jpg">
+ <div class="song-line">
+  <div class="track-left">
+    <span class="date-tag">2026-02-16</span>
+    <span class="genre-tag" style="background:rgb(172,154,156)">[Progressive House]</span>
+    <span class="track-title">ROARS, Hex &amp; Solstice – Only Human Extended Mix</span>
+    <span class="label-tag" style="background:rgb(149,151,203)">[Colorize (Enhanced)]</span>
+    
+  </div>
+ </div>
+ <div class="artwork-box"></div>
+</div>
+
+<div class="track"
+ data-chart="Weekend Picks Melodic 2026 Week 08"
+ data-all-charts="Weekend Picks Melodic 2026 Week 08"
+ data-genre="Progressive House"
+ data-label="Colorize (Enhanced)"
+ data-artist="Guy Didden"
+ data-title="Let Me Down Extended Mix"
+ data-date="2026-02-18"
+ data-artwork="https://geo-media.beatport.com/image_size/500x500/847bf6c9-e1d2-4351-81d4-6a05266263e3.jpg"
+ data-label-artwork="https://geo-media.beatport.com/image_size/500x500/9702c3ba-51ca-4b41-914b-090a2dc90844.jpg">
+ <div class="song-line">
+  <div class="track-left">
+    <span class="date-tag">2026-02-18</span>
+    <span class="genre-tag" style="background:rgb(172,154,156)">[Progressive House]</span>
+    <span class="track-title">Guy Didden – Let Me Down Extended Mix</span>
+    <span class="label-tag" style="background:rgb(149,151,203)">[Colorize (Enhanced)]</span>
+    
+  </div>
+ </div>
+ <div class="artwork-box"></div>
+</div>
+
+<div class="track"
+ data-chart="Weekend Picks Melodic 2026 Week 08"
+ data-all-charts="Weekend Picks Melodic 2026 Week 08"
+ data-genre="Afro House"
+ data-label="Solèy"
+ data-artist="Francis Mercier, Toshi, Madmix"
+ data-title="Unjust  Extended Mix"
+ data-date="2026-02-20"
+ data-artwork="https://geo-media.beatport.com/image_size/500x500/f6a76a15-20da-49cb-a482-5606e184c57f.jpg"
+ data-label-artwork="https://geo-media.beatport.com/image_size/500x500/c1157e17-e050-4a36-97bb-56a6015e56be.jpg">
+ <div class="song-line">
+  <div class="track-left">
+    <span class="date-tag">2026-02-20</span>
+    <span class="genre-tag" style="background:rgb(143,222,185)">[Afro House]</span>
+    <span class="track-title">Francis Mercier, Toshi, Madmix – Unjust  Extended Mix</span>
+    <span class="label-tag" style="background:rgb(161,189,242)">[Solèy]</span>
+    
+  </div>
+ </div>
+ <div class="artwork-box"></div>
+</div>
+
+<div class="track"
+ data-chart="Weekend Picks Melodic 2026 Week 08"
+ data-all-charts="Weekend Picks Melodic 2026 Week 08"
+ data-genre="Melodic House &amp; Techno"
+ data-label="UNTAMED"
+ data-artist="AIKON, Roman Scott"
+ data-title="Your Call Original Mix"
+ data-date="2026-02-20"
+ data-artwork="https://geo-media.beatport.com/image_size/500x500/f6acf7af-f925-4093-8599-a2cfb954f6d0.jpg"
+ data-label-artwork="https://geo-media.beatport.com/image_size/500x500/cd99d44d-647f-4066-a3ef-b1aa8667bdec.jpg">
+ <div class="song-line">
+  <div class="track-left">
+    <span class="date-tag">2026-02-20</span>
+    <span class="genre-tag" style="background:rgb(227,214,222)">[Melodic House &amp; Techno]</span>
+    <span class="track-title">AIKON, Roman Scott – Your Call Original Mix</span>
+    <span class="label-tag" style="background:rgb(234,213,208)">[UNTAMED]</span>
+    
+  </div>
+ </div>
+ <div class="artwork-box"></div>
+</div>
+
+<div class="track"
+ data-chart="Weekend Picks Melodic 2026 Week 08"
+ data-all-charts="Weekend Picks Melodic 2026 Week 08"
+ data-genre="Progressive House"
+ data-label="PURRFECTION"
+ data-artist="Tomek"
+ data-title="Road to Infinity Extended Mix"
+ data-date="2026-02-19"
+ data-artwork="https://geo-media.beatport.com/image_size/500x500/eaaf1678-7cf1-4162-8a03-bc2079cadad1.jpg"
+ data-label-artwork="https://geo-media.beatport.com/image_size/500x500/20f859a3-3c6f-4e0c-b768-5435e2419702.jpg">
+ <div class="song-line">
+  <div class="track-left">
+    <span class="date-tag">2026-02-19</span>
+    <span class="genre-tag" style="background:rgb(172,154,156)">[Progressive House]</span>
+    <span class="track-title">Tomek – Road to Infinity Extended Mix</span>
+    <span class="label-tag" style="background:rgb(164,168,176)">[PURRFECTION]</span>
+    
+  </div>
+ </div>
+ <div class="artwork-box"></div>
+</div>
+
+<div class="track"
+ data-chart="Weekend Picks Melodic 2026 Week 08"
+ data-all-charts="Weekend Picks Melodic 2026 Week 08"
+ data-genre="Organic House"
+ data-label="Sounds Of Sirin"
+ data-artist="Mike Kohl"
+ data-title="Round &amp; Round  Extended Mix"
+ data-date="2026-02-20"
+ data-artwork="https://geo-media.beatport.com/image_size/500x500/49251c7b-4497-4003-959b-1f295ab21881.jpg"
+ data-label-artwork="https://geo-media.beatport.com/image_size/500x500/ef10b7f8-5371-437c-8d55-502ef3391607.jpg">
+ <div class="song-line">
+  <div class="track-left">
+    <span class="date-tag">2026-02-20</span>
+    <span class="genre-tag" style="background:rgb(144,253,142)">[Organic House]</span>
+    <span class="track-title">Mike Kohl – Round &amp; Round  Extended Mix</span>
+    <span class="label-tag" style="background:rgb(150,218,229)">[Sounds Of Sirin]</span>
+    
+  </div>
+ </div>
+ <div class="artwork-box"></div>
+</div>
+
+<div class="track"
+ data-chart="Weekend Picks Melodic 2026 Week 08"
+ data-all-charts="Weekend Picks Melodic 2026 Week 08"
+ data-genre="Progressive House"
+ data-label="RKP"
+ data-artist="Mateo Tapia"
+ data-title="Dancing Bloom Original Mix"
+ data-date="2026-02-17"
+ data-artwork="https://geo-media.beatport.com/image_size/500x500/e66f7b34-58b1-404f-a90d-157384c29ea5.jpg"
+ data-label-artwork="https://geo-media.beatport.com/image_size/500x500/ca4fda96-bbe5-4827-89d4-ace71e7611de.jpg">
+ <div class="song-line">
+  <div class="track-left">
+    <span class="date-tag">2026-02-17</span>
+    <span class="genre-tag" style="background:rgb(172,154,156)">[Progressive House]</span>
+    <span class="track-title">Mateo Tapia – Dancing Bloom Original Mix</span>
+    <span class="label-tag" style="background:rgb(243,217,140)">[RKP]</span>
+    
+  </div>
+ </div>
+ <div class="artwork-box"></div>
+</div>
+
+<div class="track"
+ data-chart="Weekend Picks Melodic 2026 Week 08"
+ data-all-charts="Weekend Picks Melodic 2026 Week 08"
+ data-genre="Indie Dance"
+ data-label="Organic Tunes"
+ data-artist="Bliz Nochi, The Organism"
+ data-title="Balame  The Organism Extended Remix"
+ data-date="2026-02-20"
+ data-artwork="https://geo-media.beatport.com/image_size/500x500/1cd31168-e514-41ac-a7da-b95e851e90fc.jpg"
+ data-label-artwork="https://geo-media.beatport.com/image_size/500x500/ad023c25-da30-48f6-ad89-96eeec0e0361.jpg">
+ <div class="song-line">
+  <div class="track-left">
+    <span class="date-tag">2026-02-20</span>
+    <span class="genre-tag" style="background:rgb(176,197,156)">[Indie Dance]</span>
+    <span class="track-title">Bliz Nochi, The Organism – Balame  The Organism Extended Remix</span>
+    <span class="label-tag" style="background:rgb(152,196,199)">[Organic Tunes]</span>
+    
+  </div>
+ </div>
+ <div class="artwork-box"></div>
+</div>
+
+<div class="track"
+ data-chart="Weekend Picks Melodic 2026 Week 08"
+ data-all-charts="Weekend Picks Melodic 2026 Week 08"
+ data-genre="Organic House"
+ data-label="Monstercat"
+ data-artist="Flexible Fire"
+ data-title="Starfall Original Mix"
+ data-date="2026-02-17"
+ data-artwork="https://geo-media.beatport.com/image_size/500x500/17b18510-1743-4688-a79b-6de27f82ac2d.jpg"
+ data-label-artwork="https://geo-media.beatport.com/image_size/500x500/dce9e06d-3199-4aac-8644-441ba1b3b0b9.jpg">
+ <div class="song-line">
+  <div class="track-left">
+    <span class="date-tag">2026-02-17</span>
+    <span class="genre-tag" style="background:rgb(144,253,142)">[Organic House]</span>
+    <span class="track-title">Flexible Fire – Starfall Original Mix</span>
+    <span class="label-tag" style="background:rgb(234,193,255)">[Monstercat]</span>
+    
+  </div>
+ </div>
+ <div class="artwork-box"></div>
+</div>
+</div></div></div></div>
+<script>
+let activeGenre=null;
+let activeLabel=null;
+let activeDate=null;
+
+function updateTrackCount(){
+  const visible=document.querySelectorAll('.track:not(.hidden)').length;
+  document.getElementById('track-count').textContent="Tracks: "+visible;
+}
+
+function applyFilters(){
+  document.querySelectorAll('.track').forEach(t=>{
+    let hide=false;
+    if(activeGenre && t.dataset.genre!==activeGenre) hide=true;
+    if(activeLabel && t.dataset.label!==activeLabel) hide=true;
+    if(activeDate && t.dataset.date!==activeDate) hide=true;
+    t.classList.toggle('hidden',hide);
+  });
+  updateTrackCount();
+}
+
+// Genre filter - sidebar
+document.querySelectorAll('.genre-filter').forEach(tag=>{
+  tag.addEventListener('click', ()=>{
+    const g = tag.dataset.genre;
+    document.querySelectorAll('.genre-filter').forEach(t=>t.classList.remove('active'));
+    if(activeGenre===g){ activeGenre=null; } else { activeGenre=g; tag.classList.add('active'); }
+    applyFilters();
+  });
+});
+
+// Genre filter - inline
+document.querySelectorAll('.genre-tag').forEach(tag=>{
+  tag.addEventListener('click',e=>{
+    e.stopPropagation();
+    const g = tag.textContent.replace(/[\[\]]/g,'');
+    activeGenre = (activeGenre===g)?null:g;
+    applyFilters();
+  });
+});
+
+// Label filter with visual indication
+document.querySelectorAll('.label-tag').forEach(tag=>{
+  tag.addEventListener('click',e=>{
+    e.stopPropagation();
+    const l = tag.textContent.replace(/[\[\]]/g,'');
+    
+    // Remove active from all tags
+    document.querySelectorAll('.label-tag').forEach(t=>t.classList.remove('active-label'));
+    
+    if(activeLabel===l){ 
+        activeLabel=null; 
+    } else { 
+        activeLabel=l; 
+        tag.classList.add('active-label');
+    }
+    applyFilters();
+  });
+});
+
+// Date filter
+document.querySelectorAll('.date-tag').forEach(tag=>{
+  tag.addEventListener('click',e=>{
+    e.stopPropagation();
+    const parent=tag.closest('.track');
+    const dateStr=parent.dataset.date;
+    activeDate = (activeDate===dateStr)?null:dateStr;
+    applyFilters();
+  });
+});
+
+// Open / close image
+document.querySelectorAll('.track-title').forEach(title=>{
+  title.addEventListener('click',()=>{
+    const track = title.closest('.track');
+    const box = track.querySelector('.artwork-box');
+    document.querySelectorAll('.track.expanded').forEach(t=>{
+        if(t !== track){ t.classList.remove('expanded'); t.querySelector('.artwork-box').innerHTML=''; }
+    });
+    if(track.classList.contains('expanded')){ track.classList.remove('expanded'); box.innerHTML=''; return; }
+    const artHTML = track.dataset.artwork ? `<img src="${track.dataset.artwork}">` : '';
+    const labelHTML = track.dataset.labelArtwork ? `<img class="label-img" src="${track.dataset.labelArtwork}">` : '';
+    if(!artHTML && !labelHTML) return;
+    box.innerHTML = artHTML + labelHTML;
+    track.classList.add('expanded');
+  });
+});
+
+// Search
+const searchInput = document.getElementById('search-input');
+searchInput.addEventListener('input', ()=>{
+    const term = searchInput.value.toLowerCase();
+    document.querySelectorAll('.track').forEach(t=>{
+        let hide=false;
+        const text = (t.dataset.artist+" "+t.dataset.title+" "+t.dataset.label).toLowerCase();
+        if(term && !text.includes(term)) hide=true;
+        if(activeGenre && t.dataset.genre!==activeGenre) hide=true;
+        if(activeLabel && t.dataset.label!==activeLabel) hide=true;
+        if(activeDate && t.dataset.date!==activeDate) hide=true;
+        t.classList.toggle('hidden',hide);
+    });
+    updateTrackCount();
+});
+
+// Open / close chart
+document.querySelectorAll('.chart-header').forEach(h=>{
+    h.addEventListener('click', ()=>{ h.parentElement.classList.toggle('expanded'); });
+});
+
+// Expand / Collapse All
+document.getElementById('expand-collapse-btn').addEventListener('click', ()=>{
+    document.querySelectorAll('.chart-block').forEach(c=>{
+        c.classList.toggle('expanded');
+    });
+});
+
+// =========================
+// Duplicate tooltip
+// =========================
+document.querySelectorAll('.duplicate').forEach(icon=>{
+    let tooltip;
+    icon.addEventListener('mouseenter', e=>{
+        const track = icon.closest('.track');
+        const allCharts = track.dataset.allCharts.split('|');
+        const currentChart = track.dataset.chart;
+        const otherCharts = allCharts.filter(c => c !== currentChart);
+        if(otherCharts.length===0) return;
+        tooltip = document.createElement('div');
+        tooltip.className = 'dup-tooltip';
+        tooltip.textContent = otherCharts.join(', ');
+        document.body.appendChild(tooltip);
+        tooltip.style.left = e.clientX + 10 + 'px';
+        tooltip.style.top = e.clientY + 10 + 'px';
+    });
+    icon.addEventListener('mousemove', e=>{
+        if(tooltip){
+            tooltip.style.left = e.clientX + 10 + 'px';
+            tooltip.style.top = e.clientY + 10 + 'px';
+        }
+    });
+    icon.addEventListener('mouseleave', ()=>{
+        if(tooltip) tooltip.remove();
+    });
+});
+
+// =========================
+// Display large chart image on mouse hover over small image
+// =========================
+document.querySelectorAll('.chart-header img').forEach(img=>{
+    let preview;
+    img.addEventListener('mouseenter', e=>{
+        const imgSrc = img.src;
+        if(!imgSrc) return;
+        
+        preview = document.createElement('div');
+        preview.className = 'hover-preview';
+        const previewImg = document.createElement('img');
+        // Use full size original image
+        previewImg.src = imgSrc;
+        preview.appendChild(previewImg);
+        document.body.appendChild(preview);
+        
+        // Position image next to mouse
+        const x = e.clientX + 20;
+        const y = e.clientY + 20;
+        preview.style.left = x + 'px';
+        preview.style.top = y + 'px';
+    });
+    
+    img.addEventListener('mousemove', e=>{
+        if(preview){
+            const x = e.clientX + 20;
+            const y = e.clientY + 20;
+            preview.style.left = x + 'px';
+            preview.style.top = y + 'px';
+        }
+    });
+    
+    img.addEventListener('mouseleave', ()=>{
+        if(preview) preview.remove();
+    });
+});
+</script>
+</body>
+</html>
