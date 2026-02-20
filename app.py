@@ -97,7 +97,6 @@ label_img_cache = {}
 cache_lock = threading.Lock()
 
 def get_label_img(label, label_href):
-    """Fetch label image with caching — never fetches the same label twice"""
     with cache_lock:
         if label in label_img_cache:
             return label, label_img_cache[label]
@@ -160,15 +159,6 @@ def get_all_links():
     return rows
 
 # ============================
-# Helper: short artist (first 2 only)
-# ============================
-def short_artist(artist_str):
-    parts = [a.strip() for a in artist_str.split(",")]
-    if len(parts) <= 2:
-        return artist_str
-    return ", ".join(parts[:2]) + " ..."
-
-# ============================
 # Initial links
 # ============================
 chart_url = os.getenv('CHART_URL', 'https://www.beatport.com/chart/weekend-picks-2026-week-2/876342').strip()
@@ -200,11 +190,9 @@ for url in input_links:
     total = len(rows)
     print(f"📀 Loading {total} tracks from {chart_name} ...")
 
-    # ============================
     # שלב 1: איסוף כל הטראקים ללא תמונות לייבל
-    # ============================
     tracks_data = []
-    unique_labels = {}  # label -> href (רק ייחודיים)
+    unique_labels = {}
 
     for idx, row in enumerate(rows, 1):
         row_title = row.select_one("div[class*=title] span")
@@ -249,9 +237,7 @@ for url in input_links:
         print(f"\r[{bar}] {idx}/{total} tracks parsed", end="", flush=True)
     print()
 
-    # ============================
-    # שלב 2: שליפת תמונות לייבל במקביל (רק לייבלים ייחודיים!)
-    # ============================
+    # שלב 2: שליפת תמונות לייבל במקביל
     print(f"🎨 Fetching {len(unique_labels)} unique label images in parallel...")
     with ThreadPoolExecutor(max_workers=10) as executor:
         futures = executor.map(lambda item: get_label_img(item[0], item[1]), unique_labels.items())
@@ -259,9 +245,7 @@ for url in input_links:
             label_img_cache[label_name] = label_img_url
     print(f"   ✓ Label images done")
 
-    # ============================
-    # שלב 3: הוספה ל-DB עם תמונות מהקאש
-    # ============================
+    # שלב 3: הוספה ל-DB
     for t in tracks_data:
         label_img = label_img_cache.get(t["label"], "")
         added = add_track_to_db(
@@ -291,7 +275,6 @@ for row in get_all_links():
     release_dt = datetime.fromisoformat(release_dt_str) if release_dt_str else None
     track = {
         "artist": artist,
-        "artist_short": short_artist(artist),
         "title": title,
         "genre": genre,
         "label": label,
@@ -357,10 +340,6 @@ body {{margin:0;background:#000;color:#ccc;font-family:Consolas;}}
 .label-tag {{padding:2px 6px; border-radius:5px; color:#000; font-weight:bold; margin-left:5px; flex-shrink:0; cursor:pointer;}}
 .label-tag:hover {{outline:2px solid #fff;}}
 .track-title {{cursor:pointer; flex: none; overflow: hidden; text-overflow: ellipsis;}}
-.artist-short {{color:#ccc;}}
-.artist-full {{display:none; color:#ff0;}}
-.track.expanded .artist-short {{display:none;}}
-.track.expanded .artist-full {{display:inline;}}
 .artwork-box {{max-height:0; overflow:hidden; transition:max-height .3s ease; margin-left:0; display:flex; gap:10px;}}
 .track.expanded .artwork-box {{max-height:420px;}}
 .artwork-box img {{width:400px;height:400px; object-fit:cover;}}
@@ -437,10 +416,7 @@ for chart_name, chart_data in sorted_charts:
   <div class="track-left">
     <span class="date-tag">{release_str}</span>
     <span class="genre-tag" style="background:{genre_colors[t['genre']]}">[{escape(t['genre'])}]</span>
-    <span class="track-title">
-      <span class="artist-short">{escape(t['artist_short'])} – {escape(t['title'])}</span>
-      <span class="artist-full">{escape(t['artist'])} – {escape(t['title'])}</span>
-    </span>
+    <span class="track-title">{escape(t['artist'])} – {escape(t['title'])}</span>
     <span class="label-tag" style="background:{label_colors[t['label']]}">[{escape(t['label'])}]</span>
     {dup_html}
   </div>
@@ -498,7 +474,7 @@ document.querySelectorAll('.label-tag').forEach(tag=>{
     e.stopPropagation();
     const l = tag.textContent.replace(/[\[\]]/g,'');
     document.querySelectorAll('.label-tag').forEach(t=>t.classList.remove('active-label'));
-    if(activeLabel===l){ activeLabel=null; } 
+    if(activeLabel===l){ activeLabel=null; }
     else { activeLabel=l; tag.classList.add('active-label'); }
     applyFilters();
   });
