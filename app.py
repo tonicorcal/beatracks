@@ -339,7 +339,7 @@ body {{margin:0;background:#000;color:#ccc;font-family:Consolas;}}
 .genre-tag {{padding:2px 6px; border-radius:5px; color:#000; font-weight:bold; cursor:pointer; flex-shrink:0;}}
 .label-tag {{padding:2px 6px; border-radius:5px; color:#000; font-weight:bold; flex-shrink:0; cursor:pointer;}}
 .label-tag:hover {{outline:2px solid #fff;}}
-.track-title {{cursor:pointer; color:#ccc; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; flex:1; min-width:0;}}
+.track-title {{cursor:pointer; color:#ccc; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:calc(100vw - 520px); min-width:0;}}
 .artwork-box {{max-height:0; overflow:hidden; transition:max-height .3s ease; margin-left:0; display:flex; gap:10px;}}
 .track.expanded .artwork-box {{max-height:420px;}}
 .artwork-box img {{width:400px;height:400px; object-fit:cover;}}
