@@ -335,9 +335,9 @@ body {{margin:0;background:#000;color:#ccc;font-family:Consolas;}}
 .duplicate {{background:yellow;color:#000; padding:0 3px; border-radius:3px; margin-left:5px; cursor:pointer;}}
 .song-line {{display:flex; width:100%; align-items:center;}}
 .track-left {{display:flex; align-items:center; gap:5px; width:100%; overflow:hidden;}}
-.date-tag {{padding:2px 6px; border-radius:5px; background:#666; font-weight:bold; color:#d0d0d0; cursor:pointer; flex-shrink:0; font-size:12px;}}
-.genre-tag {{padding:2px 6px; border-radius:5px; color:#000; font-weight:bold; cursor:pointer; flex-shrink:0; font-size:12px;}}
-.label-tag {{padding:2px 6px; border-radius:5px; color:#000; font-weight:bold; flex-shrink:0; cursor:pointer; font-size:12px;}}
+.date-tag {{padding:2px 6px; border-radius:5px; background:#666; font-weight:bold; color:#d0d0d0; cursor:pointer; flex-shrink:0;}}
+.genre-tag {{padding:2px 6px; border-radius:5px; color:#000; font-weight:bold; cursor:pointer; flex-shrink:0;}}
+.label-tag {{padding:2px 6px; border-radius:5px; color:#000; font-weight:bold; flex-shrink:0; cursor:pointer;}}
 .label-tag:hover {{outline:2px solid #fff;}}
 .track-title {{cursor:pointer; color:#ccc; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; flex:1; min-width:0;}}
 .artwork-box {{max-height:0; overflow:hidden; transition:max-height .3s ease; margin-left:0; display:flex; gap:10px;}}
@@ -413,14 +413,12 @@ for chart_name, chart_data in sorted_charts:
  data-artwork="{escape(t['artwork'])}"
  data-label-artwork="{escape(t.get('label_img',''))}">
  <div class="song-line">
-  <div class="track-row1">
+  <div class="track-left">
     <span class="date-tag">{release_str}</span>
     <span class="genre-tag" style="background:{genre_colors[t['genre']]}">[{escape(t['genre'])}]</span>
+    <span class="track-title">{escape(t['artist'])} – {escape(t['title'])}</span>
     <span class="label-tag" style="background:{label_colors[t['label']]}">[{escape(t['label'])}]</span>
     {dup_html}
-  </div>
-  <div class="track-row2">
-    <span class="track-title">{escape(t['artist'])} – {escape(t['title'])}</span>
   </div>
  </div>
  <div class="artwork-box"></div>
