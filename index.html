@@ -23,6 +23,10 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
 .label-tag {padding:2px 6px; border-radius:5px; color:#000; font-weight:bold; margin-left:5px; flex-shrink:0; cursor:pointer;}
 .label-tag:hover {outline:2px solid #fff;}
 .track-title {cursor:pointer; flex: none; overflow: hidden; text-overflow: ellipsis;}
+.artist-short {color:#ccc;}
+.artist-full {display:none; color:#ff0;}
+.track.expanded .artist-short {display:none;}
+.track.expanded .artist-full {display:inline;}
 .artwork-box {max-height:0; overflow:hidden; transition:max-height .3s ease; margin-left:0; display:flex; gap:10px;}
 .track.expanded .artwork-box {max-height:420px;}
 .artwork-box img {width:400px;height:400px; object-fit:cover;}
@@ -50,7 +54,7 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
 <div id="layout">
   <div id="genre-sidebar">
     <h3>Genres</h3>
-<span class="genre-filter" style="background:rgb(181,185,246)" data-genre="140 / Deep Dubstep / Grime">[140 / Deep Dubstep / Grime]</span><span class="genre-filter" style="background:rgb(142,189,207)" data-genre="Afro House">[Afro House]</span><span class="genre-filter" style="background:rgb(192,249,150)" data-genre="Afro House |  Afro / Latin">[Afro House |  Afro / Latin]</span><span class="genre-filter" style="background:rgb(254,240,230)" data-genre="Afro House |  Afro Melodic">[Afro House |  Afro Melodic]</span><span class="genre-filter" style="background:rgb(143,164,198)" data-genre="Amapiano">[Amapiano]</span><span class="genre-filter" style="background:rgb(226,254,220)" data-genre="Bass / Club">[Bass / Club]</span><span class="genre-filter" style="background:rgb(253,192,245)" data-genre="Bass House">[Bass House]</span><span class="genre-filter" style="background:rgb(238,211,207)" data-genre="Brazilian Funk |  Eletrofunk">[Brazilian Funk |  Eletrofunk]</span><span class="genre-filter" style="background:rgb(167,186,173)" data-genre="Brazilian Funk |  Mandelao Funk">[Brazilian Funk |  Mandelao Funk]</span><span class="genre-filter" style="background:rgb(212,245,215)" data-genre="Breaks / Breakbeat / UK Bass">[Breaks / Breakbeat / UK Bass]</span><span class="genre-filter" style="background:rgb(160,145,213)" data-genre="Dance / Pop">[Dance / Pop]</span><span class="genre-filter" style="background:rgb(227,180,173)" data-genre="Deep House">[Deep House]</span><span class="genre-filter" style="background:rgb(140,254,168)" data-genre="Drum &amp; Bass">[Drum &amp; Bass]</span><span class="genre-filter" style="background:rgb(231,234,208)" data-genre="Drum &amp; Bass |  Jump Up">[Drum &amp; Bass |  Jump Up]</span><span class="genre-filter" style="background:rgb(243,150,239)" data-genre="Dubstep">[Dubstep]</span><span class="genre-filter" style="background:rgb(234,185,210)" data-genre="Electro (Classic / Detroit / Modern)">[Electro (Classic / Detroit / Modern)]</span><span class="genre-filter" style="background:rgb(178,218,173)" data-genre="Electronica">[Electronica]</span><span class="genre-filter" style="background:rgb(230,227,156)" data-genre="Funky House">[Funky House]</span><span class="genre-filter" style="background:rgb(251,153,242)" data-genre="Hard Dance / Hardcore / Neo Rave">[Hard Dance / Hardcore / Neo Rave]</span><span class="genre-filter" style="background:rgb(141,198,156)" data-genre="Hard Techno">[Hard Techno]</span><span class="genre-filter" style="background:rgb(234,167,159)" data-genre="House">[House]</span><span class="genre-filter" style="background:rgb(188,159,173)" data-genre="Indie Dance">[Indie Dance]</span><span class="genre-filter" style="background:rgb(170,181,159)" data-genre="Indie Dance |  Dark Disco">[Indie Dance |  Dark Disco]</span><span class="genre-filter" style="background:rgb(251,255,190)" data-genre="Jackin House">[Jackin House]</span><span class="genre-filter" style="background:rgb(196,214,219)" data-genre="Mainstage">[Mainstage]</span><span class="genre-filter" style="background:rgb(216,141,207)" data-genre="Melodic House &amp; Techno">[Melodic House &amp; Techno]</span><span class="genre-filter" style="background:rgb(208,152,149)" data-genre="Minimal / Deep Tech |  Deep Tech">[Minimal / Deep Tech |  Deep Tech]</span><span class="genre-filter" style="background:rgb(201,179,172)" data-genre="Minimal / Deep Tech |  Minimal House">[Minimal / Deep Tech |  Minimal House]</span><span class="genre-filter" style="background:rgb(222,206,217)" data-genre="Nu Disco / Disco">[Nu Disco / Disco]</span><span class="genre-filter" style="background:rgb(154,184,247)" data-genre="Organic House">[Organic House]</span><span class="genre-filter" style="background:rgb(200,217,244)" data-genre="Progressive House">[Progressive House]</span><span class="genre-filter" style="background:rgb(192,177,238)" data-genre="Psy-Trance">[Psy-Trance]</span><span class="genre-filter" style="background:rgb(156,184,172)" data-genre="Psy-Trance |  Psychedelic">[Psy-Trance |  Psychedelic]</span><span class="genre-filter" style="background:rgb(240,222,187)" data-genre="Tech House">[Tech House]</span><span class="genre-filter" style="background:rgb(188,208,189)" data-genre="Techno (Peak Time / Driving)">[Techno (Peak Time / Driving)]</span><span class="genre-filter" style="background:rgb(248,225,248)" data-genre="Techno (Raw / Deep / Hypnotic)">[Techno (Raw / Deep / Hypnotic)]</span><span class="genre-filter" style="background:rgb(252,202,234)" data-genre="Trance (Main Floor)">[Trance (Main Floor)]</span><span class="genre-filter" style="background:rgb(209,154,196)" data-genre="Trance (Raw / Deep / Hypnotic)">[Trance (Raw / Deep / Hypnotic)]</span><span class="genre-filter" style="background:rgb(243,244,220)" data-genre="Trance (Raw / Deep / Hypnotic) |  Deep Trance">[Trance (Raw / Deep / Hypnotic) |  Deep Trance]</span><span class="genre-filter" style="background:rgb(156,246,243)" data-genre="Trap / Future Bass">[Trap / Future Bass]</span><span class="genre-filter" style="background:rgb(229,240,232)" data-genre="UK Garage / Bassline">[UK Garage / Bassline]</span></div><div id='content'><div class="chart-block"><div class="chart-header"><img src="https://geo-media.beatport.com/image_size/500x500/c0ab663a-5fec-4d1a-883b-273cee604843.jpg" alt="Weekend Picks Melodic 2026 Week 08"><div class="chart-header-text">📀 Weekend Picks Melodic 2026 Week 08 <span class="chart-date">[18|02|26]</span></div></div><div class="chart-content">
+<span class="genre-filter" style="background:rgb(156,212,160)" data-genre="140 / Deep Dubstep / Grime">[140 / Deep Dubstep / Grime]</span><span class="genre-filter" style="background:rgb(221,205,249)" data-genre="Afro House">[Afro House]</span><span class="genre-filter" style="background:rgb(170,232,169)" data-genre="Afro House |  Afro / Latin">[Afro House |  Afro / Latin]</span><span class="genre-filter" style="background:rgb(204,182,218)" data-genre="Afro House |  Afro Melodic">[Afro House |  Afro Melodic]</span><span class="genre-filter" style="background:rgb(228,241,232)" data-genre="Amapiano">[Amapiano]</span><span class="genre-filter" style="background:rgb(186,194,183)" data-genre="Bass / Club">[Bass / Club]</span><span class="genre-filter" style="background:rgb(198,195,226)" data-genre="Bass House">[Bass House]</span><span class="genre-filter" style="background:rgb(196,186,222)" data-genre="Brazilian Funk |  Eletrofunk">[Brazilian Funk |  Eletrofunk]</span><span class="genre-filter" style="background:rgb(186,238,149)" data-genre="Brazilian Funk |  Mandelao Funk">[Brazilian Funk |  Mandelao Funk]</span><span class="genre-filter" style="background:rgb(149,232,210)" data-genre="Breaks / Breakbeat / UK Bass">[Breaks / Breakbeat / UK Bass]</span><span class="genre-filter" style="background:rgb(241,250,151)" data-genre="Dance / Pop">[Dance / Pop]</span><span class="genre-filter" style="background:rgb(221,205,158)" data-genre="Deep House">[Deep House]</span><span class="genre-filter" style="background:rgb(255,149,152)" data-genre="Drum &amp; Bass">[Drum &amp; Bass]</span><span class="genre-filter" style="background:rgb(238,179,161)" data-genre="Drum &amp; Bass |  Jump Up">[Drum &amp; Bass |  Jump Up]</span><span class="genre-filter" style="background:rgb(218,167,161)" data-genre="Dubstep">[Dubstep]</span><span class="genre-filter" style="background:rgb(156,144,226)" data-genre="Electro (Classic / Detroit / Modern)">[Electro (Classic / Detroit / Modern)]</span><span class="genre-filter" style="background:rgb(196,214,214)" data-genre="Electronica">[Electronica]</span><span class="genre-filter" style="background:rgb(147,173,234)" data-genre="Funky House">[Funky House]</span><span class="genre-filter" style="background:rgb(183,196,250)" data-genre="Hard Dance / Hardcore / Neo Rave">[Hard Dance / Hardcore / Neo Rave]</span><span class="genre-filter" style="background:rgb(230,179,211)" data-genre="Hard Techno">[Hard Techno]</span><span class="genre-filter" style="background:rgb(148,177,225)" data-genre="House">[House]</span><span class="genre-filter" style="background:rgb(160,181,181)" data-genre="Indie Dance">[Indie Dance]</span><span class="genre-filter" style="background:rgb(170,142,227)" data-genre="Indie Dance |  Dark Disco">[Indie Dance |  Dark Disco]</span><span class="genre-filter" style="background:rgb(146,222,143)" data-genre="Jackin House">[Jackin House]</span><span class="genre-filter" style="background:rgb(189,171,178)" data-genre="Mainstage">[Mainstage]</span><span class="genre-filter" style="background:rgb(220,254,180)" data-genre="Melodic House &amp; Techno">[Melodic House &amp; Techno]</span><span class="genre-filter" style="background:rgb(178,153,247)" data-genre="Minimal / Deep Tech |  Deep Tech">[Minimal / Deep Tech |  Deep Tech]</span><span class="genre-filter" style="background:rgb(213,223,182)" data-genre="Minimal / Deep Tech |  Minimal House">[Minimal / Deep Tech |  Minimal House]</span><span class="genre-filter" style="background:rgb(230,237,221)" data-genre="Nu Disco / Disco">[Nu Disco / Disco]</span><span class="genre-filter" style="background:rgb(165,230,230)" data-genre="Organic House">[Organic House]</span><span class="genre-filter" style="background:rgb(202,222,215)" data-genre="Progressive House">[Progressive House]</span><span class="genre-filter" style="background:rgb(146,169,201)" data-genre="Psy-Trance">[Psy-Trance]</span><span class="genre-filter" style="background:rgb(201,219,165)" data-genre="Psy-Trance |  Psychedelic">[Psy-Trance |  Psychedelic]</span><span class="genre-filter" style="background:rgb(163,152,249)" data-genre="Tech House">[Tech House]</span><span class="genre-filter" style="background:rgb(251,216,202)" data-genre="Techno (Peak Time / Driving)">[Techno (Peak Time / Driving)]</span><span class="genre-filter" style="background:rgb(182,165,245)" data-genre="Techno (Raw / Deep / Hypnotic)">[Techno (Raw / Deep / Hypnotic)]</span><span class="genre-filter" style="background:rgb(227,228,152)" data-genre="Trance (Main Floor)">[Trance (Main Floor)]</span><span class="genre-filter" style="background:rgb(163,155,181)" data-genre="Trance (Raw / Deep / Hypnotic)">[Trance (Raw / Deep / Hypnotic)]</span><span class="genre-filter" style="background:rgb(223,190,156)" data-genre="Trance (Raw / Deep / Hypnotic) |  Deep Trance">[Trance (Raw / Deep / Hypnotic) |  Deep Trance]</span><span class="genre-filter" style="background:rgb(181,215,223)" data-genre="Trap / Future Bass">[Trap / Future Bass]</span><span class="genre-filter" style="background:rgb(159,175,220)" data-genre="UK Garage / Bassline">[UK Garage / Bassline]</span></div><div id='content'><div class="chart-block"><div class="chart-header"><img src="https://geo-media.beatport.com/image_size/500x500/c0ab663a-5fec-4d1a-883b-273cee604843.jpg" alt="Weekend Picks Melodic 2026 Week 08"><div class="chart-header-text">📀 Weekend Picks Melodic 2026 Week 08 <span class="chart-date">[18|02|26]</span></div></div><div class="chart-content">
 <div class="track"
  data-chart="Weekend Picks Melodic 2026 Week 08"
  data-all-charts="Weekend Picks Melodic 2026 Week 08|Weekend Picks 2026 Week 8"
@@ -64,9 +68,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-18</span>
-    <span class="genre-tag" style="background:rgb(188,159,173)">[Indie Dance]</span>
-    <span class="track-title">Man Parrish, Red Axes, Roy Garrett – Hot Rod To Hell And Back Extended Mix</span>
-    <span class="label-tag" style="background:rgb(241,225,157)">[fabric Records]</span>
+    <span class="genre-tag" style="background:rgb(160,181,181)">[Indie Dance]</span>
+    <span class="track-title">
+      <span class="artist-short">Man Parrish, Red Axes ... – Hot Rod To Hell And Back Extended Mix</span>
+      <span class="artist-full">Man Parrish, Red Axes, Roy Garrett – Hot Rod To Hell And Back Extended Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(186,175,245)">[fabric Records]</span>
     
   </div>
  </div>
@@ -86,9 +93,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(216,141,207)">[Melodic House &amp; Techno]</span>
-    <span class="track-title">Camden Cox, Layton Giordani – Destiny Extended Mix</span>
-    <span class="label-tag" style="background:rgb(180,161,145)">[MADMINDS]</span>
+    <span class="genre-tag" style="background:rgb(220,254,180)">[Melodic House &amp; Techno]</span>
+    <span class="track-title">
+      <span class="artist-short">Camden Cox, Layton Giordani – Destiny Extended Mix</span>
+      <span class="artist-full">Camden Cox, Layton Giordani – Destiny Extended Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(166,176,253)">[MADMINDS]</span>
     
   </div>
  </div>
@@ -108,9 +118,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(142,189,207)">[Afro House]</span>
-    <span class="track-title">Roy Rosenfeld – Dubi Original Mix</span>
-    <span class="label-tag" style="background:rgb(164,146,142)">[No Drama]</span>
+    <span class="genre-tag" style="background:rgb(221,205,249)">[Afro House]</span>
+    <span class="track-title">
+      <span class="artist-short">Roy Rosenfeld – Dubi Original Mix</span>
+      <span class="artist-full">Roy Rosenfeld – Dubi Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(188,252,230)">[No Drama]</span>
     
   </div>
  </div>
@@ -130,9 +143,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(142,189,207)">[Afro House]</span>
-    <span class="track-title">JUNO (DE) – Que Rico Extended Mix</span>
-    <span class="label-tag" style="background:rgb(245,245,144)">[SPINNIN&#x27; DEEP]</span>
+    <span class="genre-tag" style="background:rgb(221,205,249)">[Afro House]</span>
+    <span class="track-title">
+      <span class="artist-short">JUNO (DE) – Que Rico Extended Mix</span>
+      <span class="artist-full">JUNO (DE) – Que Rico Extended Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(175,234,210)">[SPINNIN&#x27; DEEP]</span>
     
   </div>
  </div>
@@ -152,9 +168,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(188,159,173)">[Indie Dance]</span>
-    <span class="track-title">Thomass Jackson – Psychotically Friendly Original Mix</span>
-    <span class="label-tag" style="background:rgb(251,253,157)">[Feines Tier]</span>
+    <span class="genre-tag" style="background:rgb(160,181,181)">[Indie Dance]</span>
+    <span class="track-title">
+      <span class="artist-short">Thomass Jackson – Psychotically Friendly Original Mix</span>
+      <span class="artist-full">Thomass Jackson – Psychotically Friendly Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(211,200,169)">[Feines Tier]</span>
     
   </div>
  </div>
@@ -174,9 +193,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(188,159,173)">[Indie Dance]</span>
-    <span class="track-title">derderwandert – Diego Armando  Original Mix</span>
-    <span class="label-tag" style="background:rgb(146,254,232)">[Bedrock Records]</span>
+    <span class="genre-tag" style="background:rgb(160,181,181)">[Indie Dance]</span>
+    <span class="track-title">
+      <span class="artist-short">derderwandert – Diego Armando  Original Mix</span>
+      <span class="artist-full">derderwandert – Diego Armando  Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(218,149,153)">[Bedrock Records]</span>
     
   </div>
  </div>
@@ -196,9 +218,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(234,167,159)">[House]</span>
-    <span class="track-title">Fedele – Gentle Dance Original Mix</span>
-    <span class="label-tag" style="background:rgb(155,235,213)">[Diynamic]</span>
+    <span class="genre-tag" style="background:rgb(148,177,225)">[House]</span>
+    <span class="track-title">
+      <span class="artist-short">Fedele – Gentle Dance Original Mix</span>
+      <span class="artist-full">Fedele – Gentle Dance Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(251,201,222)">[Diynamic]</span>
     
   </div>
  </div>
@@ -218,9 +243,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(142,189,207)">[Afro House]</span>
-    <span class="track-title">Hyenah, Miči, Soulroots, Chaleee – This Moment Chaleee &amp; Soulroots Remix</span>
-    <span class="label-tag" style="background:rgb(154,156,142)">[Madorasindahouse Records]</span>
+    <span class="genre-tag" style="background:rgb(221,205,249)">[Afro House]</span>
+    <span class="track-title">
+      <span class="artist-short">Hyenah, Miči ... – This Moment Chaleee &amp; Soulroots Remix</span>
+      <span class="artist-full">Hyenah, Miči, Soulroots, Chaleee – This Moment Chaleee &amp; Soulroots Remix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(249,212,184)">[Madorasindahouse Records]</span>
     
   </div>
  </div>
@@ -240,9 +268,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-16</span>
-    <span class="genre-tag" style="background:rgb(188,159,173)">[Indie Dance]</span>
-    <span class="track-title">Also Playable Mono – Firenze Original Mix</span>
-    <span class="label-tag" style="background:rgb(200,240,241)">[Bordello A Parigi]</span>
+    <span class="genre-tag" style="background:rgb(160,181,181)">[Indie Dance]</span>
+    <span class="track-title">
+      <span class="artist-short">Also Playable Mono – Firenze Original Mix</span>
+      <span class="artist-full">Also Playable Mono – Firenze Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(151,217,175)">[Bordello A Parigi]</span>
     
   </div>
  </div>
@@ -262,9 +293,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(142,189,207)">[Afro House]</span>
-    <span class="track-title">blaqkongo, Skai Lounge – Day One Extended Mix</span>
-    <span class="label-tag" style="background:rgb(253,163,202)">[MoBlack Records]</span>
+    <span class="genre-tag" style="background:rgb(221,205,249)">[Afro House]</span>
+    <span class="track-title">
+      <span class="artist-short">blaqkongo, Skai Lounge – Day One Extended Mix</span>
+      <span class="artist-full">blaqkongo, Skai Lounge – Day One Extended Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(184,176,201)">[MoBlack Records]</span>
     
   </div>
  </div>
@@ -284,9 +318,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(188,159,173)">[Indie Dance]</span>
-    <span class="track-title">Marina Maximilian, Adam Ten, Mita Gami, Kino Todo – Million Pieces Kino Todo Remix</span>
-    <span class="label-tag" style="background:rgb(191,250,220)">[Maccabi House]</span>
+    <span class="genre-tag" style="background:rgb(160,181,181)">[Indie Dance]</span>
+    <span class="track-title">
+      <span class="artist-short">Marina Maximilian, Adam Ten ... – Million Pieces Kino Todo Remix</span>
+      <span class="artist-full">Marina Maximilian, Adam Ten, Mita Gami, Kino Todo – Million Pieces Kino Todo Remix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(147,246,249)">[Maccabi House]</span>
     
   </div>
  </div>
@@ -306,9 +343,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(188,159,173)">[Indie Dance]</span>
-    <span class="track-title">Fedele – You Gonna Win Original Mix</span>
-    <span class="label-tag" style="background:rgb(155,235,213)">[Diynamic]</span>
+    <span class="genre-tag" style="background:rgb(160,181,181)">[Indie Dance]</span>
+    <span class="track-title">
+      <span class="artist-short">Fedele – You Gonna Win Original Mix</span>
+      <span class="artist-full">Fedele – You Gonna Win Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(251,201,222)">[Diynamic]</span>
     
   </div>
  </div>
@@ -328,9 +368,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(192,249,150)">[Afro House |  Afro / Latin]</span>
-    <span class="track-title">Eran Hersh, Tekkman, Antho Decks – Yoruba Extended Mix</span>
-    <span class="label-tag" style="background:rgb(169,252,150)">[Make The Girls Dance Records]</span>
+    <span class="genre-tag" style="background:rgb(170,232,169)">[Afro House |  Afro / Latin]</span>
+    <span class="track-title">
+      <span class="artist-short">Eran Hersh, Tekkman ... – Yoruba Extended Mix</span>
+      <span class="artist-full">Eran Hersh, Tekkman, Antho Decks – Yoruba Extended Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(236,145,246)">[Make The Girls Dance Records]</span>
     
   </div>
  </div>
@@ -350,9 +393,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-19</span>
-    <span class="genre-tag" style="background:rgb(200,217,244)">[Progressive House]</span>
-    <span class="track-title">STEREO MUNK, goodkidd – Seventy Owls Original Mix</span>
-    <span class="label-tag" style="background:rgb(158,237,202)">[Mango Alley]</span>
+    <span class="genre-tag" style="background:rgb(202,222,215)">[Progressive House]</span>
+    <span class="track-title">
+      <span class="artist-short">STEREO MUNK, goodkidd – Seventy Owls Original Mix</span>
+      <span class="artist-full">STEREO MUNK, goodkidd – Seventy Owls Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(215,246,208)">[Mango Alley]</span>
     
   </div>
  </div>
@@ -372,9 +418,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(200,217,244)">[Progressive House]</span>
-    <span class="track-title">PAUL (AR) – Flipped Original Mix</span>
-    <span class="label-tag" style="background:rgb(152,178,235)">[Volt Crew]</span>
+    <span class="genre-tag" style="background:rgb(202,222,215)">[Progressive House]</span>
+    <span class="track-title">
+      <span class="artist-short">PAUL (AR) – Flipped Original Mix</span>
+      <span class="artist-full">PAUL (AR) – Flipped Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(174,145,163)">[Volt Crew]</span>
     
   </div>
  </div>
@@ -394,9 +443,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(170,181,159)">[Indie Dance |  Dark Disco]</span>
-    <span class="track-title">Amine K (Moroko Loko) – TBW Extended Mix</span>
-    <span class="label-tag" style="background:rgb(169,252,150)">[Make The Girls Dance Records]</span>
+    <span class="genre-tag" style="background:rgb(170,142,227)">[Indie Dance |  Dark Disco]</span>
+    <span class="track-title">
+      <span class="artist-short">Amine K (Moroko Loko) – TBW Extended Mix</span>
+      <span class="artist-full">Amine K (Moroko Loko) – TBW Extended Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(236,145,246)">[Make The Girls Dance Records]</span>
     
   </div>
  </div>
@@ -416,9 +468,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(200,217,244)">[Progressive House]</span>
-    <span class="track-title">Solis [US] – Superposition Extended Mix</span>
-    <span class="label-tag" style="background:rgb(175,215,216)">[The Soundgarden]</span>
+    <span class="genre-tag" style="background:rgb(202,222,215)">[Progressive House]</span>
+    <span class="track-title">
+      <span class="artist-short">Solis [US] – Superposition Extended Mix</span>
+      <span class="artist-full">Solis [US] – Superposition Extended Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(231,185,241)">[The Soundgarden]</span>
     
   </div>
  </div>
@@ -438,9 +493,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(154,184,247)">[Organic House]</span>
-    <span class="track-title">Sence – Night Lady Extended Mix</span>
-    <span class="label-tag" style="background:rgb(214,160,172)">[Deepalma]</span>
+    <span class="genre-tag" style="background:rgb(165,230,230)">[Organic House]</span>
+    <span class="track-title">
+      <span class="artist-short">Sence – Night Lady Extended Mix</span>
+      <span class="artist-full">Sence – Night Lady Extended Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(245,170,142)">[Deepalma]</span>
     
   </div>
  </div>
@@ -460,9 +518,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(216,141,207)">[Melodic House &amp; Techno]</span>
-    <span class="track-title">SOLECO, Florist (BE) – Falling Down Original Mix</span>
-    <span class="label-tag" style="background:rgb(140,237,225)">[Go Deeva Records]</span>
+    <span class="genre-tag" style="background:rgb(220,254,180)">[Melodic House &amp; Techno]</span>
+    <span class="track-title">
+      <span class="artist-short">SOLECO, Florist (BE) – Falling Down Original Mix</span>
+      <span class="artist-full">SOLECO, Florist (BE) – Falling Down Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(172,212,241)">[Go Deeva Records]</span>
     
   </div>
  </div>
@@ -482,9 +543,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(200,217,244)">[Progressive House]</span>
-    <span class="track-title">DJ Zombi, Radical Fantasy – Time to Be Alive Extended Mix</span>
-    <span class="label-tag" style="background:rgb(252,248,218)">[Sprout]</span>
+    <span class="genre-tag" style="background:rgb(202,222,215)">[Progressive House]</span>
+    <span class="track-title">
+      <span class="artist-short">DJ Zombi, Radical Fantasy – Time to Be Alive Extended Mix</span>
+      <span class="artist-full">DJ Zombi, Radical Fantasy – Time to Be Alive Extended Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(181,140,244)">[Sprout]</span>
     
   </div>
  </div>
@@ -504,9 +568,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(188,159,173)">[Indie Dance]</span>
-    <span class="track-title">Joyce Muniz, Andre VII, Alejandro Paz – Quiero Tu Amor (feat. Alejandro Paz) feat. Alejandro Paz</span>
-    <span class="label-tag" style="background:rgb(225,233,224)">[Kompakt]</span>
+    <span class="genre-tag" style="background:rgb(160,181,181)">[Indie Dance]</span>
+    <span class="track-title">
+      <span class="artist-short">Joyce Muniz, Andre VII ... – Quiero Tu Amor (feat. Alejandro Paz) feat. Alejandro Paz</span>
+      <span class="artist-full">Joyce Muniz, Andre VII, Alejandro Paz – Quiero Tu Amor (feat. Alejandro Paz) feat. Alejandro Paz</span>
+    </span>
+    <span class="label-tag" style="background:rgb(240,202,164)">[Kompakt]</span>
     
   </div>
  </div>
@@ -526,9 +593,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(142,189,207)">[Afro House]</span>
-    <span class="track-title">Blanka Mazimela – My War Original Mix</span>
-    <span class="label-tag" style="background:rgb(208,192,141)">[Kunye]</span>
+    <span class="genre-tag" style="background:rgb(221,205,249)">[Afro House]</span>
+    <span class="track-title">
+      <span class="artist-short">Blanka Mazimela – My War Original Mix</span>
+      <span class="artist-full">Blanka Mazimela – My War Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(233,232,154)">[Kunye]</span>
     
   </div>
  </div>
@@ -548,9 +618,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(154,184,247)">[Organic House]</span>
-    <span class="track-title">Sunchain, 8PAJ2 – Subterranean Rhythm Extended Mix</span>
-    <span class="label-tag" style="background:rgb(233,183,253)">[Univack]</span>
+    <span class="genre-tag" style="background:rgb(165,230,230)">[Organic House]</span>
+    <span class="track-title">
+      <span class="artist-short">Sunchain, 8PAJ2 – Subterranean Rhythm Extended Mix</span>
+      <span class="artist-full">Sunchain, 8PAJ2 – Subterranean Rhythm Extended Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(179,142,234)">[Univack]</span>
     
   </div>
  </div>
@@ -570,9 +643,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(142,189,207)">[Afro House]</span>
-    <span class="track-title">Koni, Seba Campos, Aaron Sevilla – Bella Ciao Aaron Sevilla Extended Remix</span>
-    <span class="label-tag" style="background:rgb(233,207,237)">[Pipe &amp; Pochet]</span>
+    <span class="genre-tag" style="background:rgb(221,205,249)">[Afro House]</span>
+    <span class="track-title">
+      <span class="artist-short">Koni, Seba Campos ... – Bella Ciao Aaron Sevilla Extended Remix</span>
+      <span class="artist-full">Koni, Seba Campos, Aaron Sevilla – Bella Ciao Aaron Sevilla Extended Remix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(171,182,226)">[Pipe &amp; Pochet]</span>
     
   </div>
  </div>
@@ -592,9 +668,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(216,141,207)">[Melodic House &amp; Techno]</span>
-    <span class="track-title">Weska, Kyra Mastro – Nowhere To Hide Extended Mix</span>
-    <span class="label-tag" style="background:rgb(196,222,194)">[Interstellar Recordings (Insomniac)]</span>
+    <span class="genre-tag" style="background:rgb(220,254,180)">[Melodic House &amp; Techno]</span>
+    <span class="track-title">
+      <span class="artist-short">Weska, Kyra Mastro – Nowhere To Hide Extended Mix</span>
+      <span class="artist-full">Weska, Kyra Mastro – Nowhere To Hide Extended Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(205,162,243)">[Interstellar Recordings (Insomniac)]</span>
     
   </div>
  </div>
@@ -614,9 +693,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(142,189,207)">[Afro House]</span>
-    <span class="track-title">Mac Dephoner – Beat Repeat  Original Mix</span>
-    <span class="label-tag" style="background:rgb(194,251,243)">[Bosom]</span>
+    <span class="genre-tag" style="background:rgb(221,205,249)">[Afro House]</span>
+    <span class="track-title">
+      <span class="artist-short">Mac Dephoner – Beat Repeat  Original Mix</span>
+      <span class="artist-full">Mac Dephoner – Beat Repeat  Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(231,192,160)">[Bosom]</span>
     
   </div>
  </div>
@@ -636,9 +718,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(142,189,207)">[Afro House]</span>
-    <span class="track-title">DJ Freespirit, Marasi – Horizon  Original Mix</span>
-    <span class="label-tag" style="background:rgb(221,162,156)">[Maské Records]</span>
+    <span class="genre-tag" style="background:rgb(221,205,249)">[Afro House]</span>
+    <span class="track-title">
+      <span class="artist-short">DJ Freespirit, Marasi – Horizon  Original Mix</span>
+      <span class="artist-full">DJ Freespirit, Marasi – Horizon  Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(219,229,168)">[Maské Records]</span>
     
   </div>
  </div>
@@ -658,9 +743,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(200,217,244)">[Progressive House]</span>
-    <span class="track-title">Doppel – Crucible Extended Mix</span>
-    <span class="label-tag" style="background:rgb(187,213,253)">[Stone Seed]</span>
+    <span class="genre-tag" style="background:rgb(202,222,215)">[Progressive House]</span>
+    <span class="track-title">
+      <span class="artist-short">Doppel – Crucible Extended Mix</span>
+      <span class="artist-full">Doppel – Crucible Extended Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(206,174,167)">[Stone Seed]</span>
     
   </div>
  </div>
@@ -680,9 +768,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(188,159,173)">[Indie Dance]</span>
-    <span class="track-title">Redfreya, Jepe – Bell Jam Jepe Re-Vision</span>
-    <span class="label-tag" style="background:rgb(176,215,161)">[Moodmusic]</span>
+    <span class="genre-tag" style="background:rgb(160,181,181)">[Indie Dance]</span>
+    <span class="track-title">
+      <span class="artist-short">Redfreya, Jepe – Bell Jam Jepe Re-Vision</span>
+      <span class="artist-full">Redfreya, Jepe – Bell Jam Jepe Re-Vision</span>
+    </span>
+    <span class="label-tag" style="background:rgb(211,202,161)">[Moodmusic]</span>
     
   </div>
  </div>
@@ -702,9 +793,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(142,189,207)">[Afro House]</span>
-    <span class="track-title">Singhara, Birdsey – Watch Me Extended</span>
-    <span class="label-tag" style="background:rgb(228,153,238)">[Klub Record]</span>
+    <span class="genre-tag" style="background:rgb(221,205,249)">[Afro House]</span>
+    <span class="track-title">
+      <span class="artist-short">Singhara, Birdsey – Watch Me Extended</span>
+      <span class="artist-full">Singhara, Birdsey – Watch Me Extended</span>
+    </span>
+    <span class="label-tag" style="background:rgb(162,163,220)">[Klub Record]</span>
     
   </div>
  </div>
@@ -724,9 +818,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(142,189,207)">[Afro House]</span>
-    <span class="track-title">QT-HIGH, notdanilo – Hear Me Now Original Mix</span>
-    <span class="label-tag" style="background:rgb(157,157,245)">[Deep Root Tribe]</span>
+    <span class="genre-tag" style="background:rgb(221,205,249)">[Afro House]</span>
+    <span class="track-title">
+      <span class="artist-short">QT-HIGH, notdanilo – Hear Me Now Original Mix</span>
+      <span class="artist-full">QT-HIGH, notdanilo – Hear Me Now Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(223,168,153)">[Deep Root Tribe]</span>
     
   </div>
  </div>
@@ -746,9 +843,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(142,189,207)">[Afro House]</span>
-    <span class="track-title">Swanky Tunes, Shapov – Tumba La Casa Extended Mix</span>
-    <span class="label-tag" style="background:rgb(172,197,219)">[Go Deeva Light Records]</span>
+    <span class="genre-tag" style="background:rgb(221,205,249)">[Afro House]</span>
+    <span class="track-title">
+      <span class="artist-short">Swanky Tunes, Shapov – Tumba La Casa Extended Mix</span>
+      <span class="artist-full">Swanky Tunes, Shapov – Tumba La Casa Extended Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(154,196,214)">[Go Deeva Light Records]</span>
     
   </div>
  </div>
@@ -768,9 +868,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(200,217,244)">[Progressive House]</span>
-    <span class="track-title">Wild Dark, ariaano – Short Story Original Mix</span>
-    <span class="label-tag" style="background:rgb(243,204,218)">[Dreaming Awake]</span>
+    <span class="genre-tag" style="background:rgb(202,222,215)">[Progressive House]</span>
+    <span class="track-title">
+      <span class="artist-short">Wild Dark, ariaano – Short Story Original Mix</span>
+      <span class="artist-full">Wild Dark, ariaano – Short Story Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(153,142,229)">[Dreaming Awake]</span>
     
   </div>
  </div>
@@ -790,9 +893,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(200,217,244)">[Progressive House]</span>
-    <span class="track-title">Jon Towell – Break of Dawn Original Mix</span>
-    <span class="label-tag" style="background:rgb(195,232,216)">[Plastic Fantastic Records]</span>
+    <span class="genre-tag" style="background:rgb(202,222,215)">[Progressive House]</span>
+    <span class="track-title">
+      <span class="artist-short">Jon Towell – Break of Dawn Original Mix</span>
+      <span class="artist-full">Jon Towell – Break of Dawn Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(235,245,176)">[Plastic Fantastic Records]</span>
     
   </div>
  </div>
@@ -812,9 +918,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(200,217,244)">[Progressive House]</span>
-    <span class="track-title">Ellroy – Manice Original Mix</span>
-    <span class="label-tag" style="background:rgb(192,208,177)">[Movement Recordings]</span>
+    <span class="genre-tag" style="background:rgb(202,222,215)">[Progressive House]</span>
+    <span class="track-title">
+      <span class="artist-short">Ellroy – Manice Original Mix</span>
+      <span class="artist-full">Ellroy – Manice Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(157,187,217)">[Movement Recordings]</span>
     
   </div>
  </div>
@@ -834,9 +943,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(216,141,207)">[Melodic House &amp; Techno]</span>
-    <span class="track-title">Jonas Saalbach – Data Romance Extended Mix</span>
-    <span class="label-tag" style="background:rgb(151,153,204)">[Purified Records]</span>
+    <span class="genre-tag" style="background:rgb(220,254,180)">[Melodic House &amp; Techno]</span>
+    <span class="track-title">
+      <span class="artist-short">Jonas Saalbach – Data Romance Extended Mix</span>
+      <span class="artist-full">Jonas Saalbach – Data Romance Extended Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(217,180,247)">[Purified Records]</span>
     
   </div>
  </div>
@@ -856,9 +968,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(200,217,244)">[Progressive House]</span>
-    <span class="track-title">Solee – Space Where I Can Go Deeper Original Mix</span>
-    <span class="label-tag" style="background:rgb(245,149,253)">[Future Romance]</span>
+    <span class="genre-tag" style="background:rgb(202,222,215)">[Progressive House]</span>
+    <span class="track-title">
+      <span class="artist-short">Solee – Space Where I Can Go Deeper Original Mix</span>
+      <span class="artist-full">Solee – Space Where I Can Go Deeper Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(144,187,230)">[Future Romance]</span>
     
   </div>
  </div>
@@ -878,9 +993,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(200,217,244)">[Progressive House]</span>
-    <span class="track-title">Lucho Salari – Problems Original Mix</span>
-    <span class="label-tag" style="background:rgb(171,173,193)">[UV Noir]</span>
+    <span class="genre-tag" style="background:rgb(202,222,215)">[Progressive House]</span>
+    <span class="track-title">
+      <span class="artist-short">Lucho Salari – Problems Original Mix</span>
+      <span class="artist-full">Lucho Salari – Problems Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(176,198,216)">[UV Noir]</span>
     
   </div>
  </div>
@@ -900,9 +1018,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(216,141,207)">[Melodic House &amp; Techno]</span>
-    <span class="track-title">Gumm – Feel It Original Mix</span>
-    <span class="label-tag" style="background:rgb(162,181,241)">[ISOLATE]</span>
+    <span class="genre-tag" style="background:rgb(220,254,180)">[Melodic House &amp; Techno]</span>
+    <span class="track-title">
+      <span class="artist-short">Gumm – Feel It Original Mix</span>
+      <span class="artist-full">Gumm – Feel It Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(255,209,164)">[ISOLATE]</span>
     
   </div>
  </div>
@@ -922,9 +1043,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-16</span>
-    <span class="genre-tag" style="background:rgb(200,217,244)">[Progressive House]</span>
-    <span class="track-title">ROARS, Hex &amp; Solstice – Only Human Extended Mix</span>
-    <span class="label-tag" style="background:rgb(178,251,226)">[Colorize (Enhanced)]</span>
+    <span class="genre-tag" style="background:rgb(202,222,215)">[Progressive House]</span>
+    <span class="track-title">
+      <span class="artist-short">ROARS, Hex &amp; Solstice – Only Human Extended Mix</span>
+      <span class="artist-full">ROARS, Hex &amp; Solstice – Only Human Extended Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(220,140,184)">[Colorize (Enhanced)]</span>
     
   </div>
  </div>
@@ -944,9 +1068,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-18</span>
-    <span class="genre-tag" style="background:rgb(200,217,244)">[Progressive House]</span>
-    <span class="track-title">Guy Didden – Let Me Down Extended Mix</span>
-    <span class="label-tag" style="background:rgb(178,251,226)">[Colorize (Enhanced)]</span>
+    <span class="genre-tag" style="background:rgb(202,222,215)">[Progressive House]</span>
+    <span class="track-title">
+      <span class="artist-short">Guy Didden – Let Me Down Extended Mix</span>
+      <span class="artist-full">Guy Didden – Let Me Down Extended Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(220,140,184)">[Colorize (Enhanced)]</span>
     
   </div>
  </div>
@@ -966,9 +1093,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(142,189,207)">[Afro House]</span>
-    <span class="track-title">Francis Mercier, Toshi, Madmix – Unjust  Extended Mix</span>
-    <span class="label-tag" style="background:rgb(185,175,189)">[Solèy]</span>
+    <span class="genre-tag" style="background:rgb(221,205,249)">[Afro House]</span>
+    <span class="track-title">
+      <span class="artist-short">Francis Mercier, Toshi ... – Unjust  Extended Mix</span>
+      <span class="artist-full">Francis Mercier, Toshi, Madmix – Unjust  Extended Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(234,211,255)">[Solèy]</span>
     
   </div>
  </div>
@@ -988,9 +1118,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(216,141,207)">[Melodic House &amp; Techno]</span>
-    <span class="track-title">AIKON, Roman Scott – Your Call Original Mix</span>
-    <span class="label-tag" style="background:rgb(146,191,240)">[UNTAMED]</span>
+    <span class="genre-tag" style="background:rgb(220,254,180)">[Melodic House &amp; Techno]</span>
+    <span class="track-title">
+      <span class="artist-short">AIKON, Roman Scott – Your Call Original Mix</span>
+      <span class="artist-full">AIKON, Roman Scott – Your Call Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(237,238,193)">[UNTAMED]</span>
     
   </div>
  </div>
@@ -1010,9 +1143,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-19</span>
-    <span class="genre-tag" style="background:rgb(200,217,244)">[Progressive House]</span>
-    <span class="track-title">Tomek – Road to Infinity Extended Mix</span>
-    <span class="label-tag" style="background:rgb(183,228,146)">[PURRFECTION]</span>
+    <span class="genre-tag" style="background:rgb(202,222,215)">[Progressive House]</span>
+    <span class="track-title">
+      <span class="artist-short">Tomek – Road to Infinity Extended Mix</span>
+      <span class="artist-full">Tomek – Road to Infinity Extended Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(179,255,180)">[PURRFECTION]</span>
     
   </div>
  </div>
@@ -1032,9 +1168,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(154,184,247)">[Organic House]</span>
-    <span class="track-title">Mike Kohl – Round &amp; Round  Extended Mix</span>
-    <span class="label-tag" style="background:rgb(199,170,198)">[Sounds Of Sirin]</span>
+    <span class="genre-tag" style="background:rgb(165,230,230)">[Organic House]</span>
+    <span class="track-title">
+      <span class="artist-short">Mike Kohl – Round &amp; Round  Extended Mix</span>
+      <span class="artist-full">Mike Kohl – Round &amp; Round  Extended Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(245,148,252)">[Sounds Of Sirin]</span>
     
   </div>
  </div>
@@ -1054,9 +1193,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-17</span>
-    <span class="genre-tag" style="background:rgb(200,217,244)">[Progressive House]</span>
-    <span class="track-title">Mateo Tapia – Dancing Bloom Original Mix</span>
-    <span class="label-tag" style="background:rgb(164,150,191)">[RKP]</span>
+    <span class="genre-tag" style="background:rgb(202,222,215)">[Progressive House]</span>
+    <span class="track-title">
+      <span class="artist-short">Mateo Tapia – Dancing Bloom Original Mix</span>
+      <span class="artist-full">Mateo Tapia – Dancing Bloom Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(237,200,155)">[RKP]</span>
     
   </div>
  </div>
@@ -1076,9 +1218,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(188,159,173)">[Indie Dance]</span>
-    <span class="track-title">Bliz Nochi, The Organism – Balame  The Organism Extended Remix</span>
-    <span class="label-tag" style="background:rgb(154,140,180)">[Organic Tunes]</span>
+    <span class="genre-tag" style="background:rgb(160,181,181)">[Indie Dance]</span>
+    <span class="track-title">
+      <span class="artist-short">Bliz Nochi, The Organism – Balame  The Organism Extended Remix</span>
+      <span class="artist-full">Bliz Nochi, The Organism – Balame  The Organism Extended Remix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(148,217,207)">[Organic Tunes]</span>
     
   </div>
  </div>
@@ -1098,9 +1243,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-17</span>
-    <span class="genre-tag" style="background:rgb(154,184,247)">[Organic House]</span>
-    <span class="track-title">Flexible Fire – Starfall Original Mix</span>
-    <span class="label-tag" style="background:rgb(217,141,230)">[Monstercat]</span>
+    <span class="genre-tag" style="background:rgb(165,230,230)">[Organic House]</span>
+    <span class="track-title">
+      <span class="artist-short">Flexible Fire – Starfall Original Mix</span>
+      <span class="artist-full">Flexible Fire – Starfall Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(181,158,249)">[Monstercat]</span>
     
   </div>
  </div>
@@ -1120,9 +1268,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(216,141,207)">[Melodic House &amp; Techno]</span>
-    <span class="track-title">Camden Cox, Layton Giordani – Destiny Extended Mix</span>
-    <span class="label-tag" style="background:rgb(180,161,145)">[MADMINDS]</span>
+    <span class="genre-tag" style="background:rgb(220,254,180)">[Melodic House &amp; Techno]</span>
+    <span class="track-title">
+      <span class="artist-short">Camden Cox, Layton Giordani – Destiny Extended Mix</span>
+      <span class="artist-full">Camden Cox, Layton Giordani – Destiny Extended Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(166,176,253)">[MADMINDS]</span>
     <span class="duplicate">⚠️</span>
   </div>
  </div>
@@ -1142,9 +1293,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(201,179,172)">[Minimal / Deep Tech |  Minimal House]</span>
-    <span class="track-title">D&#x27;Julz – Collective Effervescence  Original Mix</span>
-    <span class="label-tag" style="background:rgb(170,226,165)">[Bass Culture Records]</span>
+    <span class="genre-tag" style="background:rgb(213,223,182)">[Minimal / Deep Tech |  Minimal House]</span>
+    <span class="track-title">
+      <span class="artist-short">D&#x27;Julz – Collective Effervescence  Original Mix</span>
+      <span class="artist-full">D&#x27;Julz – Collective Effervescence  Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(152,243,212)">[Bass Culture Records]</span>
     
   </div>
  </div>
@@ -1164,9 +1318,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(234,167,159)">[House]</span>
-    <span class="track-title">James Poole – Lease Of Life Extended Mix</span>
-    <span class="label-tag" style="background:rgb(218,251,183)">[Defected]</span>
+    <span class="genre-tag" style="background:rgb(148,177,225)">[House]</span>
+    <span class="track-title">
+      <span class="artist-short">James Poole – Lease Of Life Extended Mix</span>
+      <span class="artist-full">James Poole – Lease Of Life Extended Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(246,145,218)">[Defected]</span>
     
   </div>
  </div>
@@ -1186,9 +1343,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(142,189,207)">[Afro House]</span>
-    <span class="track-title">Hyenah, Miči, Soulroots, Chaleee – This Moment Chaleee &amp; Soulroots Remix</span>
-    <span class="label-tag" style="background:rgb(154,156,142)">[Madorasindahouse Records]</span>
+    <span class="genre-tag" style="background:rgb(221,205,249)">[Afro House]</span>
+    <span class="track-title">
+      <span class="artist-short">Hyenah, Miči ... – This Moment Chaleee &amp; Soulroots Remix</span>
+      <span class="artist-full">Hyenah, Miči, Soulroots, Chaleee – This Moment Chaleee &amp; Soulroots Remix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(249,212,184)">[Madorasindahouse Records]</span>
     <span class="duplicate">⚠️</span>
   </div>
  </div>
@@ -1208,9 +1368,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-19</span>
-    <span class="genre-tag" style="background:rgb(200,217,244)">[Progressive House]</span>
-    <span class="track-title">STEREO MUNK, goodkidd – Seventy Owls Original Mix</span>
-    <span class="label-tag" style="background:rgb(158,237,202)">[Mango Alley]</span>
+    <span class="genre-tag" style="background:rgb(202,222,215)">[Progressive House]</span>
+    <span class="track-title">
+      <span class="artist-short">STEREO MUNK, goodkidd – Seventy Owls Original Mix</span>
+      <span class="artist-full">STEREO MUNK, goodkidd – Seventy Owls Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(215,246,208)">[Mango Alley]</span>
     <span class="duplicate">⚠️</span>
   </div>
  </div>
@@ -1230,9 +1393,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(248,225,248)">[Techno (Raw / Deep / Hypnotic)]</span>
-    <span class="track-title">Eman (FR) – Last Glass Original Mix</span>
-    <span class="label-tag" style="background:rgb(246,238,192)">[SK_Eleven]</span>
+    <span class="genre-tag" style="background:rgb(182,165,245)">[Techno (Raw / Deep / Hypnotic)]</span>
+    <span class="track-title">
+      <span class="artist-short">Eman (FR) – Last Glass Original Mix</span>
+      <span class="artist-full">Eman (FR) – Last Glass Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(153,168,199)">[SK_Eleven]</span>
     
   </div>
  </div>
@@ -1252,9 +1418,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(188,208,189)">[Techno (Peak Time / Driving)]</span>
-    <span class="track-title">Jay Lumen – My Bassline Extended</span>
-    <span class="label-tag" style="background:rgb(208,206,249)">[Arcane Music]</span>
+    <span class="genre-tag" style="background:rgb(251,216,202)">[Techno (Peak Time / Driving)]</span>
+    <span class="track-title">
+      <span class="artist-short">Jay Lumen – My Bassline Extended</span>
+      <span class="artist-full">Jay Lumen – My Bassline Extended</span>
+    </span>
+    <span class="label-tag" style="background:rgb(212,159,161)">[Arcane Music]</span>
     
   </div>
  </div>
@@ -1274,9 +1443,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(140,254,168)">[Drum &amp; Bass]</span>
-    <span class="track-title">1991, TW3LVE – Icarus Extended Mix</span>
-    <span class="label-tag" style="background:rgb(215,224,172)">[I99I]</span>
+    <span class="genre-tag" style="background:rgb(255,149,152)">[Drum &amp; Bass]</span>
+    <span class="track-title">
+      <span class="artist-short">1991, TW3LVE – Icarus Extended Mix</span>
+      <span class="artist-full">1991, TW3LVE – Icarus Extended Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(195,225,181)">[I99I]</span>
     
   </div>
  </div>
@@ -1296,9 +1468,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(240,222,187)">[Tech House]</span>
-    <span class="track-title">SOSA (UK) – Just Like That  Original Mix</span>
-    <span class="label-tag" style="background:rgb(254,167,185)">[You&amp;Me Records]</span>
+    <span class="genre-tag" style="background:rgb(163,152,249)">[Tech House]</span>
+    <span class="track-title">
+      <span class="artist-short">SOSA (UK) – Just Like That  Original Mix</span>
+      <span class="artist-full">SOSA (UK) – Just Like That  Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(158,245,237)">[You&amp;Me Records]</span>
     
   </div>
  </div>
@@ -1318,9 +1493,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-14</span>
-    <span class="genre-tag" style="background:rgb(251,255,190)">[Jackin House]</span>
-    <span class="track-title">Andy Riley, Jason Hodges – Minute By Minute (Jason Hodges JSM Re-Work) Jason Hodges JSM Re-Work</span>
-    <span class="label-tag" style="background:rgb(252,169,217)">[Frosted Recordings]</span>
+    <span class="genre-tag" style="background:rgb(146,222,143)">[Jackin House]</span>
+    <span class="track-title">
+      <span class="artist-short">Andy Riley, Jason Hodges – Minute By Minute (Jason Hodges JSM Re-Work) Jason Hodges JSM Re-Work</span>
+      <span class="artist-full">Andy Riley, Jason Hodges – Minute By Minute (Jason Hodges JSM Re-Work) Jason Hodges JSM Re-Work</span>
+    </span>
+    <span class="label-tag" style="background:rgb(160,143,244)">[Frosted Recordings]</span>
     
   </div>
  </div>
@@ -1340,9 +1518,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(240,222,187)">[Tech House]</span>
-    <span class="track-title">Fer BR, Angel Heredia – THAT LOUD Original Mix</span>
-    <span class="label-tag" style="background:rgb(151,248,243)">[KoBBoK]</span>
+    <span class="genre-tag" style="background:rgb(163,152,249)">[Tech House]</span>
+    <span class="track-title">
+      <span class="artist-short">Fer BR, Angel Heredia – THAT LOUD Original Mix</span>
+      <span class="artist-full">Fer BR, Angel Heredia – THAT LOUD Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(244,253,209)">[KoBBoK]</span>
     
   </div>
  </div>
@@ -1362,9 +1543,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(188,208,189)">[Techno (Peak Time / Driving)]</span>
-    <span class="track-title">Deep Dish, Nicole Moudaber, Skunk Anansie – Love Someone Else Extended Mix</span>
-    <span class="label-tag" style="background:rgb(189,180,195)">[Factory 93 Records]</span>
+    <span class="genre-tag" style="background:rgb(251,216,202)">[Techno (Peak Time / Driving)]</span>
+    <span class="track-title">
+      <span class="artist-short">Deep Dish, Nicole Moudaber ... – Love Someone Else Extended Mix</span>
+      <span class="artist-full">Deep Dish, Nicole Moudaber, Skunk Anansie – Love Someone Else Extended Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(166,149,186)">[Factory 93 Records]</span>
     
   </div>
  </div>
@@ -1384,9 +1568,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(154,184,247)">[Organic House]</span>
-    <span class="track-title">Sence – Night Lady Extended Mix</span>
-    <span class="label-tag" style="background:rgb(214,160,172)">[Deepalma]</span>
+    <span class="genre-tag" style="background:rgb(165,230,230)">[Organic House]</span>
+    <span class="track-title">
+      <span class="artist-short">Sence – Night Lady Extended Mix</span>
+      <span class="artist-full">Sence – Night Lady Extended Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(245,170,142)">[Deepalma]</span>
     <span class="duplicate">⚠️</span>
   </div>
  </div>
@@ -1406,9 +1593,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(216,141,207)">[Melodic House &amp; Techno]</span>
-    <span class="track-title">SOLECO, Florist (BE) – Falling Down Original Mix</span>
-    <span class="label-tag" style="background:rgb(140,237,225)">[Go Deeva Records]</span>
+    <span class="genre-tag" style="background:rgb(220,254,180)">[Melodic House &amp; Techno]</span>
+    <span class="track-title">
+      <span class="artist-short">SOLECO, Florist (BE) – Falling Down Original Mix</span>
+      <span class="artist-full">SOLECO, Florist (BE) – Falling Down Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(172,212,241)">[Go Deeva Records]</span>
     <span class="duplicate">⚠️</span>
   </div>
  </div>
@@ -1428,9 +1618,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(188,208,189)">[Techno (Peak Time / Driving)]</span>
-    <span class="track-title">Sabura, Eddi Sander – Sweet Dreamz Original Mix</span>
-    <span class="label-tag" style="background:rgb(219,178,185)">[KOSMOS]</span>
+    <span class="genre-tag" style="background:rgb(251,216,202)">[Techno (Peak Time / Driving)]</span>
+    <span class="track-title">
+      <span class="artist-short">Sabura, Eddi Sander – Sweet Dreamz Original Mix</span>
+      <span class="artist-full">Sabura, Eddi Sander – Sweet Dreamz Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(199,231,174)">[KOSMOS]</span>
     
   </div>
  </div>
@@ -1450,9 +1643,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-19</span>
-    <span class="genre-tag" style="background:rgb(209,154,196)">[Trance (Raw / Deep / Hypnotic)]</span>
-    <span class="track-title">Match Box – Yamaha Ibiza  Original Mix</span>
-    <span class="label-tag" style="background:rgb(143,255,188)">[Agrio Tracks]</span>
+    <span class="genre-tag" style="background:rgb(163,155,181)">[Trance (Raw / Deep / Hypnotic)]</span>
+    <span class="track-title">
+      <span class="artist-short">Match Box – Yamaha Ibiza  Original Mix</span>
+      <span class="artist-full">Match Box – Yamaha Ibiza  Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(158,140,234)">[Agrio Tracks]</span>
     
   </div>
  </div>
@@ -1472,9 +1668,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(140,254,168)">[Drum &amp; Bass]</span>
-    <span class="track-title">Circumference, VISLA – Hello Goodbye Original Mix</span>
-    <span class="label-tag" style="background:rgb(221,234,200)">[Critical Music]</span>
+    <span class="genre-tag" style="background:rgb(255,149,152)">[Drum &amp; Bass]</span>
+    <span class="track-title">
+      <span class="artist-short">Circumference, VISLA – Hello Goodbye Original Mix</span>
+      <span class="artist-full">Circumference, VISLA – Hello Goodbye Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(195,147,237)">[Critical Music]</span>
     
   </div>
  </div>
@@ -1494,9 +1693,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(188,159,173)">[Indie Dance]</span>
-    <span class="track-title">Joyce Muniz, Andre VII, Alejandro Paz – Quiero Tu Amor (feat. Alejandro Paz) feat. Alejandro Paz</span>
-    <span class="label-tag" style="background:rgb(225,233,224)">[Kompakt]</span>
+    <span class="genre-tag" style="background:rgb(160,181,181)">[Indie Dance]</span>
+    <span class="track-title">
+      <span class="artist-short">Joyce Muniz, Andre VII ... – Quiero Tu Amor (feat. Alejandro Paz) feat. Alejandro Paz</span>
+      <span class="artist-full">Joyce Muniz, Andre VII, Alejandro Paz – Quiero Tu Amor (feat. Alejandro Paz) feat. Alejandro Paz</span>
+    </span>
+    <span class="label-tag" style="background:rgb(240,202,164)">[Kompakt]</span>
     <span class="duplicate">⚠️</span>
   </div>
  </div>
@@ -1516,9 +1718,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(142,189,207)">[Afro House]</span>
-    <span class="track-title">blaqkongo, Skai Lounge – Day One Extended Mix</span>
-    <span class="label-tag" style="background:rgb(253,163,202)">[MoBlack Records]</span>
+    <span class="genre-tag" style="background:rgb(221,205,249)">[Afro House]</span>
+    <span class="track-title">
+      <span class="artist-short">blaqkongo, Skai Lounge – Day One Extended Mix</span>
+      <span class="artist-full">blaqkongo, Skai Lounge – Day One Extended Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(184,176,201)">[MoBlack Records]</span>
     <span class="duplicate">⚠️</span>
   </div>
  </div>
@@ -1538,9 +1743,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(243,244,220)">[Trance (Raw / Deep / Hypnotic) |  Deep Trance]</span>
-    <span class="track-title">Enlusion, Arhetip – Amber Arhetip Remix</span>
-    <span class="label-tag" style="background:rgb(229,162,229)">[JOOF Recordings]</span>
+    <span class="genre-tag" style="background:rgb(223,190,156)">[Trance (Raw / Deep / Hypnotic) |  Deep Trance]</span>
+    <span class="track-title">
+      <span class="artist-short">Enlusion, Arhetip – Amber Arhetip Remix</span>
+      <span class="artist-full">Enlusion, Arhetip – Amber Arhetip Remix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(144,250,175)">[JOOF Recordings]</span>
     
   </div>
  </div>
@@ -1560,9 +1768,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(227,180,173)">[Deep House]</span>
-    <span class="track-title">DJ Swella – Next To Me Original Mix</span>
-    <span class="label-tag" style="background:rgb(183,147,167)">[Clone Royal Oak]</span>
+    <span class="genre-tag" style="background:rgb(221,205,158)">[Deep House]</span>
+    <span class="track-title">
+      <span class="artist-short">DJ Swella – Next To Me Original Mix</span>
+      <span class="artist-full">DJ Swella – Next To Me Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(220,159,185)">[Clone Royal Oak]</span>
     
   </div>
  </div>
@@ -1582,9 +1793,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(141,198,156)">[Hard Techno]</span>
-    <span class="track-title">In Furcht – Future Schranz Original Mix</span>
-    <span class="label-tag" style="background:rgb(184,188,251)">[Techno Germany Records]</span>
+    <span class="genre-tag" style="background:rgb(230,179,211)">[Hard Techno]</span>
+    <span class="track-title">
+      <span class="artist-short">In Furcht – Future Schranz Original Mix</span>
+      <span class="artist-full">In Furcht – Future Schranz Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(227,223,231)">[Techno Germany Records]</span>
     
   </div>
  </div>
@@ -1604,9 +1818,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(226,254,220)">[Bass / Club]</span>
-    <span class="track-title">Paleman, Chloé Robinson – cookie cutter Original Mix</span>
-    <span class="label-tag" style="background:rgb(244,171,255)">[Pretty Weird]</span>
+    <span class="genre-tag" style="background:rgb(186,194,183)">[Bass / Club]</span>
+    <span class="track-title">
+      <span class="artist-short">Paleman, Chloé Robinson – cookie cutter Original Mix</span>
+      <span class="artist-full">Paleman, Chloé Robinson – cookie cutter Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(254,237,149)">[Pretty Weird]</span>
     
   </div>
  </div>
@@ -1626,9 +1843,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(216,141,207)">[Melodic House &amp; Techno]</span>
-    <span class="track-title">Weska, Kyra Mastro – Nowhere To Hide Extended Mix</span>
-    <span class="label-tag" style="background:rgb(196,222,194)">[Interstellar Recordings (Insomniac)]</span>
+    <span class="genre-tag" style="background:rgb(220,254,180)">[Melodic House &amp; Techno]</span>
+    <span class="track-title">
+      <span class="artist-short">Weska, Kyra Mastro – Nowhere To Hide Extended Mix</span>
+      <span class="artist-full">Weska, Kyra Mastro – Nowhere To Hide Extended Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(205,162,243)">[Interstellar Recordings (Insomniac)]</span>
     <span class="duplicate">⚠️</span>
   </div>
  </div>
@@ -1648,9 +1868,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(240,222,187)">[Tech House]</span>
-    <span class="track-title">White &amp; Choco – Look at Me Now Extended Mix</span>
-    <span class="label-tag" style="background:rgb(143,240,236)">[303LVRS]</span>
+    <span class="genre-tag" style="background:rgb(163,152,249)">[Tech House]</span>
+    <span class="track-title">
+      <span class="artist-short">White &amp; Choco – Look at Me Now Extended Mix</span>
+      <span class="artist-full">White &amp; Choco – Look at Me Now Extended Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(155,164,173)">[303LVRS]</span>
     
   </div>
  </div>
@@ -1670,9 +1893,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(234,167,159)">[House]</span>
-    <span class="track-title">Armand Van Helden, Mark Knight, D. Ramirez – You Extended Mix</span>
-    <span class="label-tag" style="background:rgb(245,176,196)">[Toolroom]</span>
+    <span class="genre-tag" style="background:rgb(148,177,225)">[House]</span>
+    <span class="track-title">
+      <span class="artist-short">Armand Van Helden, Mark Knight ... – You Extended Mix</span>
+      <span class="artist-full">Armand Van Helden, Mark Knight, D. Ramirez – You Extended Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(222,232,202)">[Toolroom]</span>
     
   </div>
  </div>
@@ -1692,9 +1918,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(188,159,173)">[Indie Dance]</span>
-    <span class="track-title">Marina Maximilian, Adam Ten, Mita Gami, Kino Todo – Million Pieces Kino Todo Remix</span>
-    <span class="label-tag" style="background:rgb(191,250,220)">[Maccabi House]</span>
+    <span class="genre-tag" style="background:rgb(160,181,181)">[Indie Dance]</span>
+    <span class="track-title">
+      <span class="artist-short">Marina Maximilian, Adam Ten ... – Million Pieces Kino Todo Remix</span>
+      <span class="artist-full">Marina Maximilian, Adam Ten, Mita Gami, Kino Todo – Million Pieces Kino Todo Remix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(147,246,249)">[Maccabi House]</span>
     <span class="duplicate">⚠️</span>
   </div>
  </div>
@@ -1714,9 +1943,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(200,217,244)">[Progressive House]</span>
-    <span class="track-title">Solis [US] – Superposition Extended Mix</span>
-    <span class="label-tag" style="background:rgb(175,215,216)">[The Soundgarden]</span>
+    <span class="genre-tag" style="background:rgb(202,222,215)">[Progressive House]</span>
+    <span class="track-title">
+      <span class="artist-short">Solis [US] – Superposition Extended Mix</span>
+      <span class="artist-full">Solis [US] – Superposition Extended Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(231,185,241)">[The Soundgarden]</span>
     <span class="duplicate">⚠️</span>
   </div>
  </div>
@@ -1736,9 +1968,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(252,202,234)">[Trance (Main Floor)]</span>
-    <span class="track-title">Moonman, Ferry Corsten, Joris Voorn – Don&#x27;t Be Afraid  Original Mix</span>
-    <span class="label-tag" style="background:rgb(179,170,192)">[Spectrum (NL)]</span>
+    <span class="genre-tag" style="background:rgb(227,228,152)">[Trance (Main Floor)]</span>
+    <span class="track-title">
+      <span class="artist-short">Moonman, Ferry Corsten ... – Don&#x27;t Be Afraid  Original Mix</span>
+      <span class="artist-full">Moonman, Ferry Corsten, Joris Voorn – Don&#x27;t Be Afraid  Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(244,253,193)">[Spectrum (NL)]</span>
     
   </div>
  </div>
@@ -1758,9 +1993,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(140,254,168)">[Drum &amp; Bass]</span>
-    <span class="track-title">Genetics, Bish, A Little Sound – I Just Can&#x27;t Get Enough Original Mix</span>
-    <span class="label-tag" style="background:rgb(153,157,185)">[Born On Road]</span>
+    <span class="genre-tag" style="background:rgb(255,149,152)">[Drum &amp; Bass]</span>
+    <span class="track-title">
+      <span class="artist-short">Genetics, Bish ... – I Just Can&#x27;t Get Enough Original Mix</span>
+      <span class="artist-full">Genetics, Bish, A Little Sound – I Just Can&#x27;t Get Enough Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(245,195,218)">[Born On Road]</span>
     
   </div>
  </div>
@@ -1780,9 +2018,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(143,164,198)">[Amapiano]</span>
-    <span class="track-title">Starving Yet Full, The Spirit Project – Doves  Extended Mix</span>
-    <span class="label-tag" style="background:rgb(186,187,149)">[METAPHYSICAL]</span>
+    <span class="genre-tag" style="background:rgb(228,241,232)">[Amapiano]</span>
+    <span class="track-title">
+      <span class="artist-short">Starving Yet Full, The Spirit Project – Doves  Extended Mix</span>
+      <span class="artist-full">Starving Yet Full, The Spirit Project – Doves  Extended Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(180,200,151)">[METAPHYSICAL]</span>
     
   </div>
  </div>
@@ -1802,9 +2043,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(212,245,215)">[Breaks / Breakbeat / UK Bass]</span>
-    <span class="track-title">GABBY GUNN – Mount Etna Original Mix</span>
-    <span class="label-tag" style="background:rgb(142,177,162)">[Scuffed Recordings]</span>
+    <span class="genre-tag" style="background:rgb(149,232,210)">[Breaks / Breakbeat / UK Bass]</span>
+    <span class="track-title">
+      <span class="artist-short">GABBY GUNN – Mount Etna Original Mix</span>
+      <span class="artist-full">GABBY GUNN – Mount Etna Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(213,206,235)">[Scuffed Recordings]</span>
     
   </div>
  </div>
@@ -1824,9 +2068,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(254,240,230)">[Afro House |  Afro Melodic]</span>
-    <span class="track-title">Tsanis – Black Frequency Original Mix</span>
-    <span class="label-tag" style="background:rgb(246,239,183)">[QulaqAs]</span>
+    <span class="genre-tag" style="background:rgb(204,182,218)">[Afro House |  Afro Melodic]</span>
+    <span class="track-title">
+      <span class="artist-short">Tsanis – Black Frequency Original Mix</span>
+      <span class="artist-full">Tsanis – Black Frequency Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(208,219,150)">[QulaqAs]</span>
     
   </div>
  </div>
@@ -1846,9 +2093,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-19</span>
-    <span class="genre-tag" style="background:rgb(181,185,246)">[140 / Deep Dubstep / Grime]</span>
-    <span class="track-title">Alix Perez – Rush Them  Original Mix</span>
-    <span class="label-tag" style="background:rgb(200,141,255)">[1985 Music]</span>
+    <span class="genre-tag" style="background:rgb(156,212,160)">[140 / Deep Dubstep / Grime]</span>
+    <span class="track-title">
+      <span class="artist-short">Alix Perez – Rush Them  Original Mix</span>
+      <span class="artist-full">Alix Perez – Rush Them  Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(163,247,228)">[1985 Music]</span>
     
   </div>
  </div>
@@ -1868,9 +2118,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-18</span>
-    <span class="genre-tag" style="background:rgb(238,211,207)">[Brazilian Funk |  Eletrofunk]</span>
-    <span class="track-title">Mc Vuk Vuk, DJ Pablo RB, MC Colibri – MEGA SE TU QUER TU VAI TOMAR Original Mix</span>
-    <span class="label-tag" style="background:rgb(203,184,154)">[Jet Music Group]</span>
+    <span class="genre-tag" style="background:rgb(196,186,222)">[Brazilian Funk |  Eletrofunk]</span>
+    <span class="track-title">
+      <span class="artist-short">Mc Vuk Vuk, DJ Pablo RB ... – MEGA SE TU QUER TU VAI TOMAR Original Mix</span>
+      <span class="artist-full">Mc Vuk Vuk, DJ Pablo RB, MC Colibri – MEGA SE TU QUER TU VAI TOMAR Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(141,191,233)">[Jet Music Group]</span>
     
   </div>
  </div>
@@ -1890,9 +2143,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(208,152,149)">[Minimal / Deep Tech |  Deep Tech]</span>
-    <span class="track-title">Fabio Santos (NL) – No Romance  Extended Mix</span>
-    <span class="label-tag" style="background:rgb(206,211,158)">[EARDRUMS]</span>
+    <span class="genre-tag" style="background:rgb(178,153,247)">[Minimal / Deep Tech |  Deep Tech]</span>
+    <span class="track-title">
+      <span class="artist-short">Fabio Santos (NL) – No Romance  Extended Mix</span>
+      <span class="artist-full">Fabio Santos (NL) – No Romance  Extended Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(231,171,172)">[EARDRUMS]</span>
     
   </div>
  </div>
@@ -1912,9 +2168,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(142,189,207)">[Afro House]</span>
-    <span class="track-title">Roy Rosenfeld – Dubi Original Mix</span>
-    <span class="label-tag" style="background:rgb(164,146,142)">[No Drama]</span>
+    <span class="genre-tag" style="background:rgb(221,205,249)">[Afro House]</span>
+    <span class="track-title">
+      <span class="artist-short">Roy Rosenfeld – Dubi Original Mix</span>
+      <span class="artist-full">Roy Rosenfeld – Dubi Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(188,252,230)">[No Drama]</span>
     <span class="duplicate">⚠️</span>
   </div>
  </div>
@@ -1934,9 +2193,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(142,189,207)">[Afro House]</span>
-    <span class="track-title">Blanka Mazimela – My War Original Mix</span>
-    <span class="label-tag" style="background:rgb(208,192,141)">[Kunye]</span>
+    <span class="genre-tag" style="background:rgb(221,205,249)">[Afro House]</span>
+    <span class="track-title">
+      <span class="artist-short">Blanka Mazimela – My War Original Mix</span>
+      <span class="artist-full">Blanka Mazimela – My War Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(233,232,154)">[Kunye]</span>
     <span class="duplicate">⚠️</span>
   </div>
  </div>
@@ -1956,9 +2218,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(248,225,248)">[Techno (Raw / Deep / Hypnotic)]</span>
-    <span class="track-title">Ben Reymann – Feel The Funk Original Mix</span>
-    <span class="label-tag" style="background:rgb(213,207,247)">[Arts]</span>
+    <span class="genre-tag" style="background:rgb(182,165,245)">[Techno (Raw / Deep / Hypnotic)]</span>
+    <span class="track-title">
+      <span class="artist-short">Ben Reymann – Feel The Funk Original Mix</span>
+      <span class="artist-full">Ben Reymann – Feel The Funk Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(192,246,173)">[Arts]</span>
     
   </div>
  </div>
@@ -1978,9 +2243,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(188,159,173)">[Indie Dance]</span>
-    <span class="track-title">derderwandert – Diego Armando  Original Mix</span>
-    <span class="label-tag" style="background:rgb(146,254,232)">[Bedrock Records]</span>
+    <span class="genre-tag" style="background:rgb(160,181,181)">[Indie Dance]</span>
+    <span class="track-title">
+      <span class="artist-short">derderwandert – Diego Armando  Original Mix</span>
+      <span class="artist-full">derderwandert – Diego Armando  Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(218,149,153)">[Bedrock Records]</span>
     <span class="duplicate">⚠️</span>
   </div>
  </div>
@@ -2000,9 +2268,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(208,152,149)">[Minimal / Deep Tech |  Deep Tech]</span>
-    <span class="track-title">Andre Zimmer – Swamp Circuit Original Mix</span>
-    <span class="label-tag" style="background:rgb(217,152,165)">[Craigie Knowes]</span>
+    <span class="genre-tag" style="background:rgb(178,153,247)">[Minimal / Deep Tech |  Deep Tech]</span>
+    <span class="track-title">
+      <span class="artist-short">Andre Zimmer – Swamp Circuit Original Mix</span>
+      <span class="artist-full">Andre Zimmer – Swamp Circuit Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(241,140,140)">[Craigie Knowes]</span>
     
   </div>
  </div>
@@ -2022,9 +2293,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(222,206,217)">[Nu Disco / Disco]</span>
-    <span class="track-title">Kevin McKay – That&#x27;s The Way Love Goes Extended Mix</span>
-    <span class="label-tag" style="background:rgb(165,238,234)">[Glasgow Underground]</span>
+    <span class="genre-tag" style="background:rgb(230,237,221)">[Nu Disco / Disco]</span>
+    <span class="track-title">
+      <span class="artist-short">Kevin McKay – That&#x27;s The Way Love Goes Extended Mix</span>
+      <span class="artist-full">Kevin McKay – That&#x27;s The Way Love Goes Extended Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(223,218,165)">[Glasgow Underground]</span>
     
   </div>
  </div>
@@ -2044,9 +2318,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(200,217,244)">[Progressive House]</span>
-    <span class="track-title">DJ Zombi, Radical Fantasy – Time to Be Alive Extended Mix</span>
-    <span class="label-tag" style="background:rgb(252,248,218)">[Sprout]</span>
+    <span class="genre-tag" style="background:rgb(202,222,215)">[Progressive House]</span>
+    <span class="track-title">
+      <span class="artist-short">DJ Zombi, Radical Fantasy – Time to Be Alive Extended Mix</span>
+      <span class="artist-full">DJ Zombi, Radical Fantasy – Time to Be Alive Extended Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(181,140,244)">[Sprout]</span>
     <span class="duplicate">⚠️</span>
   </div>
  </div>
@@ -2066,9 +2343,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(234,167,159)">[House]</span>
-    <span class="track-title">Purple Disco Machine – Dished (Male Stripper) Extended Mix</span>
-    <span class="label-tag" style="background:rgb(218,251,183)">[Defected]</span>
+    <span class="genre-tag" style="background:rgb(148,177,225)">[House]</span>
+    <span class="track-title">
+      <span class="artist-short">Purple Disco Machine – Dished (Male Stripper) Extended Mix</span>
+      <span class="artist-full">Purple Disco Machine – Dished (Male Stripper) Extended Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(246,145,218)">[Defected]</span>
     
   </div>
  </div>
@@ -2088,9 +2368,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(234,167,159)">[House]</span>
-    <span class="track-title">Fedele – Gentle Dance Original Mix</span>
-    <span class="label-tag" style="background:rgb(155,235,213)">[Diynamic]</span>
+    <span class="genre-tag" style="background:rgb(148,177,225)">[House]</span>
+    <span class="track-title">
+      <span class="artist-short">Fedele – Gentle Dance Original Mix</span>
+      <span class="artist-full">Fedele – Gentle Dance Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(251,201,222)">[Diynamic]</span>
     <span class="duplicate">⚠️</span>
   </div>
  </div>
@@ -2110,9 +2393,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(240,222,187)">[Tech House]</span>
-    <span class="track-title">Alto – Late Night Lean Original Mix</span>
-    <span class="label-tag" style="background:rgb(185,171,160)">[Rawsome Recordings]</span>
+    <span class="genre-tag" style="background:rgb(163,152,249)">[Tech House]</span>
+    <span class="track-title">
+      <span class="artist-short">Alto – Late Night Lean Original Mix</span>
+      <span class="artist-full">Alto – Late Night Lean Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(158,202,142)">[Rawsome Recordings]</span>
     
   </div>
  </div>
@@ -2132,9 +2418,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(234,185,210)">[Electro (Classic / Detroit / Modern)]</span>
-    <span class="track-title">Andre Zimmer – Broken News Original Mix</span>
-    <span class="label-tag" style="background:rgb(217,152,165)">[Craigie Knowes]</span>
+    <span class="genre-tag" style="background:rgb(156,144,226)">[Electro (Classic / Detroit / Modern)]</span>
+    <span class="track-title">
+      <span class="artist-short">Andre Zimmer – Broken News Original Mix</span>
+      <span class="artist-full">Andre Zimmer – Broken News Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(241,140,140)">[Craigie Knowes]</span>
     
   </div>
  </div>
@@ -2154,9 +2443,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(248,225,248)">[Techno (Raw / Deep / Hypnotic)]</span>
-    <span class="track-title">Justyn Nell – Embodiment Original Mix</span>
-    <span class="label-tag" style="background:rgb(248,147,165)">[K S R]</span>
+    <span class="genre-tag" style="background:rgb(182,165,245)">[Techno (Raw / Deep / Hypnotic)]</span>
+    <span class="track-title">
+      <span class="artist-short">Justyn Nell – Embodiment Original Mix</span>
+      <span class="artist-full">Justyn Nell – Embodiment Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(161,247,208)">[K S R]</span>
     
   </div>
  </div>
@@ -2176,9 +2468,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(231,234,208)">[Drum &amp; Bass |  Jump Up]</span>
-    <span class="track-title">Molecular – Rave Weapon Original Mix</span>
-    <span class="label-tag" style="background:rgb(148,236,205)">[Dance Macabre]</span>
+    <span class="genre-tag" style="background:rgb(238,179,161)">[Drum &amp; Bass |  Jump Up]</span>
+    <span class="track-title">
+      <span class="artist-short">Molecular – Rave Weapon Original Mix</span>
+      <span class="artist-full">Molecular – Rave Weapon Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(244,145,249)">[Dance Macabre]</span>
     
   </div>
  </div>
@@ -2198,9 +2493,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(227,180,173)">[Deep House]</span>
-    <span class="track-title">V.B.Kuhl, Peralto – Well Extended Peralto Remix</span>
-    <span class="label-tag" style="background:rgb(214,236,247)">[No Fuss Records]</span>
+    <span class="genre-tag" style="background:rgb(221,205,158)">[Deep House]</span>
+    <span class="track-title">
+      <span class="artist-short">V.B.Kuhl, Peralto – Well Extended Peralto Remix</span>
+      <span class="artist-full">V.B.Kuhl, Peralto – Well Extended Peralto Remix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(206,214,156)">[No Fuss Records]</span>
     
   </div>
  </div>
@@ -2220,9 +2518,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-19</span>
-    <span class="genre-tag" style="background:rgb(167,186,173)">[Brazilian Funk |  Mandelao Funk]</span>
-    <span class="track-title">MC Dom LP, DJ Holanda, Megabaile Do Areias, DJ MOFO – PARTIU BAILÃO Original Mix</span>
-    <span class="label-tag" style="background:rgb(171,208,202)">[Bulls Talent]</span>
+    <span class="genre-tag" style="background:rgb(186,238,149)">[Brazilian Funk |  Mandelao Funk]</span>
+    <span class="track-title">
+      <span class="artist-short">MC Dom LP, DJ Holanda ... – PARTIU BAILÃO Original Mix</span>
+      <span class="artist-full">MC Dom LP, DJ Holanda, Megabaile Do Areias, DJ MOFO – PARTIU BAILÃO Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(232,192,155)">[Bulls Talent]</span>
     
   </div>
  </div>
@@ -2242,9 +2543,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(227,180,173)">[Deep House]</span>
-    <span class="track-title">6th Borough Project – The Deal Original Mix</span>
-    <span class="label-tag" style="background:rgb(206,235,240)">[Delusions Of Grandeur]</span>
+    <span class="genre-tag" style="background:rgb(221,205,158)">[Deep House]</span>
+    <span class="track-title">
+      <span class="artist-short">6th Borough Project – The Deal Original Mix</span>
+      <span class="artist-full">6th Borough Project – The Deal Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(202,250,172)">[Delusions Of Grandeur]</span>
     
   </div>
  </div>
@@ -2264,9 +2568,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-18</span>
-    <span class="genre-tag" style="background:rgb(188,159,173)">[Indie Dance]</span>
-    <span class="track-title">Man Parrish, Red Axes, Roy Garrett – Hot Rod To Hell And Back Extended Mix</span>
-    <span class="label-tag" style="background:rgb(241,225,157)">[fabric Records]</span>
+    <span class="genre-tag" style="background:rgb(160,181,181)">[Indie Dance]</span>
+    <span class="track-title">
+      <span class="artist-short">Man Parrish, Red Axes ... – Hot Rod To Hell And Back Extended Mix</span>
+      <span class="artist-full">Man Parrish, Red Axes, Roy Garrett – Hot Rod To Hell And Back Extended Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(186,175,245)">[fabric Records]</span>
     <span class="duplicate">⚠️</span>
   </div>
  </div>
@@ -2286,9 +2593,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(181,185,246)">[140 / Deep Dubstep / Grime]</span>
-    <span class="track-title">Mob Killa – Misericorde  Original Mix</span>
-    <span class="label-tag" style="background:rgb(209,145,245)">[Chestplate]</span>
+    <span class="genre-tag" style="background:rgb(156,212,160)">[140 / Deep Dubstep / Grime]</span>
+    <span class="track-title">
+      <span class="artist-short">Mob Killa – Misericorde  Original Mix</span>
+      <span class="artist-full">Mob Killa – Misericorde  Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(177,193,213)">[Chestplate]</span>
     
   </div>
  </div>
@@ -2308,9 +2618,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(140,254,168)">[Drum &amp; Bass]</span>
-    <span class="track-title">Zylo (UK) – Rave All Night  Original Mix</span>
-    <span class="label-tag" style="background:rgb(225,255,213)">[Jungle Cakes]</span>
+    <span class="genre-tag" style="background:rgb(255,149,152)">[Drum &amp; Bass]</span>
+    <span class="track-title">
+      <span class="artist-short">Zylo (UK) – Rave All Night  Original Mix</span>
+      <span class="artist-full">Zylo (UK) – Rave All Night  Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(225,191,161)">[Jungle Cakes]</span>
     
   </div>
  </div>
@@ -2330,9 +2643,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(248,225,248)">[Techno (Raw / Deep / Hypnotic)]</span>
-    <span class="track-title">Ribé – Será Original Mix</span>
-    <span class="label-tag" style="background:rgb(205,229,241)">[Semantica Records]</span>
+    <span class="genre-tag" style="background:rgb(182,165,245)">[Techno (Raw / Deep / Hypnotic)]</span>
+    <span class="track-title">
+      <span class="artist-short">Ribé – Será Original Mix</span>
+      <span class="artist-full">Ribé – Será Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(141,155,251)">[Semantica Records]</span>
     
   </div>
  </div>
@@ -2352,9 +2668,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(222,206,217)">[Nu Disco / Disco]</span>
-    <span class="track-title">Samo – Why I Love You  Extended Mix</span>
-    <span class="label-tag" style="background:rgb(227,196,192)">[Big Love Music]</span>
+    <span class="genre-tag" style="background:rgb(230,237,221)">[Nu Disco / Disco]</span>
+    <span class="track-title">
+      <span class="artist-short">Samo – Why I Love You  Extended Mix</span>
+      <span class="artist-full">Samo – Why I Love You  Extended Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(250,175,187)">[Big Love Music]</span>
     
   </div>
  </div>
@@ -2374,9 +2693,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(143,164,198)">[Amapiano]</span>
-    <span class="track-title">Baby Momo, Sims Makoya, Smileykeys – Imimoya Original Mix</span>
-    <span class="label-tag" style="background:rgb(197,242,214)">[Baby Momo Production]</span>
+    <span class="genre-tag" style="background:rgb(228,241,232)">[Amapiano]</span>
+    <span class="track-title">
+      <span class="artist-short">Baby Momo, Sims Makoya ... – Imimoya Original Mix</span>
+      <span class="artist-full">Baby Momo, Sims Makoya, Smileykeys – Imimoya Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(211,164,213)">[Baby Momo Production]</span>
     
   </div>
  </div>
@@ -2396,9 +2718,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(226,254,220)">[Bass / Club]</span>
-    <span class="track-title">Lws – Gubbins Original Mix</span>
-    <span class="label-tag" style="background:rgb(243,201,200)">[TraTraTrax]</span>
+    <span class="genre-tag" style="background:rgb(186,194,183)">[Bass / Club]</span>
+    <span class="track-title">
+      <span class="artist-short">Lws – Gubbins Original Mix</span>
+      <span class="artist-full">Lws – Gubbins Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(176,165,167)">[TraTraTrax]</span>
     
   </div>
  </div>
@@ -2418,9 +2743,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(240,222,187)">[Tech House]</span>
-    <span class="track-title">John The RT – Microphone Killa Original Mix</span>
-    <span class="label-tag" style="background:rgb(146,237,171)">[Casa Rossa]</span>
+    <span class="genre-tag" style="background:rgb(163,152,249)">[Tech House]</span>
+    <span class="track-title">
+      <span class="artist-short">John The RT – Microphone Killa Original Mix</span>
+      <span class="artist-full">John The RT – Microphone Killa Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(228,182,209)">[Casa Rossa]</span>
     
   </div>
  </div>
@@ -2440,9 +2768,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-17</span>
-    <span class="genre-tag" style="background:rgb(200,217,244)">[Progressive House]</span>
-    <span class="track-title">Mateo Tapia – Dancing Bloom Original Mix</span>
-    <span class="label-tag" style="background:rgb(164,150,191)">[RKP]</span>
+    <span class="genre-tag" style="background:rgb(202,222,215)">[Progressive House]</span>
+    <span class="track-title">
+      <span class="artist-short">Mateo Tapia – Dancing Bloom Original Mix</span>
+      <span class="artist-full">Mateo Tapia – Dancing Bloom Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(237,200,155)">[RKP]</span>
     <span class="duplicate">⚠️</span>
   </div>
  </div>
@@ -2462,9 +2793,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(192,177,238)">[Psy-Trance]</span>
-    <span class="track-title">Relativ, Mindplex – Starlight Original Mix</span>
-    <span class="label-tag" style="background:rgb(221,248,165)">[Sacred Technology]</span>
+    <span class="genre-tag" style="background:rgb(146,169,201)">[Psy-Trance]</span>
+    <span class="track-title">
+      <span class="artist-short">Relativ, Mindplex – Starlight Original Mix</span>
+      <span class="artist-full">Relativ, Mindplex – Starlight Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(168,210,229)">[Sacred Technology]</span>
     
   </div>
  </div>
@@ -2484,9 +2818,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(227,180,173)">[Deep House]</span>
-    <span class="track-title">DJ City, Karl Lihagen, 1-800 Techno – My Name is Who Original Mix</span>
-    <span class="label-tag" style="background:rgb(148,142,232)">[Public Possession]</span>
+    <span class="genre-tag" style="background:rgb(221,205,158)">[Deep House]</span>
+    <span class="track-title">
+      <span class="artist-short">DJ City, Karl Lihagen ... – My Name is Who Original Mix</span>
+      <span class="artist-full">DJ City, Karl Lihagen, 1-800 Techno – My Name is Who Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(197,241,163)">[Public Possession]</span>
     
   </div>
  </div>
@@ -2506,9 +2843,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(142,189,207)">[Afro House]</span>
-    <span class="track-title">Tea White – Season Original Mix</span>
-    <span class="label-tag" style="background:rgb(178,150,167)">[Stay True Sounds]</span>
+    <span class="genre-tag" style="background:rgb(221,205,249)">[Afro House]</span>
+    <span class="track-title">
+      <span class="artist-short">Tea White – Season Original Mix</span>
+      <span class="artist-full">Tea White – Season Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(183,173,236)">[Stay True Sounds]</span>
     
   </div>
  </div>
@@ -2528,9 +2868,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(178,218,173)">[Electronica]</span>
-    <span class="track-title">Vril, Rødhåd, Out Of Place Artefacts – Intergalactic Announcement Original Mix</span>
-    <span class="label-tag" style="background:rgb(180,201,187)">[WSNWG]</span>
+    <span class="genre-tag" style="background:rgb(196,214,214)">[Electronica]</span>
+    <span class="track-title">
+      <span class="artist-short">Vril, Rødhåd ... – Intergalactic Announcement Original Mix</span>
+      <span class="artist-full">Vril, Rødhåd, Out Of Place Artefacts – Intergalactic Announcement Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(220,237,242)">[WSNWG]</span>
     
   </div>
  </div>
@@ -2550,9 +2893,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(251,255,190)">[Jackin House]</span>
-    <span class="track-title">Human By Nature – In The Morning Original Mix</span>
-    <span class="label-tag" style="background:rgb(227,183,179)">[Robsoul Recordings]</span>
+    <span class="genre-tag" style="background:rgb(146,222,143)">[Jackin House]</span>
+    <span class="track-title">
+      <span class="artist-short">Human By Nature – In The Morning Original Mix</span>
+      <span class="artist-full">Human By Nature – In The Morning Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(191,162,150)">[Robsoul Recordings]</span>
     
   </div>
  </div>
@@ -2572,9 +2918,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(216,141,207)">[Melodic House &amp; Techno]</span>
-    <span class="track-title">Gumm – Feel It Original Mix</span>
-    <span class="label-tag" style="background:rgb(162,181,241)">[ISOLATE]</span>
+    <span class="genre-tag" style="background:rgb(220,254,180)">[Melodic House &amp; Techno]</span>
+    <span class="track-title">
+      <span class="artist-short">Gumm – Feel It Original Mix</span>
+      <span class="artist-full">Gumm – Feel It Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(255,209,164)">[ISOLATE]</span>
     <span class="duplicate">⚠️</span>
   </div>
  </div>
@@ -2594,9 +2943,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(243,150,239)">[Dubstep]</span>
-    <span class="track-title">IVORY – HIGH KNEES Original Mix</span>
-    <span class="label-tag" style="background:rgb(169,192,217)">[Bassrush Records]</span>
+    <span class="genre-tag" style="background:rgb(218,167,161)">[Dubstep]</span>
+    <span class="track-title">
+      <span class="artist-short">IVORY – HIGH KNEES Original Mix</span>
+      <span class="artist-full">IVORY – HIGH KNEES Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(179,165,168)">[Bassrush Records]</span>
     
   </div>
  </div>
@@ -2616,9 +2968,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(208,152,149)">[Minimal / Deep Tech |  Deep Tech]</span>
-    <span class="track-title">Banchan – Komodo Extended Mix</span>
-    <span class="label-tag" style="background:rgb(179,180,216)">[17 Steps]</span>
+    <span class="genre-tag" style="background:rgb(178,153,247)">[Minimal / Deep Tech |  Deep Tech]</span>
+    <span class="track-title">
+      <span class="artist-short">Banchan – Komodo Extended Mix</span>
+      <span class="artist-full">Banchan – Komodo Extended Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(208,208,155)">[17 Steps]</span>
     
   </div>
  </div>
@@ -2638,9 +2993,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-19</span>
-    <span class="genre-tag" style="background:rgb(201,179,172)">[Minimal / Deep Tech |  Minimal House]</span>
-    <span class="track-title">Luca Ruiz – HMWT  Original Mix</span>
-    <span class="label-tag" style="background:rgb(179,189,245)">[Magie Noire Music]</span>
+    <span class="genre-tag" style="background:rgb(213,223,182)">[Minimal / Deep Tech |  Minimal House]</span>
+    <span class="track-title">
+      <span class="artist-short">Luca Ruiz – HMWT  Original Mix</span>
+      <span class="artist-full">Luca Ruiz – HMWT  Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(228,167,246)">[Magie Noire Music]</span>
     
   </div>
  </div>
@@ -2660,9 +3018,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(141,198,156)">[Hard Techno]</span>
-    <span class="track-title">Inductor – Just a Drop Original Mix</span>
-    <span class="label-tag" style="background:rgb(148,182,255)">[No War Records]</span>
+    <span class="genre-tag" style="background:rgb(230,179,211)">[Hard Techno]</span>
+    <span class="track-title">
+      <span class="artist-short">Inductor – Just a Drop Original Mix</span>
+      <span class="artist-full">Inductor – Just a Drop Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(162,203,240)">[No War Records]</span>
     
   </div>
  </div>
@@ -2682,9 +3043,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-19</span>
-    <span class="genre-tag" style="background:rgb(234,167,159)">[House]</span>
-    <span class="track-title">Fourth Phase – Freaks  Extended Mix</span>
-    <span class="label-tag" style="background:rgb(254,244,239)">[Snatch! Records]</span>
+    <span class="genre-tag" style="background:rgb(148,177,225)">[House]</span>
+    <span class="track-title">
+      <span class="artist-short">Fourth Phase – Freaks  Extended Mix</span>
+      <span class="artist-full">Fourth Phase – Freaks  Extended Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(231,173,178)">[Snatch! Records]</span>
     
   </div>
  </div>
@@ -2704,9 +3068,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(188,208,189)">[Techno (Peak Time / Driving)]</span>
-    <span class="track-title">Newest, Exel (HU) – Music Of Warriors  Original Mix</span>
-    <span class="label-tag" style="background:rgb(252,153,232)">[PHOBIA Music Recordings]</span>
+    <span class="genre-tag" style="background:rgb(251,216,202)">[Techno (Peak Time / Driving)]</span>
+    <span class="track-title">
+      <span class="artist-short">Newest, Exel (HU) – Music Of Warriors  Original Mix</span>
+      <span class="artist-full">Newest, Exel (HU) – Music Of Warriors  Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(202,214,210)">[PHOBIA Music Recordings]</span>
     
   </div>
  </div>
@@ -2726,9 +3093,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(212,245,215)">[Breaks / Breakbeat / UK Bass]</span>
-    <span class="track-title">Odi Diaz – Bassment Voltage Original Mix</span>
-    <span class="label-tag" style="background:rgb(179,174,242)">[Zone Records]</span>
+    <span class="genre-tag" style="background:rgb(149,232,210)">[Breaks / Breakbeat / UK Bass]</span>
+    <span class="track-title">
+      <span class="artist-short">Odi Diaz – Bassment Voltage Original Mix</span>
+      <span class="artist-full">Odi Diaz – Bassment Voltage Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(251,209,164)">[Zone Records]</span>
     
   </div>
  </div>
@@ -2748,9 +3118,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-19</span>
-    <span class="genre-tag" style="background:rgb(240,222,187)">[Tech House]</span>
-    <span class="track-title">Angelo Ferreri, Pietro Over Jack – Faid In Pull  Synth Mix</span>
-    <span class="label-tag" style="background:rgb(210,166,200)">[RAP JACK MUSIC]</span>
+    <span class="genre-tag" style="background:rgb(163,152,249)">[Tech House]</span>
+    <span class="track-title">
+      <span class="artist-short">Angelo Ferreri, Pietro Over Jack – Faid In Pull  Synth Mix</span>
+      <span class="artist-full">Angelo Ferreri, Pietro Over Jack – Faid In Pull  Synth Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(186,198,152)">[RAP JACK MUSIC]</span>
     
   </div>
  </div>
@@ -2770,9 +3143,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(248,225,248)">[Techno (Raw / Deep / Hypnotic)]</span>
-    <span class="track-title">Oscar Escapa, Linear Phase – Excess Original Mix</span>
-    <span class="label-tag" style="background:rgb(203,174,155)">[Planet Rhythm]</span>
+    <span class="genre-tag" style="background:rgb(182,165,245)">[Techno (Raw / Deep / Hypnotic)]</span>
+    <span class="track-title">
+      <span class="artist-short">Oscar Escapa, Linear Phase – Excess Original Mix</span>
+      <span class="artist-full">Oscar Escapa, Linear Phase – Excess Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(173,238,235)">[Planet Rhythm]</span>
     
   </div>
  </div>
@@ -2792,9 +3168,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-18</span>
-    <span class="genre-tag" style="background:rgb(234,185,210)">[Electro (Classic / Detroit / Modern)]</span>
-    <span class="track-title">Luxus Varta – Silver Girl Original Mix</span>
-    <span class="label-tag" style="background:rgb(236,236,173)">[Shipwrec]</span>
+    <span class="genre-tag" style="background:rgb(156,144,226)">[Electro (Classic / Detroit / Modern)]</span>
+    <span class="track-title">
+      <span class="artist-short">Luxus Varta – Silver Girl Original Mix</span>
+      <span class="artist-full">Luxus Varta – Silver Girl Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(162,241,154)">[Shipwrec]</span>
     
   </div>
  </div>
@@ -2814,9 +3193,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(234,167,159)">[House]</span>
-    <span class="track-title">Emery Bex – Let Your Body Rock Original Mix</span>
-    <span class="label-tag" style="background:rgb(162,224,253)">[Deeperfect]</span>
+    <span class="genre-tag" style="background:rgb(148,177,225)">[House]</span>
+    <span class="track-title">
+      <span class="artist-short">Emery Bex – Let Your Body Rock Original Mix</span>
+      <span class="artist-full">Emery Bex – Let Your Body Rock Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(211,193,233)">[Deeperfect]</span>
     
   </div>
  </div>
@@ -2836,9 +3218,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(252,202,234)">[Trance (Main Floor)]</span>
-    <span class="track-title">Super8 &amp; Tab, SØNIN, Simon Gregory – Black Is The New Yellow Simon Gregory Extended Mix</span>
-    <span class="label-tag" style="background:rgb(205,255,178)">[Anjunabeats]</span>
+    <span class="genre-tag" style="background:rgb(227,228,152)">[Trance (Main Floor)]</span>
+    <span class="track-title">
+      <span class="artist-short">Super8 &amp; Tab, SØNIN ... – Black Is The New Yellow Simon Gregory Extended Mix</span>
+      <span class="artist-full">Super8 &amp; Tab, SØNIN, Simon Gregory – Black Is The New Yellow Simon Gregory Extended Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(247,230,230)">[Anjunabeats]</span>
     
   </div>
  </div>
@@ -2858,9 +3243,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(240,222,187)">[Tech House]</span>
-    <span class="track-title">Trallez – Jack&#x27;in  Original Mix</span>
-    <span class="label-tag" style="background:rgb(207,217,182)">[Organic Pieces]</span>
+    <span class="genre-tag" style="background:rgb(163,152,249)">[Tech House]</span>
+    <span class="track-title">
+      <span class="artist-short">Trallez – Jack&#x27;in  Original Mix</span>
+      <span class="artist-full">Trallez – Jack&#x27;in  Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(179,235,196)">[Organic Pieces]</span>
     
   </div>
  </div>
@@ -2880,9 +3268,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(188,159,173)">[Indie Dance]</span>
-    <span class="track-title">Felix Da Housecat, Vanfave – 𝐍𝐈𝐆𝐇𝐓 𝐌𝐀𝐂𝐇𝐈𝐍𝐄 Original Mix</span>
-    <span class="label-tag" style="background:rgb(186,143,235)">[Founders Of Filth]</span>
+    <span class="genre-tag" style="background:rgb(160,181,181)">[Indie Dance]</span>
+    <span class="track-title">
+      <span class="artist-short">Felix Da Housecat, Vanfave – 𝐍𝐈𝐆𝐇𝐓 𝐌𝐀𝐂𝐇𝐈𝐍𝐄 Original Mix</span>
+      <span class="artist-full">Felix Da Housecat, Vanfave – 𝐍𝐈𝐆𝐇𝐓 𝐌𝐀𝐂𝐇𝐈𝐍𝐄 Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(183,199,161)">[Founders Of Filth]</span>
     
   </div>
  </div>
@@ -2902,9 +3293,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(208,152,149)">[Minimal / Deep Tech |  Deep Tech]</span>
-    <span class="track-title">Ezequiel G – Dr. Funkenstein  Original Mix</span>
-    <span class="label-tag" style="background:rgb(208,227,229)">[Play Records]</span>
+    <span class="genre-tag" style="background:rgb(178,153,247)">[Minimal / Deep Tech |  Deep Tech]</span>
+    <span class="track-title">
+      <span class="artist-short">Ezequiel G – Dr. Funkenstein  Original Mix</span>
+      <span class="artist-full">Ezequiel G – Dr. Funkenstein  Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(152,248,147)">[Play Records]</span>
     
   </div>
  </div>
@@ -2924,9 +3318,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(229,240,232)">[UK Garage / Bassline]</span>
-    <span class="track-title">Oppidan, camoufly – hold tight Original Mix</span>
-    <span class="label-tag" style="background:rgb(244,209,143)">[Promised Land Recordings]</span>
+    <span class="genre-tag" style="background:rgb(159,175,220)">[UK Garage / Bassline]</span>
+    <span class="track-title">
+      <span class="artist-short">Oppidan, camoufly – hold tight Original Mix</span>
+      <span class="artist-full">Oppidan, camoufly – hold tight Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(164,213,198)">[Promised Land Recordings]</span>
     
   </div>
  </div>
@@ -2946,9 +3343,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(240,222,187)">[Tech House]</span>
-    <span class="track-title">Josh Butler – Night Shift  Extended Mix</span>
-    <span class="label-tag" style="background:rgb(155,239,194)">[Dansu Discs]</span>
+    <span class="genre-tag" style="background:rgb(163,152,249)">[Tech House]</span>
+    <span class="track-title">
+      <span class="artist-short">Josh Butler – Night Shift  Extended Mix</span>
+      <span class="artist-full">Josh Butler – Night Shift  Extended Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(212,208,245)">[Dansu Discs]</span>
     
   </div>
  </div>
@@ -2968,9 +3368,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-18</span>
-    <span class="genre-tag" style="background:rgb(156,246,243)">[Trap / Future Bass]</span>
-    <span class="track-title">Daîne, Ninajirachi, Underscores – It&#x27;s You underscores&#x27; &quot;It&#x27;s U&quot; Remix</span>
-    <span class="label-tag" style="background:rgb(219,188,170)">[NLV Records]</span>
+    <span class="genre-tag" style="background:rgb(181,215,223)">[Trap / Future Bass]</span>
+    <span class="track-title">
+      <span class="artist-short">Daîne, Ninajirachi ... – It&#x27;s You underscores&#x27; &quot;It&#x27;s U&quot; Remix</span>
+      <span class="artist-full">Daîne, Ninajirachi, Underscores – It&#x27;s You underscores&#x27; &quot;It&#x27;s U&quot; Remix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(254,148,193)">[NLV Records]</span>
     
   </div>
  </div>
@@ -2990,9 +3393,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(253,192,245)">[Bass House]</span>
-    <span class="track-title">Nico Falla, bradeazy – Accelerate Extended Mix</span>
-    <span class="label-tag" style="background:rgb(207,254,203)">[Trace Amounts]</span>
+    <span class="genre-tag" style="background:rgb(198,195,226)">[Bass House]</span>
+    <span class="track-title">
+      <span class="artist-short">Nico Falla, bradeazy – Accelerate Extended Mix</span>
+      <span class="artist-full">Nico Falla, bradeazy – Accelerate Extended Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(189,167,172)">[Trace Amounts]</span>
     
   </div>
  </div>
@@ -3012,9 +3418,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(196,214,219)">[Mainstage]</span>
-    <span class="track-title">deadmau5, Stevie Appleton – Science (feat. Stevie Appleton) Original Mix</span>
-    <span class="label-tag" style="background:rgb(180,153,188)">[mau5trap]</span>
+    <span class="genre-tag" style="background:rgb(189,171,178)">[Mainstage]</span>
+    <span class="track-title">
+      <span class="artist-short">deadmau5, Stevie Appleton – Science (feat. Stevie Appleton) Original Mix</span>
+      <span class="artist-full">deadmau5, Stevie Appleton – Science (feat. Stevie Appleton) Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(237,229,225)">[mau5trap]</span>
     
   </div>
  </div>
@@ -3034,9 +3443,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(251,153,242)">[Hard Dance / Hardcore / Neo Rave]</span>
-    <span class="track-title">Mha Iri – Freak  Original Mix</span>
-    <span class="label-tag" style="background:rgb(219,160,157)">[Filth on Acid]</span>
+    <span class="genre-tag" style="background:rgb(183,196,250)">[Hard Dance / Hardcore / Neo Rave]</span>
+    <span class="track-title">
+      <span class="artist-short">Mha Iri – Freak  Original Mix</span>
+      <span class="artist-full">Mha Iri – Freak  Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(172,243,254)">[Filth on Acid]</span>
     
   </div>
  </div>
@@ -3056,9 +3468,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(200,217,244)">[Progressive House]</span>
-    <span class="track-title">Gorge – Three Original Mix</span>
-    <span class="label-tag" style="background:rgb(146,246,165)">[8Bit]</span>
+    <span class="genre-tag" style="background:rgb(202,222,215)">[Progressive House]</span>
+    <span class="track-title">
+      <span class="artist-short">Gorge – Three Original Mix</span>
+      <span class="artist-full">Gorge – Three Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(161,203,213)">[8Bit]</span>
     
   </div>
  </div>
@@ -3078,9 +3493,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(230,227,156)">[Funky House]</span>
-    <span class="track-title">Crazibiza, Cheesecake Boys, Babes on the Run – Dont You Want Me Original Mix</span>
-    <span class="label-tag" style="background:rgb(255,219,180)">[PornoStar Records]</span>
+    <span class="genre-tag" style="background:rgb(147,173,234)">[Funky House]</span>
+    <span class="track-title">
+      <span class="artist-short">Crazibiza, Cheesecake Boys ... – Dont You Want Me Original Mix</span>
+      <span class="artist-full">Crazibiza, Cheesecake Boys, Babes on the Run – Dont You Want Me Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(232,241,156)">[PornoStar Records]</span>
     
   </div>
  </div>
@@ -3100,9 +3518,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-16</span>
-    <span class="genre-tag" style="background:rgb(251,255,190)">[Jackin House]</span>
-    <span class="track-title">Filta Freqz, Tommy Largo – Heavy Duty Tommy Largo Remix</span>
-    <span class="label-tag" style="background:rgb(178,179,219)">[Seventy Four]</span>
+    <span class="genre-tag" style="background:rgb(146,222,143)">[Jackin House]</span>
+    <span class="track-title">
+      <span class="artist-short">Filta Freqz, Tommy Largo – Heavy Duty Tommy Largo Remix</span>
+      <span class="artist-full">Filta Freqz, Tommy Largo – Heavy Duty Tommy Largo Remix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(243,232,193)">[Seventy Four]</span>
     
   </div>
  </div>
@@ -3122,9 +3543,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(227,180,173)">[Deep House]</span>
-    <span class="track-title">Luv Jam, Maria Slovakova, Ruf Dug – Mind Floating Ruffys Pagan ReNip</span>
-    <span class="label-tag" style="background:rgb(195,149,166)">[Legend of Gelert]</span>
+    <span class="genre-tag" style="background:rgb(221,205,158)">[Deep House]</span>
+    <span class="track-title">
+      <span class="artist-short">Luv Jam, Maria Slovakova ... – Mind Floating Ruffys Pagan ReNip</span>
+      <span class="artist-full">Luv Jam, Maria Slovakova, Ruf Dug – Mind Floating Ruffys Pagan ReNip</span>
+    </span>
+    <span class="label-tag" style="background:rgb(240,160,235)">[Legend of Gelert]</span>
     
   </div>
  </div>
@@ -3144,9 +3568,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(160,145,213)">[Dance / Pop]</span>
-    <span class="track-title">Ben Sterling, Omar+ – Out Of My Mind Extended Mix</span>
-    <span class="label-tag" style="background:rgb(206,218,209)">[Insomniac Records]</span>
+    <span class="genre-tag" style="background:rgb(241,250,151)">[Dance / Pop]</span>
+    <span class="track-title">
+      <span class="artist-short">Ben Sterling, Omar+ – Out Of My Mind Extended Mix</span>
+      <span class="artist-full">Ben Sterling, Omar+ – Out Of My Mind Extended Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(220,202,225)">[Insomniac Records]</span>
     
   </div>
  </div>
@@ -3166,9 +3593,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(141,198,156)">[Hard Techno]</span>
-    <span class="track-title">Hardtrax, O.B.I. – Auserkoren (feat. Dunkelkammer) Original Mix</span>
-    <span class="label-tag" style="background:rgb(241,147,192)">[Definition Of Hard Techno]</span>
+    <span class="genre-tag" style="background:rgb(230,179,211)">[Hard Techno]</span>
+    <span class="track-title">
+      <span class="artist-short">Hardtrax, O.B.I. – Auserkoren (feat. Dunkelkammer) Original Mix</span>
+      <span class="artist-full">Hardtrax, O.B.I. – Auserkoren (feat. Dunkelkammer) Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(220,236,184)">[Definition Of Hard Techno]</span>
     
   </div>
  </div>
@@ -3188,9 +3618,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(142,189,207)">[Afro House]</span>
-    <span class="track-title">Shimza, LevyM – No Shape Without You Extended Mix</span>
-    <span class="label-tag" style="background:rgb(183,182,167)">[Helix Records]</span>
+    <span class="genre-tag" style="background:rgb(221,205,249)">[Afro House]</span>
+    <span class="track-title">
+      <span class="artist-short">Shimza, LevyM – No Shape Without You Extended Mix</span>
+      <span class="artist-full">Shimza, LevyM – No Shape Without You Extended Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(169,214,160)">[Helix Records]</span>
     
   </div>
  </div>
@@ -3210,9 +3643,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(156,184,172)">[Psy-Trance |  Psychedelic]</span>
-    <span class="track-title">Hypnocoustics, Mandala (UK) – Anjuna Touchdown  Original Mix</span>
-    <span class="label-tag" style="background:rgb(218,172,189)">[Nano Records]</span>
+    <span class="genre-tag" style="background:rgb(201,219,165)">[Psy-Trance |  Psychedelic]</span>
+    <span class="track-title">
+      <span class="artist-short">Hypnocoustics, Mandala (UK) – Anjuna Touchdown  Original Mix</span>
+      <span class="artist-full">Hypnocoustics, Mandala (UK) – Anjuna Touchdown  Original Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(222,225,244)">[Nano Records]</span>
     
   </div>
  </div>
@@ -3232,9 +3668,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(143,164,198)">[Amapiano]</span>
-    <span class="track-title">Tracy, Bongza, Mluusician, Thatohatsi, ShakaMan YKTV – Sgidla Vah  (feat. Thatohatsi &amp; Tracy) feat. Thatohatsi &amp; Tracy</span>
-    <span class="label-tag" style="background:rgb(206,218,251)">[Beyond Talent Agency]</span>
+    <span class="genre-tag" style="background:rgb(228,241,232)">[Amapiano]</span>
+    <span class="track-title">
+      <span class="artist-short">Tracy, Bongza ... – Sgidla Vah  (feat. Thatohatsi &amp; Tracy) feat. Thatohatsi &amp; Tracy</span>
+      <span class="artist-full">Tracy, Bongza, Mluusician, Thatohatsi, ShakaMan YKTV – Sgidla Vah  (feat. Thatohatsi &amp; Tracy) feat. Thatohatsi &amp; Tracy</span>
+    </span>
+    <span class="label-tag" style="background:rgb(218,222,188)">[Beyond Talent Agency]</span>
     
   </div>
  </div>
@@ -3254,9 +3693,12 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  <div class="song-line">
   <div class="track-left">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(154,184,247)">[Organic House]</span>
-    <span class="track-title">Mike Kohl – Round &amp; Round  Extended Mix</span>
-    <span class="label-tag" style="background:rgb(199,170,198)">[Sounds Of Sirin]</span>
+    <span class="genre-tag" style="background:rgb(165,230,230)">[Organic House]</span>
+    <span class="track-title">
+      <span class="artist-short">Mike Kohl – Round &amp; Round  Extended Mix</span>
+      <span class="artist-full">Mike Kohl – Round &amp; Round  Extended Mix</span>
+    </span>
+    <span class="label-tag" style="background:rgb(245,148,252)">[Sounds Of Sirin]</span>
     <span class="duplicate">⚠️</span>
   </div>
  </div>
@@ -3304,15 +3746,12 @@ document.querySelectorAll('.genre-tag').forEach(tag=>{
   });
 });
 
-// Label filter with visual indication
+// Label filter
 document.querySelectorAll('.label-tag').forEach(tag=>{
   tag.addEventListener('click',e=>{
     e.stopPropagation();
     const l = tag.textContent.replace(/[\[\]]/g,'');
-    
-    // Remove active from all tags
     document.querySelectorAll('.label-tag').forEach(t=>t.classList.remove('active-label'));
-    
     if(activeLabel===l){ 
         activeLabel=null; 
     } else { 
@@ -3334,24 +3773,37 @@ document.querySelectorAll('.date-tag').forEach(tag=>{
   });
 });
 
-// Open / close image
+// ✅ Open / close track — מציג artist-short סגור, artist-full פתוח
 document.querySelectorAll('.track-title').forEach(title=>{
   title.addEventListener('click',()=>{
     const track = title.closest('.track');
     const box = track.querySelector('.artwork-box');
+    
+    // סגור את כל השאר
     document.querySelectorAll('.track.expanded').forEach(t=>{
-        if(t !== track){ t.classList.remove('expanded'); t.querySelector('.artwork-box').innerHTML=''; }
+        if(t !== track){
+            t.classList.remove('expanded');
+            t.querySelector('.artwork-box').innerHTML='';
+        }
     });
-    if(track.classList.contains('expanded')){ track.classList.remove('expanded'); box.innerHTML=''; return; }
+    
+    // טוגל על הנוכחי
+    if(track.classList.contains('expanded')){
+        track.classList.remove('expanded');
+        box.innerHTML='';
+        return;
+    }
+    
+    // טען תמונות
     const artHTML = track.dataset.artwork ? `<img src="${track.dataset.artwork}">` : '';
     const labelHTML = track.dataset.labelArtwork ? `<img class="label-img" src="${track.dataset.labelArtwork}">` : '';
-    if(!artHTML && !labelHTML) return;
-    box.innerHTML = artHTML + labelHTML;
+    if(artHTML || labelHTML) box.innerHTML = artHTML + labelHTML;
+    
     track.classList.add('expanded');
   });
 });
 
-// Search
+// Search — חיפוש על כל האומנים (data-artist מכיל את כולם)
 const searchInput = document.getElementById('search-input');
 searchInput.addEventListener('input', ()=>{
     const term = searchInput.value.toLowerCase();
@@ -3379,9 +3831,7 @@ document.getElementById('expand-collapse-btn').addEventListener('click', ()=>{
     });
 });
 
-// =========================
 // Duplicate tooltip
-// =========================
 document.querySelectorAll('.duplicate').forEach(icon=>{
     let tooltip;
     icon.addEventListener('mouseenter', e=>{
@@ -3408,39 +3858,27 @@ document.querySelectorAll('.duplicate').forEach(icon=>{
     });
 });
 
-// =========================
-// Display large chart image on mouse hover over small image
-// =========================
+// Hover preview on chart image
 document.querySelectorAll('.chart-header img').forEach(img=>{
     let preview;
     img.addEventListener('mouseenter', e=>{
         const imgSrc = img.src;
         if(!imgSrc) return;
-        
         preview = document.createElement('div');
         preview.className = 'hover-preview';
         const previewImg = document.createElement('img');
-        // Use full size original image
         previewImg.src = imgSrc;
         preview.appendChild(previewImg);
         document.body.appendChild(preview);
-        
-        // Position image next to mouse
-        const x = e.clientX + 20;
-        const y = e.clientY + 20;
-        preview.style.left = x + 'px';
-        preview.style.top = y + 'px';
+        preview.style.left = e.clientX + 20 + 'px';
+        preview.style.top = e.clientY + 20 + 'px';
     });
-    
     img.addEventListener('mousemove', e=>{
         if(preview){
-            const x = e.clientX + 20;
-            const y = e.clientY + 20;
-            preview.style.left = x + 'px';
-            preview.style.top = y + 'px';
+            preview.style.left = e.clientX + 20 + 'px';
+            preview.style.top = e.clientY + 20 + 'px';
         }
     });
-    
     img.addEventListener('mouseleave', ()=>{
         if(preview) preview.remove();
     });
