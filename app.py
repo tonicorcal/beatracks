@@ -6,9 +6,11 @@ from datetime import datetime
 import random
 import sqlite3
 import os
+import threading
+from concurrent.futures import ThreadPoolExecutor
 
 # ============================
-# File settings - relative paths for GitHub Actions
+# File settings
 # ============================
 DB_FILE = "beatport_links.db"
 OUTPUT_FILE = "index.html"
@@ -24,7 +26,7 @@ def parse_date_safe(text):
     return None
 
 # ============================
-# Create DB with creation date and chart image columns
+# Create DB
 # ============================
 conn = sqlite3.connect(DB_FILE)
 c = conn.cursor()
@@ -65,12 +67,9 @@ def chart_already_exists(chart_name):
 # Function to fetch creation date and chart image
 # ============================
 def get_chart_metadata(url):
-    """Fetches creation date and chart image from the page"""
     try:
         r = requests.get(url, headers={"User-Agent":"Mozilla/5.0"}, timeout=10)
         soup = BeautifulSoup(r.text, "html.parser")
-        
-        # Search for creation date
         date_created = None
         info_divs = soup.find_all("div", class_=re.compile(r"ChartDetailCard-style__Info"))
         for div in info_divs:
@@ -80,19 +79,42 @@ def get_chart_metadata(url):
                 if span:
                     date_created = span.text.strip()
                     break
-        
-        # Search for chart image
         chart_image = ""
         image_wrapper = soup.find("div", class_=re.compile(r"ChartDetailCard-style__ImageWrapper"))
         if image_wrapper:
             img = image_wrapper.find("img")
             if img and img.get("src"):
                 chart_image = img["src"]
-        
         return date_created, chart_image
     except Exception as e:
         print(f"  ⚠️  Error fetching chart metadata: {e}")
         return None, ""
+
+# ============================
+# Label image cache + threading
+# ============================
+label_img_cache = {}
+cache_lock = threading.Lock()
+
+def get_label_img(label, label_href):
+    """Fetch label image with caching — never fetches the same label twice"""
+    with cache_lock:
+        if label in label_img_cache:
+            return label, label_img_cache[label]
+    try:
+        label_page = requests.get(
+            "https://www.beatport.com" + label_href,
+            headers={"User-Agent": "Mozilla/5.0"},
+            timeout=10
+        )
+        label_soup = BeautifulSoup(label_page.text, "html.parser")
+        img_tag = label_soup.find("img", alt=label)
+        result = img_tag["src"].replace("87x87", "500x500") if img_tag else ""
+    except:
+        result = ""
+    with cache_lock:
+        label_img_cache[label] = result
+    return label, result
 
 # ============================
 # Function to add to DB with duplicate marking
@@ -100,46 +122,28 @@ def get_chart_metadata(url):
 def add_track_to_db(chart_name, chart_date_created, chart_image, artist, title, url, genre, label, label_img, artwork, release_dt, release_str):
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
-
-    # Check if already exists in the same chart
     c.execute("""
         SELECT 1 FROM weekly_links 
         WHERE chart_name=? AND artist=? AND title=?
     """, (chart_name, artist, title))
-
     if c.fetchone():
         conn.close()
-        return 0  # Already exists in the same chart
-
-    # Check if exists in another chart (for duplicate marking)
+        return 0
     c.execute("""
         SELECT chart_name FROM weekly_links 
         WHERE artist=? AND title=?
     """, (artist, title))
-
     existing = c.fetchall()
     is_dup = 1 if existing else 0
-
     c.execute("""
         INSERT INTO weekly_links 
         (chart_name, chart_date_created, chart_image, artist, title, url, genre, label, label_img, artwork, release_dt, release_str, is_duplicate)
         VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)
     """, (
-        chart_name,
-        chart_date_created,
-        chart_image,
-        artist,
-        title,
-        url,
-        genre,
-        label,
-        label_img,
-        artwork,
+        chart_name, chart_date_created, chart_image, artist, title, url, genre, label, label_img, artwork,
         release_dt.isoformat() if release_dt else "",
-        release_str,
-        is_dup
+        release_str, is_dup
     ))
-
     conn.commit()
     conn.close()
     return 1
@@ -177,77 +181,100 @@ print(f"📋 Processing chart: {chart_url}")
 # ============================
 total_added = 0
 total_skipped = 0
+
 for url in input_links:
-    # Chart name from URL
     match = re.search(r"/chart/(.+)/\d+$", url)
     chart_name = match.group(1).replace("-", " ").title() if match else url
-    
-    # Check if chart already exists - if yes, skip it
+
     if chart_already_exists(chart_name):
         print(f"⏭️  Chart '{chart_name}' already exists in DB - skipping...")
         continue
-    
+
     print(f"📀 Fetching chart metadata for '{chart_name}'...")
     chart_date_created, chart_image = get_chart_metadata(url)
     print(f"   Date: {chart_date_created}, Image: {'✓' if chart_image else '✗'}")
-    
-    r = requests.get(url, headers={"User-Agent":"Mozilla/5.0"}, timeout=10)
+
+    r = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=10)
     soup = BeautifulSoup(r.text, "html.parser")
     rows = soup.select("div[class*=TableRow]")
     total = len(rows)
-    
     print(f"📀 Loading {total} tracks from {chart_name} ...")
-    
+
+    # ============================
+    # שלב 1: איסוף כל הטראקים ללא תמונות לייבל
+    # ============================
+    tracks_data = []
+    unique_labels = {}  # label -> href (רק ייחודיים)
+
     for idx, row in enumerate(rows, 1):
         row_title = row.select_one("div[class*=title] span")
         row_title = row_title.text.strip() if row_title else None
 
-        # ✅ שליפת כל האומנים
         artist_tags = row.select("div[class*=ArtistNames] a")
         row_artist = ", ".join(a.text.strip() for a in artist_tags) if artist_tags else None
 
         if not row_title or not row_artist: continue
 
-        # Genre
         genre_div = row.select_one("div[class*=bpm] div")
         genre = genre_div.text.strip() if genre_div else "Unknown"
 
-        # Label
         label_div = row.find("div", class_=re.compile(r"Table-style__TableCell.*label"))
         label = label_div.find("a").text.strip() if label_div and label_div.find("a") else "Unknown"
 
-        # Label image
-        label_img = ""
-        if label not in ["Unknown"] and label_div and label_div.find("a"):
+        label_href = None
+        if label != "Unknown" and label_div and label_div.find("a"):
             label_href = label_div.find("a")["href"]
-            try:
-                label_page = requests.get("https://www.beatport.com"+label_href, headers={"User-Agent":"Mozilla/5.0"}, timeout=10)
-                label_soup = BeautifulSoup(label_page.text, "html.parser")
-                img_tag = label_soup.find("img", alt=label)
-                label_img = img_tag["src"].replace("87x87","500x500") if img_tag else ""
-            except: label_img = ""
+            if label not in unique_labels:
+                unique_labels[label] = label_href
 
-        # Artwork
         artwork_div = row.select_one("a.artwork img")
-        artwork = artwork_div["src"].replace("95x95","500x500") if artwork_div else ""
+        artwork = artwork_div["src"].replace("95x95", "500x500") if artwork_div else ""
 
-        # Release date
         date_div = row.select_one("div[class*=cell][class*=date]")
         release_dt = parse_date_safe(date_div.text.strip()) if date_div else None
         release_str = date_div.text.strip() if date_div else "NONE"
 
-        # Add to DB
-        added = add_track_to_db(chart_name, chart_date_created, chart_image, row_artist, row_title, url, genre, label, label_img, artwork, release_dt, release_str)
+        tracks_data.append({
+            "artist": row_artist,
+            "title": row_title,
+            "genre": genre,
+            "label": label,
+            "artwork": artwork,
+            "release_dt": release_dt,
+            "release_str": release_str,
+        })
+
+        progress = int(idx / total * 30)
+        bar = "█" * progress + "-" * (30 - progress)
+        print(f"\r[{bar}] {idx}/{total} tracks parsed", end="", flush=True)
+    print()
+
+    # ============================
+    # שלב 2: שליפת תמונות לייבל במקביל (רק לייבלים ייחודיים!)
+    # ============================
+    print(f"🎨 Fetching {len(unique_labels)} unique label images in parallel...")
+    with ThreadPoolExecutor(max_workers=10) as executor:
+        futures = executor.map(lambda item: get_label_img(item[0], item[1]), unique_labels.items())
+        for label_name, label_img_url in futures:
+            label_img_cache[label_name] = label_img_url
+    print(f"   ✓ Label images done")
+
+    # ============================
+    # שלב 3: הוספה ל-DB עם תמונות מהקאש
+    # ============================
+    for t in tracks_data:
+        label_img = label_img_cache.get(t["label"], "")
+        added = add_track_to_db(
+            chart_name, chart_date_created, chart_image,
+            t["artist"], t["title"], url,
+            t["genre"], t["label"], label_img,
+            t["artwork"], t["release_dt"], t["release_str"]
+        )
         if added:
             total_added += 1
         else:
             total_skipped += 1
 
-        # --- Progress bar ---
-        progress = int(idx / total * 30)
-        bar = "█" * progress + "-" * (30 - progress)
-        print(f"\r[{bar}] {idx}/{total} tracks", end="", flush=True)
-    print()
 print(f"✅ DB updated. Added: {total_added}, Skipped: {total_skipped}")
 
 # ============================
@@ -264,7 +291,7 @@ for row in get_all_links():
     release_dt = datetime.fromisoformat(release_dt_str) if release_dt_str else None
     track = {
         "artist": artist,
-        "artist_short": short_artist(artist),  # ✅ גרסה מקוצרת
+        "artist_short": short_artist(artist),
         "title": title,
         "genre": genre,
         "label": label,
@@ -278,13 +305,9 @@ for row in get_all_links():
     key = f"{artist}|{title}"
     if key not in track_duplicates: track_duplicates[key] = []
     track_duplicates[key].append(chart_name)
-    
+
     if chart_name not in charts:
-        charts[chart_name] = {
-            "date": chart_date_created,
-            "image": chart_image,
-            "tracks": []
-        }
+        charts[chart_name] = {"date": chart_date_created, "image": chart_image, "tracks": []}
     charts[chart_name]["tracks"].append(track)
     genres.add(genre)
     labels.add(label)
@@ -299,10 +322,8 @@ label_colors = {l: f"rgb({random.randint(140,255)},{random.randint(140,255)},{ra
 def get_chart_sort_date(chart_data):
     date_str = chart_data[1]["date"]
     if date_str:
-        try:
-            return datetime.strptime(date_str, "%Y-%m-%d")
-        except:
-            pass
+        try: return datetime.strptime(date_str, "%Y-%m-%d")
+        except: pass
     return datetime.min
 
 sorted_charts = sorted(charts.items(), key=get_chart_sort_date, reverse=True)
@@ -378,7 +399,7 @@ html.append("<div id='content'>")
 for chart_name, chart_data in sorted_charts:
     chart_image = chart_data["image"]
     chart_date = chart_data["date"] if chart_data["date"] else ""
-    
+
     if chart_date:
         try:
             dt = datetime.strptime(chart_date, "%Y-%m-%d")
@@ -387,15 +408,15 @@ for chart_name, chart_data in sorted_charts:
             chart_date_formatted = f"({chart_date})"
     else:
         chart_date_formatted = ""
-    
+
     chart_tracks = chart_data["tracks"]
     img_html = f'<img src="{escape(chart_image)}" alt="{escape(chart_name)}">' if chart_image else ''
     date_html = f'<span class="chart-date">{chart_date_formatted}</span>' if chart_date_formatted else ''
-    
+
     html.append('<div class="chart-block">')
     html.append(f'<div class="chart-header">{img_html}<div class="chart-header-text">📀 {escape(chart_name)} {date_html}</div></div>')
     html.append('<div class="chart-content">')
-    
+
     for t in chart_tracks:
         release_str = t['release_str'] if t['release_str'] else "NONE"
         release_data_attr = t['release_dt'].strftime('%Y-%m-%d') if t['release_dt'] else ""
@@ -427,7 +448,7 @@ for chart_name, chart_data in sorted_charts:
  <div class="artwork-box"></div>
 </div>
 """)
-    
+
     html.append('</div></div>')
 
 html.append("</div></div>")
@@ -454,7 +475,6 @@ function applyFilters(){
   updateTrackCount();
 }
 
-// Genre filter - sidebar
 document.querySelectorAll('.genre-filter').forEach(tag=>{
   tag.addEventListener('click', ()=>{
     const g = tag.dataset.genre;
@@ -464,7 +484,6 @@ document.querySelectorAll('.genre-filter').forEach(tag=>{
   });
 });
 
-// Genre filter - inline
 document.querySelectorAll('.genre-tag').forEach(tag=>{
   tag.addEventListener('click',e=>{
     e.stopPropagation();
@@ -474,23 +493,17 @@ document.querySelectorAll('.genre-tag').forEach(tag=>{
   });
 });
 
-// Label filter
 document.querySelectorAll('.label-tag').forEach(tag=>{
   tag.addEventListener('click',e=>{
     e.stopPropagation();
     const l = tag.textContent.replace(/[\[\]]/g,'');
     document.querySelectorAll('.label-tag').forEach(t=>t.classList.remove('active-label'));
-    if(activeLabel===l){ 
-        activeLabel=null; 
-    } else { 
-        activeLabel=l; 
-        tag.classList.add('active-label');
-    }
+    if(activeLabel===l){ activeLabel=null; } 
+    else { activeLabel=l; tag.classList.add('active-label'); }
     applyFilters();
   });
 });
 
-// Date filter
 document.querySelectorAll('.date-tag').forEach(tag=>{
   tag.addEventListener('click',e=>{
     e.stopPropagation();
@@ -501,37 +514,21 @@ document.querySelectorAll('.date-tag').forEach(tag=>{
   });
 });
 
-// ✅ Open / close track — מציג artist-short סגור, artist-full פתוח
 document.querySelectorAll('.track-title').forEach(title=>{
   title.addEventListener('click',()=>{
     const track = title.closest('.track');
     const box = track.querySelector('.artwork-box');
-    
-    // סגור את כל השאר
     document.querySelectorAll('.track.expanded').forEach(t=>{
-        if(t !== track){
-            t.classList.remove('expanded');
-            t.querySelector('.artwork-box').innerHTML='';
-        }
+        if(t !== track){ t.classList.remove('expanded'); t.querySelector('.artwork-box').innerHTML=''; }
     });
-    
-    // טוגל על הנוכחי
-    if(track.classList.contains('expanded')){
-        track.classList.remove('expanded');
-        box.innerHTML='';
-        return;
-    }
-    
-    // טען תמונות
+    if(track.classList.contains('expanded')){ track.classList.remove('expanded'); box.innerHTML=''; return; }
     const artHTML = track.dataset.artwork ? `<img src="${track.dataset.artwork}">` : '';
     const labelHTML = track.dataset.labelArtwork ? `<img class="label-img" src="${track.dataset.labelArtwork}">` : '';
     if(artHTML || labelHTML) box.innerHTML = artHTML + labelHTML;
-    
     track.classList.add('expanded');
   });
 });
 
-// Search — חיפוש על כל האומנים (data-artist מכיל את כולם)
 const searchInput = document.getElementById('search-input');
 searchInput.addEventListener('input', ()=>{
     const term = searchInput.value.toLowerCase();
@@ -547,19 +544,14 @@ searchInput.addEventListener('input', ()=>{
     updateTrackCount();
 });
 
-// Open / close chart
 document.querySelectorAll('.chart-header').forEach(h=>{
     h.addEventListener('click', ()=>{ h.parentElement.classList.toggle('expanded'); });
 });
 
-// Expand / Collapse All
 document.getElementById('expand-collapse-btn').addEventListener('click', ()=>{
-    document.querySelectorAll('.chart-block').forEach(c=>{
-        c.classList.toggle('expanded');
-    });
+    document.querySelectorAll('.chart-block').forEach(c=>{ c.classList.toggle('expanded'); });
 });
 
-// Duplicate tooltip
 document.querySelectorAll('.duplicate').forEach(icon=>{
     let tooltip;
     icon.addEventListener('mouseenter', e=>{
@@ -576,40 +568,28 @@ document.querySelectorAll('.duplicate').forEach(icon=>{
         tooltip.style.top = e.clientY + 10 + 'px';
     });
     icon.addEventListener('mousemove', e=>{
-        if(tooltip){
-            tooltip.style.left = e.clientX + 10 + 'px';
-            tooltip.style.top = e.clientY + 10 + 'px';
-        }
+        if(tooltip){ tooltip.style.left = e.clientX + 10 + 'px'; tooltip.style.top = e.clientY + 10 + 'px'; }
     });
-    icon.addEventListener('mouseleave', ()=>{
-        if(tooltip) tooltip.remove();
-    });
+    icon.addEventListener('mouseleave', ()=>{ if(tooltip) tooltip.remove(); });
 });
 
-// Hover preview on chart image
 document.querySelectorAll('.chart-header img').forEach(img=>{
     let preview;
     img.addEventListener('mouseenter', e=>{
-        const imgSrc = img.src;
-        if(!imgSrc) return;
+        if(!img.src) return;
         preview = document.createElement('div');
         preview.className = 'hover-preview';
         const previewImg = document.createElement('img');
-        previewImg.src = imgSrc;
+        previewImg.src = img.src;
         preview.appendChild(previewImg);
         document.body.appendChild(preview);
         preview.style.left = e.clientX + 20 + 'px';
         preview.style.top = e.clientY + 20 + 'px';
     });
     img.addEventListener('mousemove', e=>{
-        if(preview){
-            preview.style.left = e.clientX + 20 + 'px';
-            preview.style.top = e.clientY + 20 + 'px';
-        }
+        if(preview){ preview.style.left = e.clientX + 20 + 'px'; preview.style.top = e.clientY + 20 + 'px'; }
     });
-    img.addEventListener('mouseleave', ()=>{
-        if(preview) preview.remove();
-    });
+    img.addEventListener('mouseleave', ()=>{ if(preview) preview.remove(); });
 });
 </script>
 </body>
