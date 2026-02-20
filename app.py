@@ -333,14 +333,13 @@ body {{margin:0;background:#000;color:#ccc;font-family:Consolas;}}
 .track:hover {{background:#111;}}
 .hidden {{display:none;}}
 .duplicate {{background:yellow;color:#000; padding:0 3px; border-radius:3px; margin-left:5px; cursor:pointer;}}
-.song-line {{display:flex; flex-direction:column; width:100%; gap:2px;}}
-.track-row1 {{display:flex; align-items:center; gap:5px;}}
-.track-row2 {{display:flex; align-items:center; gap:5px; padding-left:2px; overflow:hidden;}}
+.song-line {{display:flex; width:100%; align-items:center;}}
+.track-left {{display:flex; align-items:center; gap:5px; width:100%; overflow:hidden;}}
 .date-tag {{padding:2px 6px; border-radius:5px; background:#666; font-weight:bold; color:#d0d0d0; cursor:pointer; flex-shrink:0; font-size:12px;}}
 .genre-tag {{padding:2px 6px; border-radius:5px; color:#000; font-weight:bold; cursor:pointer; flex-shrink:0; font-size:12px;}}
 .label-tag {{padding:2px 6px; border-radius:5px; color:#000; font-weight:bold; flex-shrink:0; cursor:pointer; font-size:12px;}}
 .label-tag:hover {{outline:2px solid #fff;}}
-.track-title {{cursor:pointer; color:#ccc; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:calc(100vw - 520px);}}
+.track-title {{cursor:pointer; color:#ccc; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; flex:1; min-width:0;}}
 .artwork-box {{max-height:0; overflow:hidden; transition:max-height .3s ease; margin-left:0; display:flex; gap:10px;}}
 .track.expanded .artwork-box {{max-height:420px;}}
 .artwork-box img {{width:400px;height:400px; object-fit:cover;}}
