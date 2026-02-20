@@ -16,13 +16,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
 .track:hover {background:#111;}
 .hidden {display:none;}
 .duplicate {background:yellow;color:#000; padding:0 3px; border-radius:3px; margin-left:5px; cursor:pointer;}
-.song-line {display:flex; width:100%; justify-content:flex-start; align-items:center;}
-.track-left {display:flex; align-items:center; gap:5px; flex-wrap: wrap;}
-.date-tag {padding:2px 6px; border-radius:5px; background:#666; font-weight:bold; color:#d0d0d0; margin-right:5px; cursor:pointer; flex-shrink:0;}
-.genre-tag {padding:2px 6px; border-radius:5px; color:#000; font-weight:bold; cursor:pointer; flex-shrink:0;}
-.label-tag {padding:2px 6px; border-radius:5px; color:#000; font-weight:bold; margin-left:5px; flex-shrink:0; cursor:pointer;}
+.song-line {display:flex; flex-direction:column; width:100%; gap:2px;}
+.track-row1 {display:flex; align-items:center; gap:5px;}
+.track-row2 {display:flex; align-items:center; gap:5px; padding-left:2px; overflow:hidden;}
+.date-tag {padding:2px 6px; border-radius:5px; background:#666; font-weight:bold; color:#d0d0d0; cursor:pointer; flex-shrink:0; font-size:12px;}
+.genre-tag {padding:2px 6px; border-radius:5px; color:#000; font-weight:bold; cursor:pointer; flex-shrink:0; font-size:12px;}
+.label-tag {padding:2px 6px; border-radius:5px; color:#000; font-weight:bold; flex-shrink:0; cursor:pointer; font-size:12px;}
 .label-tag:hover {outline:2px solid #fff;}
-.track-title {cursor:pointer; flex: none; overflow: hidden; text-overflow: ellipsis;}
+.track-title {cursor:pointer; color:#ccc; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:calc(100vw - 520px);}
 .artwork-box {max-height:0; overflow:hidden; transition:max-height .3s ease; margin-left:0; display:flex; gap:10px;}
 .track.expanded .artwork-box {max-height:420px;}
 .artwork-box img {width:400px;height:400px; object-fit:cover;}
@@ -50,7 +51,7 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
 <div id="layout">
   <div id="genre-sidebar">
     <h3>Genres</h3>
-<span class="genre-filter" style="background:rgb(147,166,141)" data-genre="140 / Deep Dubstep / Grime">[140 / Deep Dubstep / Grime]</span><span class="genre-filter" style="background:rgb(188,249,142)" data-genre="Afro House">[Afro House]</span><span class="genre-filter" style="background:rgb(152,199,231)" data-genre="Afro House |  Afro Melodic">[Afro House |  Afro Melodic]</span><span class="genre-filter" style="background:rgb(174,168,221)" data-genre="Amapiano">[Amapiano]</span><span class="genre-filter" style="background:rgb(197,202,188)" data-genre="Bass / Club">[Bass / Club]</span><span class="genre-filter" style="background:rgb(164,169,231)" data-genre="Bass House">[Bass House]</span><span class="genre-filter" style="background:rgb(206,179,236)" data-genre="Brazilian Funk |  Eletrofunk">[Brazilian Funk |  Eletrofunk]</span><span class="genre-filter" style="background:rgb(242,202,180)" data-genre="Brazilian Funk |  Mandelao Funk">[Brazilian Funk |  Mandelao Funk]</span><span class="genre-filter" style="background:rgb(223,210,217)" data-genre="Breaks / Breakbeat / UK Bass">[Breaks / Breakbeat / UK Bass]</span><span class="genre-filter" style="background:rgb(248,198,238)" data-genre="Dance / Pop">[Dance / Pop]</span><span class="genre-filter" style="background:rgb(253,191,142)" data-genre="Deep House">[Deep House]</span><span class="genre-filter" style="background:rgb(151,161,175)" data-genre="Drum &amp; Bass">[Drum &amp; Bass]</span><span class="genre-filter" style="background:rgb(225,158,184)" data-genre="Drum &amp; Bass |  Jump Up">[Drum &amp; Bass |  Jump Up]</span><span class="genre-filter" style="background:rgb(142,163,253)" data-genre="Dubstep">[Dubstep]</span><span class="genre-filter" style="background:rgb(186,182,183)" data-genre="Electro (Classic / Detroit / Modern)">[Electro (Classic / Detroit / Modern)]</span><span class="genre-filter" style="background:rgb(227,152,198)" data-genre="Electronica">[Electronica]</span><span class="genre-filter" style="background:rgb(210,159,194)" data-genre="Funky House">[Funky House]</span><span class="genre-filter" style="background:rgb(236,141,251)" data-genre="Hard Dance / Hardcore / Neo Rave">[Hard Dance / Hardcore / Neo Rave]</span><span class="genre-filter" style="background:rgb(180,210,209)" data-genre="Hard Techno">[Hard Techno]</span><span class="genre-filter" style="background:rgb(196,213,203)" data-genre="House">[House]</span><span class="genre-filter" style="background:rgb(215,190,248)" data-genre="Indie Dance">[Indie Dance]</span><span class="genre-filter" style="background:rgb(154,242,167)" data-genre="Jackin House">[Jackin House]</span><span class="genre-filter" style="background:rgb(164,164,158)" data-genre="Mainstage">[Mainstage]</span><span class="genre-filter" style="background:rgb(173,173,165)" data-genre="Melodic House &amp; Techno">[Melodic House &amp; Techno]</span><span class="genre-filter" style="background:rgb(161,204,162)" data-genre="Minimal / Deep Tech |  Deep Tech">[Minimal / Deep Tech |  Deep Tech]</span><span class="genre-filter" style="background:rgb(153,144,196)" data-genre="Minimal / Deep Tech |  Minimal House">[Minimal / Deep Tech |  Minimal House]</span><span class="genre-filter" style="background:rgb(140,240,200)" data-genre="Nu Disco / Disco">[Nu Disco / Disco]</span><span class="genre-filter" style="background:rgb(187,236,217)" data-genre="Organic House">[Organic House]</span><span class="genre-filter" style="background:rgb(196,250,254)" data-genre="Progressive House">[Progressive House]</span><span class="genre-filter" style="background:rgb(255,193,161)" data-genre="Psy-Trance">[Psy-Trance]</span><span class="genre-filter" style="background:rgb(167,155,177)" data-genre="Psy-Trance |  Psychedelic">[Psy-Trance |  Psychedelic]</span><span class="genre-filter" style="background:rgb(214,255,210)" data-genre="Tech House">[Tech House]</span><span class="genre-filter" style="background:rgb(173,233,248)" data-genre="Techno (Peak Time / Driving)">[Techno (Peak Time / Driving)]</span><span class="genre-filter" style="background:rgb(253,243,200)" data-genre="Techno (Raw / Deep / Hypnotic)">[Techno (Raw / Deep / Hypnotic)]</span><span class="genre-filter" style="background:rgb(212,191,168)" data-genre="Trance (Main Floor)">[Trance (Main Floor)]</span><span class="genre-filter" style="background:rgb(204,207,228)" data-genre="Trance (Raw / Deep / Hypnotic)">[Trance (Raw / Deep / Hypnotic)]</span><span class="genre-filter" style="background:rgb(165,183,200)" data-genre="Trance (Raw / Deep / Hypnotic) |  Deep Trance">[Trance (Raw / Deep / Hypnotic) |  Deep Trance]</span><span class="genre-filter" style="background:rgb(162,199,251)" data-genre="Trap / Future Bass">[Trap / Future Bass]</span><span class="genre-filter" style="background:rgb(200,175,189)" data-genre="UK Garage / Bassline">[UK Garage / Bassline]</span></div><div id='content'><div class="chart-block"><div class="chart-header"><img src="https://geo-media.beatport.com/image_size/500x500/9bbb091e-593b-48bb-bf4a-acd370d904dd.jpg" alt="Weekend Picks 2026 Week 8"><div class="chart-header-text">📀 Weekend Picks 2026 Week 8 <span class="chart-date">[16|02|26]</span></div></div><div class="chart-content">
+<span class="genre-filter" style="background:rgb(167,154,205)" data-genre="140 / Deep Dubstep / Grime">[140 / Deep Dubstep / Grime]</span><span class="genre-filter" style="background:rgb(153,240,150)" data-genre="Afro House">[Afro House]</span><span class="genre-filter" style="background:rgb(240,247,182)" data-genre="Afro House |  Afro Melodic">[Afro House |  Afro Melodic]</span><span class="genre-filter" style="background:rgb(143,210,226)" data-genre="Amapiano">[Amapiano]</span><span class="genre-filter" style="background:rgb(252,234,253)" data-genre="Bass / Club">[Bass / Club]</span><span class="genre-filter" style="background:rgb(242,243,171)" data-genre="Bass House">[Bass House]</span><span class="genre-filter" style="background:rgb(173,164,186)" data-genre="Brazilian Funk |  Eletrofunk">[Brazilian Funk |  Eletrofunk]</span><span class="genre-filter" style="background:rgb(157,246,148)" data-genre="Brazilian Funk |  Mandelao Funk">[Brazilian Funk |  Mandelao Funk]</span><span class="genre-filter" style="background:rgb(201,147,160)" data-genre="Breaks / Breakbeat / UK Bass">[Breaks / Breakbeat / UK Bass]</span><span class="genre-filter" style="background:rgb(149,176,185)" data-genre="Dance / Pop">[Dance / Pop]</span><span class="genre-filter" style="background:rgb(249,245,243)" data-genre="Deep House">[Deep House]</span><span class="genre-filter" style="background:rgb(193,151,157)" data-genre="Drum &amp; Bass">[Drum &amp; Bass]</span><span class="genre-filter" style="background:rgb(197,183,221)" data-genre="Drum &amp; Bass |  Jump Up">[Drum &amp; Bass |  Jump Up]</span><span class="genre-filter" style="background:rgb(155,232,205)" data-genre="Dubstep">[Dubstep]</span><span class="genre-filter" style="background:rgb(248,168,240)" data-genre="Electro (Classic / Detroit / Modern)">[Electro (Classic / Detroit / Modern)]</span><span class="genre-filter" style="background:rgb(181,170,191)" data-genre="Electronica">[Electronica]</span><span class="genre-filter" style="background:rgb(148,196,177)" data-genre="Funky House">[Funky House]</span><span class="genre-filter" style="background:rgb(190,225,200)" data-genre="Hard Dance / Hardcore / Neo Rave">[Hard Dance / Hardcore / Neo Rave]</span><span class="genre-filter" style="background:rgb(184,209,159)" data-genre="Hard Techno">[Hard Techno]</span><span class="genre-filter" style="background:rgb(208,214,201)" data-genre="House">[House]</span><span class="genre-filter" style="background:rgb(177,196,235)" data-genre="Indie Dance">[Indie Dance]</span><span class="genre-filter" style="background:rgb(187,146,233)" data-genre="Jackin House">[Jackin House]</span><span class="genre-filter" style="background:rgb(222,196,183)" data-genre="Mainstage">[Mainstage]</span><span class="genre-filter" style="background:rgb(173,222,244)" data-genre="Melodic House &amp; Techno">[Melodic House &amp; Techno]</span><span class="genre-filter" style="background:rgb(146,160,179)" data-genre="Minimal / Deep Tech |  Deep Tech">[Minimal / Deep Tech |  Deep Tech]</span><span class="genre-filter" style="background:rgb(149,222,217)" data-genre="Minimal / Deep Tech |  Minimal House">[Minimal / Deep Tech |  Minimal House]</span><span class="genre-filter" style="background:rgb(237,252,231)" data-genre="Nu Disco / Disco">[Nu Disco / Disco]</span><span class="genre-filter" style="background:rgb(168,167,249)" data-genre="Organic House">[Organic House]</span><span class="genre-filter" style="background:rgb(229,161,152)" data-genre="Progressive House">[Progressive House]</span><span class="genre-filter" style="background:rgb(180,234,146)" data-genre="Psy-Trance">[Psy-Trance]</span><span class="genre-filter" style="background:rgb(177,210,184)" data-genre="Psy-Trance |  Psychedelic">[Psy-Trance |  Psychedelic]</span><span class="genre-filter" style="background:rgb(238,185,217)" data-genre="Tech House">[Tech House]</span><span class="genre-filter" style="background:rgb(165,178,151)" data-genre="Techno (Peak Time / Driving)">[Techno (Peak Time / Driving)]</span><span class="genre-filter" style="background:rgb(161,223,207)" data-genre="Techno (Raw / Deep / Hypnotic)">[Techno (Raw / Deep / Hypnotic)]</span><span class="genre-filter" style="background:rgb(200,182,204)" data-genre="Trance (Main Floor)">[Trance (Main Floor)]</span><span class="genre-filter" style="background:rgb(186,181,195)" data-genre="Trance (Raw / Deep / Hypnotic)">[Trance (Raw / Deep / Hypnotic)]</span><span class="genre-filter" style="background:rgb(205,178,240)" data-genre="Trance (Raw / Deep / Hypnotic) |  Deep Trance">[Trance (Raw / Deep / Hypnotic) |  Deep Trance]</span><span class="genre-filter" style="background:rgb(187,212,225)" data-genre="Trap / Future Bass">[Trap / Future Bass]</span><span class="genre-filter" style="background:rgb(246,158,179)" data-genre="UK Garage / Bassline">[UK Garage / Bassline]</span></div><div id='content'><div class="chart-block"><div class="chart-header"><img src="https://geo-media.beatport.com/image_size/500x500/9bbb091e-593b-48bb-bf4a-acd370d904dd.jpg" alt="Weekend Picks 2026 Week 8"><div class="chart-header-text">📀 Weekend Picks 2026 Week 8 <span class="chart-date">[16|02|26]</span></div></div><div class="chart-content">
 <div class="track"
  data-chart="Weekend Picks 2026 Week 8"
  data-all-charts="Weekend Picks 2026 Week 8"
@@ -62,12 +63,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/95724c4f-e889-4996-a7f3-3759c32bb6cf.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/9bd3a891-d0fb-45c1-bd0e-404c63cd4c49.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(173,173,165)">[Melodic House &amp; Techno]</span>
-    <span class="track-title">Camden Cox, Layton Giordani – Destiny Extended Mix</span>
-    <span class="label-tag" style="background:rgb(203,157,178)">[MADMINDS]</span>
+    <span class="genre-tag" style="background:rgb(173,222,244)">[Melodic House &amp; Techno]</span>
+    <span class="label-tag" style="background:rgb(255,200,201)">[MADMINDS]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Camden Cox, Layton Giordani – Destiny Extended Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -84,12 +87,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/79b7af4f-b356-4a13-aad9-dbf2459f6780.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/a867e25d-3754-40dc-91e3-313fe835d691.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(153,144,196)">[Minimal / Deep Tech |  Minimal House]</span>
-    <span class="track-title">D&#x27;Julz – Collective Effervescence  Original Mix</span>
-    <span class="label-tag" style="background:rgb(171,168,200)">[Bass Culture Records]</span>
+    <span class="genre-tag" style="background:rgb(149,222,217)">[Minimal / Deep Tech |  Minimal House]</span>
+    <span class="label-tag" style="background:rgb(177,165,166)">[Bass Culture Records]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">D&#x27;Julz – Collective Effervescence  Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -106,12 +111,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/ad7a376e-16da-4722-aac6-239707468855.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/ab2348b3-1a29-4d2c-9d77-447ec019c953.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(196,213,203)">[House]</span>
-    <span class="track-title">James Poole – Lease Of Life Extended Mix</span>
-    <span class="label-tag" style="background:rgb(219,200,218)">[Defected]</span>
+    <span class="genre-tag" style="background:rgb(208,214,201)">[House]</span>
+    <span class="label-tag" style="background:rgb(197,208,154)">[Defected]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">James Poole – Lease Of Life Extended Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -128,12 +135,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/d11eeb8d-641f-401f-95d2-0c367a9bbb91.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/ca559972-88b5-401f-acc4-e60353e1bb15.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(188,249,142)">[Afro House]</span>
-    <span class="track-title">Hyenah, Miči, Soulroots, Chaleee – This Moment Chaleee &amp; Soulroots Remix</span>
-    <span class="label-tag" style="background:rgb(163,165,215)">[Madorasindahouse Records]</span>
+    <span class="genre-tag" style="background:rgb(153,240,150)">[Afro House]</span>
+    <span class="label-tag" style="background:rgb(233,156,244)">[Madorasindahouse Records]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Hyenah, Miči, Soulroots, Chaleee – This Moment Chaleee &amp; Soulroots Remix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -150,12 +159,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/3536a17f-dd56-4da6-a28a-75cd1904311c.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/12d10ff3-c5c5-430c-a7bd-96154bca0251.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-19</span>
-    <span class="genre-tag" style="background:rgb(196,250,254)">[Progressive House]</span>
-    <span class="track-title">STEREO MUNK, goodkidd – Seventy Owls Original Mix</span>
-    <span class="label-tag" style="background:rgb(188,159,221)">[Mango Alley]</span>
+    <span class="genre-tag" style="background:rgb(229,161,152)">[Progressive House]</span>
+    <span class="label-tag" style="background:rgb(194,222,200)">[Mango Alley]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">STEREO MUNK, goodkidd – Seventy Owls Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -172,12 +183,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/79ddfef6-d18a-427b-9a76-68c0200658f4.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/c0e13e58-4d0d-45d6-9ff3-a6f0bdb3888e.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(253,243,200)">[Techno (Raw / Deep / Hypnotic)]</span>
-    <span class="track-title">Eman (FR) – Last Glass Original Mix</span>
-    <span class="label-tag" style="background:rgb(216,250,169)">[SK_Eleven]</span>
+    <span class="genre-tag" style="background:rgb(161,223,207)">[Techno (Raw / Deep / Hypnotic)]</span>
+    <span class="label-tag" style="background:rgb(188,195,165)">[SK_Eleven]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Eman (FR) – Last Glass Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -194,12 +207,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/e608eeff-e499-471a-adf7-92b75c2e2e90.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/f6817f9b-f30e-4356-9cc2-9f29dea61768.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(173,233,248)">[Techno (Peak Time / Driving)]</span>
-    <span class="track-title">Jay Lumen – My Bassline Extended</span>
-    <span class="label-tag" style="background:rgb(211,233,191)">[Arcane Music]</span>
+    <span class="genre-tag" style="background:rgb(165,178,151)">[Techno (Peak Time / Driving)]</span>
+    <span class="label-tag" style="background:rgb(150,175,219)">[Arcane Music]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Jay Lumen – My Bassline Extended</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -216,12 +231,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/ccc59f5c-6ecd-4ef6-bdd0-009f43e8143c.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/1a1ec297-d3bf-4b10-a7cb-5ea21fc86b50.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(151,161,175)">[Drum &amp; Bass]</span>
-    <span class="track-title">1991, TW3LVE – Icarus Extended Mix</span>
-    <span class="label-tag" style="background:rgb(240,208,255)">[I99I]</span>
+    <span class="genre-tag" style="background:rgb(193,151,157)">[Drum &amp; Bass]</span>
+    <span class="label-tag" style="background:rgb(202,220,188)">[I99I]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">1991, TW3LVE – Icarus Extended Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -238,12 +255,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/b3a56dae-c115-4c4e-a174-c6185c11d1d8.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/8c885754-4ea1-4c38-8e1f-fd5c0eed0f1a.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(214,255,210)">[Tech House]</span>
-    <span class="track-title">SOSA (UK) – Just Like That  Original Mix</span>
-    <span class="label-tag" style="background:rgb(148,143,186)">[You&amp;Me Records]</span>
+    <span class="genre-tag" style="background:rgb(238,185,217)">[Tech House]</span>
+    <span class="label-tag" style="background:rgb(247,233,170)">[You&amp;Me Records]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">SOSA (UK) – Just Like That  Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -260,12 +279,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/a3582ce2-a57a-44e6-8799-f1257b710639.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/ec1d8dbf-122a-47e8-8658-9c6c603f971a.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-14</span>
-    <span class="genre-tag" style="background:rgb(154,242,167)">[Jackin House]</span>
-    <span class="track-title">Andy Riley, Jason Hodges – Minute By Minute (Jason Hodges JSM Re-Work) Jason Hodges JSM Re-Work</span>
-    <span class="label-tag" style="background:rgb(230,174,253)">[Frosted Recordings]</span>
+    <span class="genre-tag" style="background:rgb(187,146,233)">[Jackin House]</span>
+    <span class="label-tag" style="background:rgb(207,142,192)">[Frosted Recordings]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Andy Riley, Jason Hodges – Minute By Minute (Jason Hodges JSM Re-Work) Jason Hodges JSM Re-Work</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -282,12 +303,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/dc75b672-0ac9-4fd4-a8ad-765af7a42390.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/31be2215-6cd7-4867-bc09-be10e84587fa.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(214,255,210)">[Tech House]</span>
-    <span class="track-title">Fer BR, Angel Heredia – THAT LOUD Original Mix</span>
-    <span class="label-tag" style="background:rgb(255,200,223)">[KoBBoK]</span>
+    <span class="genre-tag" style="background:rgb(238,185,217)">[Tech House]</span>
+    <span class="label-tag" style="background:rgb(148,157,214)">[KoBBoK]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Fer BR, Angel Heredia – THAT LOUD Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -304,12 +327,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/c49acd57-c8a3-4a32-842e-205b24224e99.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/60602297-0af1-4d8e-b069-19da7a3813fe.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(173,233,248)">[Techno (Peak Time / Driving)]</span>
-    <span class="track-title">Deep Dish, Nicole Moudaber, Skunk Anansie – Love Someone Else Extended Mix</span>
-    <span class="label-tag" style="background:rgb(227,146,239)">[Factory 93 Records]</span>
+    <span class="genre-tag" style="background:rgb(165,178,151)">[Techno (Peak Time / Driving)]</span>
+    <span class="label-tag" style="background:rgb(227,245,238)">[Factory 93 Records]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Deep Dish, Nicole Moudaber, Skunk Anansie – Love Someone Else Extended Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -326,12 +351,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/ec2f5be8-6e22-4d38-baad-3b60507b1ccb.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/81e4aa14-89f5-4df4-b514-5976328e1358.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(187,236,217)">[Organic House]</span>
-    <span class="track-title">Sence – Night Lady Extended Mix</span>
-    <span class="label-tag" style="background:rgb(148,152,146)">[Deepalma]</span>
+    <span class="genre-tag" style="background:rgb(168,167,249)">[Organic House]</span>
+    <span class="label-tag" style="background:rgb(242,208,209)">[Deepalma]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Sence – Night Lady Extended Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -348,12 +375,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/1ce368ef-0084-4abd-bb62-3eeedd42a2cb.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/90eb3cb9-3dac-4ce8-a282-152e81c05f87.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(173,173,165)">[Melodic House &amp; Techno]</span>
-    <span class="track-title">SOLECO, Florist (BE) – Falling Down Original Mix</span>
-    <span class="label-tag" style="background:rgb(191,218,169)">[Go Deeva Records]</span>
+    <span class="genre-tag" style="background:rgb(173,222,244)">[Melodic House &amp; Techno]</span>
+    <span class="label-tag" style="background:rgb(207,187,253)">[Go Deeva Records]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">SOLECO, Florist (BE) – Falling Down Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -370,12 +399,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/0ffc08d2-2d01-41b0-a2d9-ead261f7b415.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/b68adb75-ad25-4cf2-a2c7-83168259775c.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(173,233,248)">[Techno (Peak Time / Driving)]</span>
-    <span class="track-title">Sabura, Eddi Sander – Sweet Dreamz Original Mix</span>
-    <span class="label-tag" style="background:rgb(162,149,191)">[KOSMOS]</span>
+    <span class="genre-tag" style="background:rgb(165,178,151)">[Techno (Peak Time / Driving)]</span>
+    <span class="label-tag" style="background:rgb(190,225,171)">[KOSMOS]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Sabura, Eddi Sander – Sweet Dreamz Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -392,12 +423,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/66da8b40-4f75-4cfe-a1bb-f97a1357e782.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/76742fcd-b2d8-4750-a688-ea7c0e0d921d.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-19</span>
-    <span class="genre-tag" style="background:rgb(204,207,228)">[Trance (Raw / Deep / Hypnotic)]</span>
-    <span class="track-title">Match Box – Yamaha Ibiza  Original Mix</span>
-    <span class="label-tag" style="background:rgb(245,187,224)">[Agrio Tracks]</span>
+    <span class="genre-tag" style="background:rgb(186,181,195)">[Trance (Raw / Deep / Hypnotic)]</span>
+    <span class="label-tag" style="background:rgb(219,210,158)">[Agrio Tracks]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Match Box – Yamaha Ibiza  Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -414,12 +447,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/d094285d-f620-43ec-a568-8a261de563ff.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/be78df64-dd6c-4739-8b12-41887ae2a219.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(151,161,175)">[Drum &amp; Bass]</span>
-    <span class="track-title">Circumference, VISLA – Hello Goodbye Original Mix</span>
-    <span class="label-tag" style="background:rgb(212,198,201)">[Critical Music]</span>
+    <span class="genre-tag" style="background:rgb(193,151,157)">[Drum &amp; Bass]</span>
+    <span class="label-tag" style="background:rgb(189,240,212)">[Critical Music]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Circumference, VISLA – Hello Goodbye Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -436,12 +471,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/5a107c6f-03ca-47f7-b6d0-62c6f40def4f.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/2a4c2937-e97c-40a7-8be8-605c7a9b5169.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(215,190,248)">[Indie Dance]</span>
-    <span class="track-title">Joyce Muniz, Andre VII, Alejandro Paz – Quiero Tu Amor (feat. Alejandro Paz) feat. Alejandro Paz</span>
-    <span class="label-tag" style="background:rgb(207,186,156)">[Kompakt]</span>
+    <span class="genre-tag" style="background:rgb(177,196,235)">[Indie Dance]</span>
+    <span class="label-tag" style="background:rgb(250,231,158)">[Kompakt]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Joyce Muniz, Andre VII, Alejandro Paz – Quiero Tu Amor (feat. Alejandro Paz) feat. Alejandro Paz</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -458,12 +495,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/474228a5-dbd1-4c5a-9967-9a2dc732968d.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/66f598d6-afa5-44f3-a6db-d902f4c89a55.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(188,249,142)">[Afro House]</span>
-    <span class="track-title">blaqkongo, Skai Lounge – Day One Extended Mix</span>
-    <span class="label-tag" style="background:rgb(145,196,157)">[MoBlack Records]</span>
+    <span class="genre-tag" style="background:rgb(153,240,150)">[Afro House]</span>
+    <span class="label-tag" style="background:rgb(224,198,206)">[MoBlack Records]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">blaqkongo, Skai Lounge – Day One Extended Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -480,12 +519,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/fb40429a-082e-4fe0-aeac-370e0349d0c0.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/affd7235-0bf2-4ec3-9867-53df419ce63a.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(165,183,200)">[Trance (Raw / Deep / Hypnotic) |  Deep Trance]</span>
-    <span class="track-title">Enlusion, Arhetip – Amber Arhetip Remix</span>
-    <span class="label-tag" style="background:rgb(158,224,213)">[JOOF Recordings]</span>
+    <span class="genre-tag" style="background:rgb(205,178,240)">[Trance (Raw / Deep / Hypnotic) |  Deep Trance]</span>
+    <span class="label-tag" style="background:rgb(203,145,159)">[JOOF Recordings]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Enlusion, Arhetip – Amber Arhetip Remix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -502,12 +543,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/dc600ca5-1f7a-4834-a83e-9f7a350b006d.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/cda9862c-cf92-4d13-ac65-7e9277181f51.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(253,191,142)">[Deep House]</span>
-    <span class="track-title">DJ Swella – Next To Me Original Mix</span>
-    <span class="label-tag" style="background:rgb(153,205,237)">[Clone Royal Oak]</span>
+    <span class="genre-tag" style="background:rgb(249,245,243)">[Deep House]</span>
+    <span class="label-tag" style="background:rgb(228,174,171)">[Clone Royal Oak]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">DJ Swella – Next To Me Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -524,12 +567,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/bf24a58e-1be5-4b02-87ba-5bc0051899a3.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/0aba593a-3b4e-49ed-9f6c-cfbdce383255.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(180,210,209)">[Hard Techno]</span>
-    <span class="track-title">In Furcht – Future Schranz Original Mix</span>
-    <span class="label-tag" style="background:rgb(253,191,205)">[Techno Germany Records]</span>
+    <span class="genre-tag" style="background:rgb(184,209,159)">[Hard Techno]</span>
+    <span class="label-tag" style="background:rgb(194,146,174)">[Techno Germany Records]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">In Furcht – Future Schranz Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -546,12 +591,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/e613fdef-c69c-4a3a-9bfc-07098bb89e73.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/91939171-b131-4a13-928b-fdebbd3af6f6.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(197,202,188)">[Bass / Club]</span>
-    <span class="track-title">Paleman, Chloé Robinson – cookie cutter Original Mix</span>
-    <span class="label-tag" style="background:rgb(149,141,169)">[Pretty Weird]</span>
+    <span class="genre-tag" style="background:rgb(252,234,253)">[Bass / Club]</span>
+    <span class="label-tag" style="background:rgb(241,201,162)">[Pretty Weird]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Paleman, Chloé Robinson – cookie cutter Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -568,12 +615,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/f4d8c4ba-f0d6-4581-9d54-496741bb3157.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/c5f4ff6a-c560-411c-b49c-8034dbeece28.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(173,173,165)">[Melodic House &amp; Techno]</span>
-    <span class="track-title">Weska, Kyra Mastro – Nowhere To Hide Extended Mix</span>
-    <span class="label-tag" style="background:rgb(250,154,205)">[Interstellar Recordings (Insomniac)]</span>
+    <span class="genre-tag" style="background:rgb(173,222,244)">[Melodic House &amp; Techno]</span>
+    <span class="label-tag" style="background:rgb(163,158,209)">[Interstellar Recordings (Insomniac)]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Weska, Kyra Mastro – Nowhere To Hide Extended Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -590,12 +639,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/c0c53117-31e4-48cf-9fc4-ba5614f50459.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/a5d9cd12-c002-40c4-93c5-918e91a08ad6.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(214,255,210)">[Tech House]</span>
-    <span class="track-title">White &amp; Choco – Look at Me Now Extended Mix</span>
-    <span class="label-tag" style="background:rgb(221,191,197)">[303LVRS]</span>
+    <span class="genre-tag" style="background:rgb(238,185,217)">[Tech House]</span>
+    <span class="label-tag" style="background:rgb(190,194,157)">[303LVRS]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">White &amp; Choco – Look at Me Now Extended Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -612,12 +663,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/ef15291e-5fa5-40dc-8b3c-d87e6f33f6a6.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/41217a0b-92e4-4fbd-9223-d513c62dd411.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(196,213,203)">[House]</span>
-    <span class="track-title">Armand Van Helden, Mark Knight, D. Ramirez – You Extended Mix</span>
-    <span class="label-tag" style="background:rgb(168,215,239)">[Toolroom]</span>
+    <span class="genre-tag" style="background:rgb(208,214,201)">[House]</span>
+    <span class="label-tag" style="background:rgb(219,182,253)">[Toolroom]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Armand Van Helden, Mark Knight, D. Ramirez – You Extended Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -634,12 +687,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/eb310c7c-f131-4eb4-9373-a7629576c8ed.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/5d32da93-7d82-4634-a17e-c001288601bb.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(215,190,248)">[Indie Dance]</span>
-    <span class="track-title">Marina Maximilian, Adam Ten, Mita Gami, Kino Todo – Million Pieces Kino Todo Remix</span>
-    <span class="label-tag" style="background:rgb(160,193,141)">[Maccabi House]</span>
+    <span class="genre-tag" style="background:rgb(177,196,235)">[Indie Dance]</span>
+    <span class="label-tag" style="background:rgb(223,238,149)">[Maccabi House]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Marina Maximilian, Adam Ten, Mita Gami, Kino Todo – Million Pieces Kino Todo Remix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -656,12 +711,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/e2e3549e-2835-4c49-9185-41ddcc153f39.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/ffded4d4-dabd-427c-bfd3-21c4bf89443e.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(196,250,254)">[Progressive House]</span>
-    <span class="track-title">Solis [US] – Superposition Extended Mix</span>
-    <span class="label-tag" style="background:rgb(224,175,174)">[The Soundgarden]</span>
+    <span class="genre-tag" style="background:rgb(229,161,152)">[Progressive House]</span>
+    <span class="label-tag" style="background:rgb(250,174,213)">[The Soundgarden]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Solis [US] – Superposition Extended Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -678,12 +735,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/0aee8d56-ff3e-4642-b3e6-dcd2a15bf0bc.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/3351169a-19d0-48ba-a171-8db8638d6214.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(212,191,168)">[Trance (Main Floor)]</span>
-    <span class="track-title">Moonman, Ferry Corsten, Joris Voorn – Don&#x27;t Be Afraid  Original Mix</span>
-    <span class="label-tag" style="background:rgb(168,236,208)">[Spectrum (NL)]</span>
+    <span class="genre-tag" style="background:rgb(200,182,204)">[Trance (Main Floor)]</span>
+    <span class="label-tag" style="background:rgb(246,209,225)">[Spectrum (NL)]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Moonman, Ferry Corsten, Joris Voorn – Don&#x27;t Be Afraid  Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -700,12 +759,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/7a53f052-a2fb-49db-bd8f-97f8f76e39c4.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/2c9b1de6-0890-41da-be72-b289098961f0.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(151,161,175)">[Drum &amp; Bass]</span>
-    <span class="track-title">Genetics, Bish, A Little Sound – I Just Can&#x27;t Get Enough Original Mix</span>
-    <span class="label-tag" style="background:rgb(157,252,236)">[Born On Road]</span>
+    <span class="genre-tag" style="background:rgb(193,151,157)">[Drum &amp; Bass]</span>
+    <span class="label-tag" style="background:rgb(157,155,208)">[Born On Road]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Genetics, Bish, A Little Sound – I Just Can&#x27;t Get Enough Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -722,12 +783,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/44df8e9d-4098-40c4-ad2a-2cbe9f0fc8ed.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/fca81019-dfa9-471e-8230-2bfdf8bce1af.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(174,168,221)">[Amapiano]</span>
-    <span class="track-title">Starving Yet Full, The Spirit Project – Doves  Extended Mix</span>
-    <span class="label-tag" style="background:rgb(143,248,252)">[METAPHYSICAL]</span>
+    <span class="genre-tag" style="background:rgb(143,210,226)">[Amapiano]</span>
+    <span class="label-tag" style="background:rgb(173,220,250)">[METAPHYSICAL]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Starving Yet Full, The Spirit Project – Doves  Extended Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -744,12 +807,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/8a095e7c-82c2-41f1-8c40-49535d3893c8.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/0d27ec6e-9823-4a14-beb5-71ccab1d6b58.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(223,210,217)">[Breaks / Breakbeat / UK Bass]</span>
-    <span class="track-title">GABBY GUNN – Mount Etna Original Mix</span>
-    <span class="label-tag" style="background:rgb(195,226,246)">[Scuffed Recordings]</span>
+    <span class="genre-tag" style="background:rgb(201,147,160)">[Breaks / Breakbeat / UK Bass]</span>
+    <span class="label-tag" style="background:rgb(143,195,163)">[Scuffed Recordings]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">GABBY GUNN – Mount Etna Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -766,12 +831,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/9f40bf0d-f4d9-44f9-84a1-4e6fce2ef9a5.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/b559c5a7-0f13-4b0c-a52b-7e0f1069c495.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(152,199,231)">[Afro House |  Afro Melodic]</span>
-    <span class="track-title">Tsanis – Black Frequency Original Mix</span>
-    <span class="label-tag" style="background:rgb(154,177,143)">[QulaqAs]</span>
+    <span class="genre-tag" style="background:rgb(240,247,182)">[Afro House |  Afro Melodic]</span>
+    <span class="label-tag" style="background:rgb(202,236,218)">[QulaqAs]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Tsanis – Black Frequency Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -788,12 +855,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/d6590e57-6539-4535-9398-191f0d032759.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/feaad579-28e2-4b17-97cd-1b3ca89bcf36.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-19</span>
-    <span class="genre-tag" style="background:rgb(147,166,141)">[140 / Deep Dubstep / Grime]</span>
-    <span class="track-title">Alix Perez – Rush Them  Original Mix</span>
-    <span class="label-tag" style="background:rgb(161,226,219)">[1985 Music]</span>
+    <span class="genre-tag" style="background:rgb(167,154,205)">[140 / Deep Dubstep / Grime]</span>
+    <span class="label-tag" style="background:rgb(152,185,152)">[1985 Music]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Alix Perez – Rush Them  Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -810,12 +879,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/2cfc2d94-5343-4176-b111-82b3d5a60437.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/02e4bc90-dd1b-4021-842c-7c6f6426623e.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-18</span>
-    <span class="genre-tag" style="background:rgb(206,179,236)">[Brazilian Funk |  Eletrofunk]</span>
-    <span class="track-title">Mc Vuk Vuk, DJ Pablo RB, MC Colibri – MEGA SE TU QUER TU VAI TOMAR Original Mix</span>
-    <span class="label-tag" style="background:rgb(209,194,198)">[Jet Music Group]</span>
+    <span class="genre-tag" style="background:rgb(173,164,186)">[Brazilian Funk |  Eletrofunk]</span>
+    <span class="label-tag" style="background:rgb(147,243,141)">[Jet Music Group]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Mc Vuk Vuk, DJ Pablo RB, MC Colibri – MEGA SE TU QUER TU VAI TOMAR Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -832,12 +903,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/2d33f8b3-f5cb-4c2a-9b62-1afc2fce464b.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/8eda390f-4bf6-4535-ab24-bfbc421509c2.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(161,204,162)">[Minimal / Deep Tech |  Deep Tech]</span>
-    <span class="track-title">Fabio Santos (NL) – No Romance  Extended Mix</span>
-    <span class="label-tag" style="background:rgb(160,174,233)">[EARDRUMS]</span>
+    <span class="genre-tag" style="background:rgb(146,160,179)">[Minimal / Deep Tech |  Deep Tech]</span>
+    <span class="label-tag" style="background:rgb(183,140,158)">[EARDRUMS]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Fabio Santos (NL) – No Romance  Extended Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -854,12 +927,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/81434805-1cde-4629-bf15-9aa1364320f8.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/3c098919-d4d4-4fa8-887a-1650ac5f2482.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(188,249,142)">[Afro House]</span>
-    <span class="track-title">Roy Rosenfeld – Dubi Original Mix</span>
-    <span class="label-tag" style="background:rgb(212,199,192)">[No Drama]</span>
+    <span class="genre-tag" style="background:rgb(153,240,150)">[Afro House]</span>
+    <span class="label-tag" style="background:rgb(152,185,204)">[No Drama]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Roy Rosenfeld – Dubi Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -876,12 +951,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/af1b2da2-1bcc-4e0f-85ee-7d4a829a5916.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/bec12c52-fa90-414e-9d0d-411ee7c29424.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(188,249,142)">[Afro House]</span>
-    <span class="track-title">Blanka Mazimela – My War Original Mix</span>
-    <span class="label-tag" style="background:rgb(192,234,171)">[Kunye]</span>
+    <span class="genre-tag" style="background:rgb(153,240,150)">[Afro House]</span>
+    <span class="label-tag" style="background:rgb(168,220,175)">[Kunye]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Blanka Mazimela – My War Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -898,12 +975,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/d9ea50a0-de82-461c-92b4-127fcf49f338.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/f495f059-06cc-4cb0-97ae-d8ac35f51965.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(253,243,200)">[Techno (Raw / Deep / Hypnotic)]</span>
-    <span class="track-title">Ben Reymann – Feel The Funk Original Mix</span>
-    <span class="label-tag" style="background:rgb(167,176,147)">[Arts]</span>
+    <span class="genre-tag" style="background:rgb(161,223,207)">[Techno (Raw / Deep / Hypnotic)]</span>
+    <span class="label-tag" style="background:rgb(227,254,225)">[Arts]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Ben Reymann – Feel The Funk Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -920,12 +999,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/9de977f3-1dd7-4b53-beca-20ff9c749fc5.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/92243990-5f43-4cc8-8fef-43e3ab7279d6.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(215,190,248)">[Indie Dance]</span>
-    <span class="track-title">derderwandert – Diego Armando  Original Mix</span>
-    <span class="label-tag" style="background:rgb(240,252,155)">[Bedrock Records]</span>
+    <span class="genre-tag" style="background:rgb(177,196,235)">[Indie Dance]</span>
+    <span class="label-tag" style="background:rgb(165,234,255)">[Bedrock Records]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">derderwandert – Diego Armando  Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -942,12 +1023,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/4e22523c-0420-4f41-ad46-f6c554afa58a.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/7009a459-0a0c-48b8-8bd4-ae239135ea77.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(161,204,162)">[Minimal / Deep Tech |  Deep Tech]</span>
-    <span class="track-title">Andre Zimmer – Swamp Circuit Original Mix</span>
-    <span class="label-tag" style="background:rgb(211,180,206)">[Craigie Knowes]</span>
+    <span class="genre-tag" style="background:rgb(146,160,179)">[Minimal / Deep Tech |  Deep Tech]</span>
+    <span class="label-tag" style="background:rgb(246,254,146)">[Craigie Knowes]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Andre Zimmer – Swamp Circuit Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -964,12 +1047,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/9d7124cc-46db-4584-bc42-d11533a70d76.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/97a39580-04f8-4253-8131-e9aba943fc88.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(140,240,200)">[Nu Disco / Disco]</span>
-    <span class="track-title">Kevin McKay – That&#x27;s The Way Love Goes Extended Mix</span>
-    <span class="label-tag" style="background:rgb(243,209,247)">[Glasgow Underground]</span>
+    <span class="genre-tag" style="background:rgb(237,252,231)">[Nu Disco / Disco]</span>
+    <span class="label-tag" style="background:rgb(225,144,204)">[Glasgow Underground]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Kevin McKay – That&#x27;s The Way Love Goes Extended Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -986,12 +1071,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/ce71d054-8e77-4fc2-9f09-8fe72d8809fd.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/7581d99f-0729-47f2-8915-f8075e5af345.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(196,250,254)">[Progressive House]</span>
-    <span class="track-title">DJ Zombi, Radical Fantasy – Time to Be Alive Extended Mix</span>
-    <span class="label-tag" style="background:rgb(169,194,175)">[Sprout]</span>
+    <span class="genre-tag" style="background:rgb(229,161,152)">[Progressive House]</span>
+    <span class="label-tag" style="background:rgb(194,250,248)">[Sprout]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">DJ Zombi, Radical Fantasy – Time to Be Alive Extended Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -1008,12 +1095,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/ed67b380-ee0c-4f9d-96aa-e17b6d3e88d9.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/ab2348b3-1a29-4d2c-9d77-447ec019c953.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(196,213,203)">[House]</span>
-    <span class="track-title">Purple Disco Machine – Dished (Male Stripper) Extended Mix</span>
-    <span class="label-tag" style="background:rgb(219,200,218)">[Defected]</span>
+    <span class="genre-tag" style="background:rgb(208,214,201)">[House]</span>
+    <span class="label-tag" style="background:rgb(197,208,154)">[Defected]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Purple Disco Machine – Dished (Male Stripper) Extended Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -1030,12 +1119,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/9bf47cc0-f50b-483f-b58d-c76d9dad58a4.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/f9b12b7e-e32c-47c6-ac3a-6c4e8c4703ff.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(196,213,203)">[House]</span>
-    <span class="track-title">Fedele – Gentle Dance Original Mix</span>
-    <span class="label-tag" style="background:rgb(241,167,233)">[Diynamic]</span>
+    <span class="genre-tag" style="background:rgb(208,214,201)">[House]</span>
+    <span class="label-tag" style="background:rgb(236,150,205)">[Diynamic]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Fedele – Gentle Dance Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -1052,12 +1143,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/ae4d9de7-429f-49b1-8807-b15070d1a982.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/8bfc3993-610d-4bee-b673-a10cc16130f9.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(214,255,210)">[Tech House]</span>
-    <span class="track-title">Alto – Late Night Lean Original Mix</span>
-    <span class="label-tag" style="background:rgb(234,235,245)">[Rawsome Recordings]</span>
+    <span class="genre-tag" style="background:rgb(238,185,217)">[Tech House]</span>
+    <span class="label-tag" style="background:rgb(238,153,189)">[Rawsome Recordings]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Alto – Late Night Lean Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -1074,12 +1167,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/4e22523c-0420-4f41-ad46-f6c554afa58a.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/7009a459-0a0c-48b8-8bd4-ae239135ea77.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(186,182,183)">[Electro (Classic / Detroit / Modern)]</span>
-    <span class="track-title">Andre Zimmer – Broken News Original Mix</span>
-    <span class="label-tag" style="background:rgb(211,180,206)">[Craigie Knowes]</span>
+    <span class="genre-tag" style="background:rgb(248,168,240)">[Electro (Classic / Detroit / Modern)]</span>
+    <span class="label-tag" style="background:rgb(246,254,146)">[Craigie Knowes]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Andre Zimmer – Broken News Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -1096,12 +1191,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/16f77839-cfe1-490d-90f8-5d645fedec02.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/c562a328-0ea7-496c-add2-60f2724a47dd.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(253,243,200)">[Techno (Raw / Deep / Hypnotic)]</span>
-    <span class="track-title">Justyn Nell – Embodiment Original Mix</span>
-    <span class="label-tag" style="background:rgb(249,173,146)">[K S R]</span>
+    <span class="genre-tag" style="background:rgb(161,223,207)">[Techno (Raw / Deep / Hypnotic)]</span>
+    <span class="label-tag" style="background:rgb(148,203,227)">[K S R]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Justyn Nell – Embodiment Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -1118,12 +1215,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/5aa18555-56a6-495a-ab6c-e377d3476a95.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/611b75be-d89f-4773-b73a-36ad021f3202.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(225,158,184)">[Drum &amp; Bass |  Jump Up]</span>
-    <span class="track-title">Molecular – Rave Weapon Original Mix</span>
-    <span class="label-tag" style="background:rgb(164,189,212)">[Dance Macabre]</span>
+    <span class="genre-tag" style="background:rgb(197,183,221)">[Drum &amp; Bass |  Jump Up]</span>
+    <span class="label-tag" style="background:rgb(161,252,193)">[Dance Macabre]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Molecular – Rave Weapon Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -1140,12 +1239,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/41f11cfa-0841-48e1-b65b-1901e4fe2f95.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/549fc81e-4a61-4a71-9411-07926dd37210.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(253,191,142)">[Deep House]</span>
-    <span class="track-title">V.B.Kuhl, Peralto – Well Extended Peralto Remix</span>
-    <span class="label-tag" style="background:rgb(140,235,183)">[No Fuss Records]</span>
+    <span class="genre-tag" style="background:rgb(249,245,243)">[Deep House]</span>
+    <span class="label-tag" style="background:rgb(228,250,243)">[No Fuss Records]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">V.B.Kuhl, Peralto – Well Extended Peralto Remix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -1162,12 +1263,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/a8ca1a87-3d38-4639-bb58-aa997dc8d233.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/0ac5810b-9d3d-4b36-ad7a-abaa2fcf5e0e.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-19</span>
-    <span class="genre-tag" style="background:rgb(242,202,180)">[Brazilian Funk |  Mandelao Funk]</span>
-    <span class="track-title">MC Dom LP, DJ Holanda, Megabaile Do Areias, DJ MOFO – PARTIU BAILÃO Original Mix</span>
-    <span class="label-tag" style="background:rgb(182,190,227)">[Bulls Talent]</span>
+    <span class="genre-tag" style="background:rgb(157,246,148)">[Brazilian Funk |  Mandelao Funk]</span>
+    <span class="label-tag" style="background:rgb(213,175,165)">[Bulls Talent]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">MC Dom LP, DJ Holanda, Megabaile Do Areias, DJ MOFO – PARTIU BAILÃO Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -1184,12 +1287,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/91862301-d0ab-4907-a6d9-1a00083a54d2.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/a6a6a617-78c0-4525-ad02-d72b562a6569.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(253,191,142)">[Deep House]</span>
-    <span class="track-title">6th Borough Project – The Deal Original Mix</span>
-    <span class="label-tag" style="background:rgb(245,190,245)">[Delusions Of Grandeur]</span>
+    <span class="genre-tag" style="background:rgb(249,245,243)">[Deep House]</span>
+    <span class="label-tag" style="background:rgb(142,219,181)">[Delusions Of Grandeur]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">6th Borough Project – The Deal Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -1206,12 +1311,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/659149d0-e626-4521-b756-b3de8b305755.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/820175a2-9926-4b27-9ae0-6f5518059623.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-18</span>
-    <span class="genre-tag" style="background:rgb(215,190,248)">[Indie Dance]</span>
-    <span class="track-title">Man Parrish, Red Axes, Roy Garrett – Hot Rod To Hell And Back Extended Mix</span>
-    <span class="label-tag" style="background:rgb(224,171,232)">[fabric Records]</span>
+    <span class="genre-tag" style="background:rgb(177,196,235)">[Indie Dance]</span>
+    <span class="label-tag" style="background:rgb(248,200,250)">[fabric Records]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Man Parrish, Red Axes, Roy Garrett – Hot Rod To Hell And Back Extended Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -1228,12 +1335,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/fadb1724-2867-4de1-8553-eddfc5f478a7.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/7dc9609f-6445-44c0-9ab0-383262f02bef.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(147,166,141)">[140 / Deep Dubstep / Grime]</span>
-    <span class="track-title">Mob Killa – Misericorde  Original Mix</span>
-    <span class="label-tag" style="background:rgb(218,184,240)">[Chestplate]</span>
+    <span class="genre-tag" style="background:rgb(167,154,205)">[140 / Deep Dubstep / Grime]</span>
+    <span class="label-tag" style="background:rgb(145,142,143)">[Chestplate]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Mob Killa – Misericorde  Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -1250,12 +1359,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/39317d18-2c91-4cd7-9e6b-bf578388f97e.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/2a47d42f-3583-4abe-a0b9-da5295bb5425.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(151,161,175)">[Drum &amp; Bass]</span>
-    <span class="track-title">Zylo (UK) – Rave All Night  Original Mix</span>
-    <span class="label-tag" style="background:rgb(236,182,160)">[Jungle Cakes]</span>
+    <span class="genre-tag" style="background:rgb(193,151,157)">[Drum &amp; Bass]</span>
+    <span class="label-tag" style="background:rgb(251,250,236)">[Jungle Cakes]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Zylo (UK) – Rave All Night  Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -1272,12 +1383,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/f4ca3bf4-637a-4258-a626-9024ec67e4e7.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/63a5afc3-814a-4f60-8d21-8194278707aa.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(253,243,200)">[Techno (Raw / Deep / Hypnotic)]</span>
-    <span class="track-title">Ribé – Será Original Mix</span>
-    <span class="label-tag" style="background:rgb(190,143,251)">[Semantica Records]</span>
+    <span class="genre-tag" style="background:rgb(161,223,207)">[Techno (Raw / Deep / Hypnotic)]</span>
+    <span class="label-tag" style="background:rgb(185,243,237)">[Semantica Records]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Ribé – Será Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -1294,12 +1407,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/dc7271db-1379-4f50-ae47-2e5461bdd093.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/720a96e7-28f7-42a7-9872-d7a1847ab2b9.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(140,240,200)">[Nu Disco / Disco]</span>
-    <span class="track-title">Samo – Why I Love You  Extended Mix</span>
-    <span class="label-tag" style="background:rgb(212,166,191)">[Big Love Music]</span>
+    <span class="genre-tag" style="background:rgb(237,252,231)">[Nu Disco / Disco]</span>
+    <span class="label-tag" style="background:rgb(251,241,253)">[Big Love Music]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Samo – Why I Love You  Extended Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -1316,12 +1431,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/45a20e98-de31-4c50-899d-7e721c9d4014.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/6a1ea55d-1a22-4acb-8a69-d7eca39fb659.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(174,168,221)">[Amapiano]</span>
-    <span class="track-title">Baby Momo, Sims Makoya, Smileykeys – Imimoya Original Mix</span>
-    <span class="label-tag" style="background:rgb(171,183,159)">[Baby Momo Production]</span>
+    <span class="genre-tag" style="background:rgb(143,210,226)">[Amapiano]</span>
+    <span class="label-tag" style="background:rgb(192,203,171)">[Baby Momo Production]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Baby Momo, Sims Makoya, Smileykeys – Imimoya Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -1338,12 +1455,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/dc8f7452-b177-4056-a4e2-d390976e9df2.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/57711350-a021-4767-9177-aa8894093316.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(197,202,188)">[Bass / Club]</span>
-    <span class="track-title">Lws – Gubbins Original Mix</span>
-    <span class="label-tag" style="background:rgb(207,155,154)">[TraTraTrax]</span>
+    <span class="genre-tag" style="background:rgb(252,234,253)">[Bass / Club]</span>
+    <span class="label-tag" style="background:rgb(236,229,158)">[TraTraTrax]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Lws – Gubbins Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -1360,12 +1479,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/1b410cc1-caa5-4600-86bb-84eca10b99fe.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/e37b3db2-b644-4f53-bb75-192c068c7802.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(214,255,210)">[Tech House]</span>
-    <span class="track-title">John The RT – Microphone Killa Original Mix</span>
-    <span class="label-tag" style="background:rgb(148,228,154)">[Casa Rossa]</span>
+    <span class="genre-tag" style="background:rgb(238,185,217)">[Tech House]</span>
+    <span class="label-tag" style="background:rgb(240,169,246)">[Casa Rossa]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">John The RT – Microphone Killa Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -1382,12 +1503,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/e66f7b34-58b1-404f-a90d-157384c29ea5.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/ca4fda96-bbe5-4827-89d4-ace71e7611de.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-17</span>
-    <span class="genre-tag" style="background:rgb(196,250,254)">[Progressive House]</span>
-    <span class="track-title">Mateo Tapia – Dancing Bloom Original Mix</span>
-    <span class="label-tag" style="background:rgb(193,208,252)">[RKP]</span>
+    <span class="genre-tag" style="background:rgb(229,161,152)">[Progressive House]</span>
+    <span class="label-tag" style="background:rgb(152,250,194)">[RKP]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Mateo Tapia – Dancing Bloom Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -1404,12 +1527,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/eaf8b8a5-86f0-40b8-9164-2b6ad4af6cf3.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/bee5905f-b05a-4dde-93f4-4b7720062e06.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(255,193,161)">[Psy-Trance]</span>
-    <span class="track-title">Relativ, Mindplex – Starlight Original Mix</span>
-    <span class="label-tag" style="background:rgb(192,250,196)">[Sacred Technology]</span>
+    <span class="genre-tag" style="background:rgb(180,234,146)">[Psy-Trance]</span>
+    <span class="label-tag" style="background:rgb(223,249,191)">[Sacred Technology]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Relativ, Mindplex – Starlight Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -1426,12 +1551,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/b4cb16c6-ab64-4e41-84b4-65efdd1cc8c8.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/190ce873-80a4-4507-af8a-9537378e5627.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(253,191,142)">[Deep House]</span>
-    <span class="track-title">DJ City, Karl Lihagen, 1-800 Techno – My Name is Who Original Mix</span>
-    <span class="label-tag" style="background:rgb(210,232,186)">[Public Possession]</span>
+    <span class="genre-tag" style="background:rgb(249,245,243)">[Deep House]</span>
+    <span class="label-tag" style="background:rgb(225,172,250)">[Public Possession]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">DJ City, Karl Lihagen, 1-800 Techno – My Name is Who Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -1448,12 +1575,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/d0360618-4a2e-4265-952a-0a5f1336c823.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/d7b98549-335f-4c87-933a-fffcf1edd5fc.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(188,249,142)">[Afro House]</span>
-    <span class="track-title">Tea White – Season Original Mix</span>
-    <span class="label-tag" style="background:rgb(219,140,155)">[Stay True Sounds]</span>
+    <span class="genre-tag" style="background:rgb(153,240,150)">[Afro House]</span>
+    <span class="label-tag" style="background:rgb(222,225,140)">[Stay True Sounds]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Tea White – Season Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -1470,12 +1599,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/c48359cb-082c-4098-be80-239dd6df61e8.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/d4ffd48d-3c19-43d0-a8b8-e9efb405b311.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(227,152,198)">[Electronica]</span>
-    <span class="track-title">Vril, Rødhåd, Out Of Place Artefacts – Intergalactic Announcement Original Mix</span>
-    <span class="label-tag" style="background:rgb(239,197,169)">[WSNWG]</span>
+    <span class="genre-tag" style="background:rgb(181,170,191)">[Electronica]</span>
+    <span class="label-tag" style="background:rgb(210,178,172)">[WSNWG]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Vril, Rødhåd, Out Of Place Artefacts – Intergalactic Announcement Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -1492,12 +1623,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/9beedd30-3ac8-428a-bc33-ef89b4f46a0c.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/7a7e399b-5cf7-4c76-a40f-b6b7dcd98a22.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(154,242,167)">[Jackin House]</span>
-    <span class="track-title">Human By Nature – In The Morning Original Mix</span>
-    <span class="label-tag" style="background:rgb(240,246,253)">[Robsoul Recordings]</span>
+    <span class="genre-tag" style="background:rgb(187,146,233)">[Jackin House]</span>
+    <span class="label-tag" style="background:rgb(157,255,222)">[Robsoul Recordings]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Human By Nature – In The Morning Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -1514,12 +1647,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/797e0f60-a438-4fc8-8b1a-f8f97ee70669.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/acaf47cc-be6a-48e7-9238-f67d70cd3938.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(173,173,165)">[Melodic House &amp; Techno]</span>
-    <span class="track-title">Gumm – Feel It Original Mix</span>
-    <span class="label-tag" style="background:rgb(239,197,174)">[ISOLATE]</span>
+    <span class="genre-tag" style="background:rgb(173,222,244)">[Melodic House &amp; Techno]</span>
+    <span class="label-tag" style="background:rgb(177,146,182)">[ISOLATE]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Gumm – Feel It Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -1536,12 +1671,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/eac37f7b-f648-4608-8c43-8fe7c0f230e0.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/4c403e57-591a-4841-a93a-8becece6e3c8.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(142,163,253)">[Dubstep]</span>
-    <span class="track-title">IVORY – HIGH KNEES Original Mix</span>
-    <span class="label-tag" style="background:rgb(220,146,171)">[Bassrush Records]</span>
+    <span class="genre-tag" style="background:rgb(155,232,205)">[Dubstep]</span>
+    <span class="label-tag" style="background:rgb(196,197,216)">[Bassrush Records]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">IVORY – HIGH KNEES Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -1558,12 +1695,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/d7afba67-64aa-491b-a943-3acca88b9f81.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/51585208-9e5f-4edb-9124-c4894cecbef5.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(161,204,162)">[Minimal / Deep Tech |  Deep Tech]</span>
-    <span class="track-title">Banchan – Komodo Extended Mix</span>
-    <span class="label-tag" style="background:rgb(178,233,247)">[17 Steps]</span>
+    <span class="genre-tag" style="background:rgb(146,160,179)">[Minimal / Deep Tech |  Deep Tech]</span>
+    <span class="label-tag" style="background:rgb(225,183,177)">[17 Steps]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Banchan – Komodo Extended Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -1580,12 +1719,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/2adc7bcc-5175-4ae2-8b53-40e4a5870ed1.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/d8577216-1920-4e05-b241-0c5d1882c358.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-19</span>
-    <span class="genre-tag" style="background:rgb(153,144,196)">[Minimal / Deep Tech |  Minimal House]</span>
-    <span class="track-title">Luca Ruiz – HMWT  Original Mix</span>
-    <span class="label-tag" style="background:rgb(162,213,218)">[Magie Noire Music]</span>
+    <span class="genre-tag" style="background:rgb(149,222,217)">[Minimal / Deep Tech |  Minimal House]</span>
+    <span class="label-tag" style="background:rgb(160,172,151)">[Magie Noire Music]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Luca Ruiz – HMWT  Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -1602,12 +1743,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/727af1f0-2325-483a-bd56-080d2aad179d.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/6ba8ffdb-5006-4c22-bf24-001c889f5ca6.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(180,210,209)">[Hard Techno]</span>
-    <span class="track-title">Inductor – Just a Drop Original Mix</span>
-    <span class="label-tag" style="background:rgb(214,178,150)">[No War Records]</span>
+    <span class="genre-tag" style="background:rgb(184,209,159)">[Hard Techno]</span>
+    <span class="label-tag" style="background:rgb(220,190,232)">[No War Records]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Inductor – Just a Drop Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -1624,12 +1767,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/3098d5ad-87b3-4fcf-bafc-823a3e9a4a77.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/ee1ca6e1-7a6f-4f8b-bfa8-114a4e22a9b8.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-19</span>
-    <span class="genre-tag" style="background:rgb(196,213,203)">[House]</span>
-    <span class="track-title">Fourth Phase – Freaks  Extended Mix</span>
-    <span class="label-tag" style="background:rgb(220,188,160)">[Snatch! Records]</span>
+    <span class="genre-tag" style="background:rgb(208,214,201)">[House]</span>
+    <span class="label-tag" style="background:rgb(192,191,206)">[Snatch! Records]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Fourth Phase – Freaks  Extended Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -1646,12 +1791,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/1f9b6d48-9936-4ef1-bec0-f0f705c999f0.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/1a858c59-ce24-40ec-8202-3f0f05174215.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(173,233,248)">[Techno (Peak Time / Driving)]</span>
-    <span class="track-title">Newest, Exel (HU) – Music Of Warriors  Original Mix</span>
-    <span class="label-tag" style="background:rgb(243,161,150)">[PHOBIA Music Recordings]</span>
+    <span class="genre-tag" style="background:rgb(165,178,151)">[Techno (Peak Time / Driving)]</span>
+    <span class="label-tag" style="background:rgb(252,238,191)">[PHOBIA Music Recordings]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Newest, Exel (HU) – Music Of Warriors  Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -1668,12 +1815,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/7afbd106-8233-4759-be76-b6245351ee88.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/d3929daa-9d6f-4131-b7a4-fdfb79b8c693.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(223,210,217)">[Breaks / Breakbeat / UK Bass]</span>
-    <span class="track-title">Odi Diaz – Bassment Voltage Original Mix</span>
-    <span class="label-tag" style="background:rgb(174,169,176)">[Zone Records]</span>
+    <span class="genre-tag" style="background:rgb(201,147,160)">[Breaks / Breakbeat / UK Bass]</span>
+    <span class="label-tag" style="background:rgb(206,147,238)">[Zone Records]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Odi Diaz – Bassment Voltage Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -1690,12 +1839,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/24359df2-65d0-4b1e-b2c4-5aba16028162.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/a143acfa-9d4d-4421-be44-771bacb003ec.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-19</span>
-    <span class="genre-tag" style="background:rgb(214,255,210)">[Tech House]</span>
-    <span class="track-title">Angelo Ferreri, Pietro Over Jack – Faid In Pull  Synth Mix</span>
-    <span class="label-tag" style="background:rgb(177,185,212)">[RAP JACK MUSIC]</span>
+    <span class="genre-tag" style="background:rgb(238,185,217)">[Tech House]</span>
+    <span class="label-tag" style="background:rgb(149,237,190)">[RAP JACK MUSIC]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Angelo Ferreri, Pietro Over Jack – Faid In Pull  Synth Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -1712,12 +1863,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/9b2c189c-d7a7-4f44-933a-6d0a1b381829.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/c7202db9-dc94-43f5-8778-c68afade0365.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(253,243,200)">[Techno (Raw / Deep / Hypnotic)]</span>
-    <span class="track-title">Oscar Escapa, Linear Phase – Excess Original Mix</span>
-    <span class="label-tag" style="background:rgb(176,215,254)">[Planet Rhythm]</span>
+    <span class="genre-tag" style="background:rgb(161,223,207)">[Techno (Raw / Deep / Hypnotic)]</span>
+    <span class="label-tag" style="background:rgb(219,185,214)">[Planet Rhythm]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Oscar Escapa, Linear Phase – Excess Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -1734,12 +1887,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/aaecd7a5-51dc-4b04-b2b4-fee82cc67bed.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/f33bdfc9-f8c9-4c8a-861a-18d6edb250d9.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-18</span>
-    <span class="genre-tag" style="background:rgb(186,182,183)">[Electro (Classic / Detroit / Modern)]</span>
-    <span class="track-title">Luxus Varta – Silver Girl Original Mix</span>
-    <span class="label-tag" style="background:rgb(203,243,210)">[Shipwrec]</span>
+    <span class="genre-tag" style="background:rgb(248,168,240)">[Electro (Classic / Detroit / Modern)]</span>
+    <span class="label-tag" style="background:rgb(205,154,170)">[Shipwrec]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Luxus Varta – Silver Girl Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -1756,12 +1911,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/3cd2ffc5-3013-4465-9993-d328b6d087bc.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/88532549-f8ca-45d0-b073-90ed74238a65.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(196,213,203)">[House]</span>
-    <span class="track-title">Emery Bex – Let Your Body Rock Original Mix</span>
-    <span class="label-tag" style="background:rgb(215,226,156)">[Deeperfect]</span>
+    <span class="genre-tag" style="background:rgb(208,214,201)">[House]</span>
+    <span class="label-tag" style="background:rgb(241,207,231)">[Deeperfect]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Emery Bex – Let Your Body Rock Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -1778,12 +1935,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/e5aafb5e-f37a-491b-92f5-c66fe3a80a7c.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/107d3300-aaaa-498e-8008-785b6f698cbf.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(212,191,168)">[Trance (Main Floor)]</span>
-    <span class="track-title">Super8 &amp; Tab, SØNIN, Simon Gregory – Black Is The New Yellow Simon Gregory Extended Mix</span>
-    <span class="label-tag" style="background:rgb(225,227,249)">[Anjunabeats]</span>
+    <span class="genre-tag" style="background:rgb(200,182,204)">[Trance (Main Floor)]</span>
+    <span class="label-tag" style="background:rgb(145,227,163)">[Anjunabeats]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Super8 &amp; Tab, SØNIN, Simon Gregory – Black Is The New Yellow Simon Gregory Extended Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -1800,12 +1959,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/eb2c1e25-d1f0-4e38-b93c-24f8c25d42ad.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/37c321b9-a7b7-47d6-a3ce-d3f8c4e2588d.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(214,255,210)">[Tech House]</span>
-    <span class="track-title">Trallez – Jack&#x27;in  Original Mix</span>
-    <span class="label-tag" style="background:rgb(172,145,251)">[Organic Pieces]</span>
+    <span class="genre-tag" style="background:rgb(238,185,217)">[Tech House]</span>
+    <span class="label-tag" style="background:rgb(222,150,161)">[Organic Pieces]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Trallez – Jack&#x27;in  Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -1822,12 +1983,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/fb7291c4-48cf-4416-a68e-d1d13e421a9e.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/696d684d-3eba-46c3-b2c9-b0281ac1075b.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(215,190,248)">[Indie Dance]</span>
-    <span class="track-title">Felix Da Housecat, Vanfave – 𝐍𝐈𝐆𝐇𝐓 𝐌𝐀𝐂𝐇𝐈𝐍𝐄 Original Mix</span>
-    <span class="label-tag" style="background:rgb(237,197,218)">[Founders Of Filth]</span>
+    <span class="genre-tag" style="background:rgb(177,196,235)">[Indie Dance]</span>
+    <span class="label-tag" style="background:rgb(223,155,222)">[Founders Of Filth]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Felix Da Housecat, Vanfave – 𝐍𝐈𝐆𝐇𝐓 𝐌𝐀𝐂𝐇𝐈𝐍𝐄 Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -1844,12 +2007,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/d63f77e7-da4a-4028-90d7-8f68ea89c5f0.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/b55e8ae9-714c-4250-90ca-f12504940aa4.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(161,204,162)">[Minimal / Deep Tech |  Deep Tech]</span>
-    <span class="track-title">Ezequiel G – Dr. Funkenstein  Original Mix</span>
-    <span class="label-tag" style="background:rgb(185,235,144)">[Play Records]</span>
+    <span class="genre-tag" style="background:rgb(146,160,179)">[Minimal / Deep Tech |  Deep Tech]</span>
+    <span class="label-tag" style="background:rgb(173,208,150)">[Play Records]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Ezequiel G – Dr. Funkenstein  Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -1866,12 +2031,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/369a6bbd-be54-42cd-bd65-1c69aba473f7.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/23fa38db-be15-4272-99e5-c5e7d2bd5a7c.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(200,175,189)">[UK Garage / Bassline]</span>
-    <span class="track-title">Oppidan, camoufly – hold tight Original Mix</span>
-    <span class="label-tag" style="background:rgb(200,169,215)">[Promised Land Recordings]</span>
+    <span class="genre-tag" style="background:rgb(246,158,179)">[UK Garage / Bassline]</span>
+    <span class="label-tag" style="background:rgb(250,227,177)">[Promised Land Recordings]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Oppidan, camoufly – hold tight Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -1888,12 +2055,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/5a315ab5-13b4-4191-9aa2-1e6ead3493e3.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/2d994c72-6f32-4aab-ae40-6e6b8b5b482a.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(214,255,210)">[Tech House]</span>
-    <span class="track-title">Josh Butler – Night Shift  Extended Mix</span>
-    <span class="label-tag" style="background:rgb(183,213,224)">[Dansu Discs]</span>
+    <span class="genre-tag" style="background:rgb(238,185,217)">[Tech House]</span>
+    <span class="label-tag" style="background:rgb(204,249,214)">[Dansu Discs]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Josh Butler – Night Shift  Extended Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -1910,12 +2079,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/daea4091-d360-4a69-83b4-003d2805fa45.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/d8aafb68-8d57-4cf0-9de6-4ac4b446cb5b.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-18</span>
-    <span class="genre-tag" style="background:rgb(162,199,251)">[Trap / Future Bass]</span>
-    <span class="track-title">Daîne, Ninajirachi, Underscores – It&#x27;s You underscores&#x27; &quot;It&#x27;s U&quot; Remix</span>
-    <span class="label-tag" style="background:rgb(245,181,159)">[NLV Records]</span>
+    <span class="genre-tag" style="background:rgb(187,212,225)">[Trap / Future Bass]</span>
+    <span class="label-tag" style="background:rgb(157,175,163)">[NLV Records]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Daîne, Ninajirachi, Underscores – It&#x27;s You underscores&#x27; &quot;It&#x27;s U&quot; Remix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -1932,12 +2103,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/e8ec323c-f867-4f39-b54f-7c57eb0a97ed.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/26cfc070-9ce6-4971-9266-50c0834458ba.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(164,169,231)">[Bass House]</span>
-    <span class="track-title">Nico Falla, bradeazy – Accelerate Extended Mix</span>
-    <span class="label-tag" style="background:rgb(172,253,181)">[Trace Amounts]</span>
+    <span class="genre-tag" style="background:rgb(242,243,171)">[Bass House]</span>
+    <span class="label-tag" style="background:rgb(181,236,227)">[Trace Amounts]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Nico Falla, bradeazy – Accelerate Extended Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -1954,12 +2127,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/5fa29090-2248-43a4-aa9e-588733468550.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/6d5a9ea7-56df-4139-8bc0-2b3f8c598487.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(164,164,158)">[Mainstage]</span>
-    <span class="track-title">deadmau5, Stevie Appleton – Science (feat. Stevie Appleton) Original Mix</span>
-    <span class="label-tag" style="background:rgb(248,195,254)">[mau5trap]</span>
+    <span class="genre-tag" style="background:rgb(222,196,183)">[Mainstage]</span>
+    <span class="label-tag" style="background:rgb(150,195,224)">[mau5trap]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">deadmau5, Stevie Appleton – Science (feat. Stevie Appleton) Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -1976,12 +2151,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/f0dcf21a-3d4b-40c1-ae09-29b149d3f9c6.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/2c1a60ec-724a-4e30-b084-d86dd90ce663.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(236,141,251)">[Hard Dance / Hardcore / Neo Rave]</span>
-    <span class="track-title">Mha Iri – Freak  Original Mix</span>
-    <span class="label-tag" style="background:rgb(212,248,249)">[Filth on Acid]</span>
+    <span class="genre-tag" style="background:rgb(190,225,200)">[Hard Dance / Hardcore / Neo Rave]</span>
+    <span class="label-tag" style="background:rgb(195,235,250)">[Filth on Acid]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Mha Iri – Freak  Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -1998,12 +2175,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/9619edc1-e5c4-4821-8e79-c6dcb187bad6.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/adbfa2c3-c0ed-44da-ad07-704bc1e30c22.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(196,250,254)">[Progressive House]</span>
-    <span class="track-title">Gorge – Three Original Mix</span>
-    <span class="label-tag" style="background:rgb(206,201,216)">[8Bit]</span>
+    <span class="genre-tag" style="background:rgb(229,161,152)">[Progressive House]</span>
+    <span class="label-tag" style="background:rgb(183,246,202)">[8Bit]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Gorge – Three Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -2020,12 +2199,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/903d7823-656e-4742-a13a-4db9eab9dd62.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/96998c51-1909-4acc-9507-6b5bd986cf64.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(210,159,194)">[Funky House]</span>
-    <span class="track-title">Crazibiza, Cheesecake Boys, Babes on the Run – Dont You Want Me Original Mix</span>
-    <span class="label-tag" style="background:rgb(210,175,155)">[PornoStar Records]</span>
+    <span class="genre-tag" style="background:rgb(148,196,177)">[Funky House]</span>
+    <span class="label-tag" style="background:rgb(146,170,251)">[PornoStar Records]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Crazibiza, Cheesecake Boys, Babes on the Run – Dont You Want Me Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -2042,12 +2223,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/c9c776dd-08ee-4121-a312-43008cf8255a.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/cf8e3da8-c1f8-4266-8ef2-12cc7a7aee64.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-16</span>
-    <span class="genre-tag" style="background:rgb(154,242,167)">[Jackin House]</span>
-    <span class="track-title">Filta Freqz, Tommy Largo – Heavy Duty Tommy Largo Remix</span>
-    <span class="label-tag" style="background:rgb(216,229,145)">[Seventy Four]</span>
+    <span class="genre-tag" style="background:rgb(187,146,233)">[Jackin House]</span>
+    <span class="label-tag" style="background:rgb(160,234,233)">[Seventy Four]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Filta Freqz, Tommy Largo – Heavy Duty Tommy Largo Remix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -2064,12 +2247,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/e595c569-12d7-40d6-9165-67032a690d16.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/2d613c49-d3df-4264-b160-0ab154428581.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(253,191,142)">[Deep House]</span>
-    <span class="track-title">Luv Jam, Maria Slovakova, Ruf Dug – Mind Floating Ruffys Pagan ReNip</span>
-    <span class="label-tag" style="background:rgb(221,247,221)">[Legend of Gelert]</span>
+    <span class="genre-tag" style="background:rgb(249,245,243)">[Deep House]</span>
+    <span class="label-tag" style="background:rgb(239,176,244)">[Legend of Gelert]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Luv Jam, Maria Slovakova, Ruf Dug – Mind Floating Ruffys Pagan ReNip</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -2086,12 +2271,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/951f4d84-2784-49d3-aa6f-219849c909ac.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/d1968996-4c1e-42fc-b25c-25ca245d8c11.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(248,198,238)">[Dance / Pop]</span>
-    <span class="track-title">Ben Sterling, Omar+ – Out Of My Mind Extended Mix</span>
-    <span class="label-tag" style="background:rgb(156,165,147)">[Insomniac Records]</span>
+    <span class="genre-tag" style="background:rgb(149,176,185)">[Dance / Pop]</span>
+    <span class="label-tag" style="background:rgb(171,173,194)">[Insomniac Records]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Ben Sterling, Omar+ – Out Of My Mind Extended Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -2108,12 +2295,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/2bc1e871-3f3b-4c57-a170-0ea3c033b14f.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/07aa9c14-2aba-4c6c-819f-611f6a67df56.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(180,210,209)">[Hard Techno]</span>
-    <span class="track-title">Hardtrax, O.B.I. – Auserkoren (feat. Dunkelkammer) Original Mix</span>
-    <span class="label-tag" style="background:rgb(180,226,246)">[Definition Of Hard Techno]</span>
+    <span class="genre-tag" style="background:rgb(184,209,159)">[Hard Techno]</span>
+    <span class="label-tag" style="background:rgb(151,249,252)">[Definition Of Hard Techno]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Hardtrax, O.B.I. – Auserkoren (feat. Dunkelkammer) Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -2130,12 +2319,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/2a17fb44-021c-4267-9c21-52a745f0bf05.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/06659fab-75fd-4673-9b30-755e08305456.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(188,249,142)">[Afro House]</span>
-    <span class="track-title">Shimza, LevyM – No Shape Without You Extended Mix</span>
-    <span class="label-tag" style="background:rgb(247,176,156)">[Helix Records]</span>
+    <span class="genre-tag" style="background:rgb(153,240,150)">[Afro House]</span>
+    <span class="label-tag" style="background:rgb(163,244,161)">[Helix Records]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Shimza, LevyM – No Shape Without You Extended Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -2152,12 +2343,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/71b0c862-dc66-4ddd-a489-4b5ec32359b3.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/160fb48a-dc1b-4e52-a807-d1f49707cd29.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(167,155,177)">[Psy-Trance |  Psychedelic]</span>
-    <span class="track-title">Hypnocoustics, Mandala (UK) – Anjuna Touchdown  Original Mix</span>
-    <span class="label-tag" style="background:rgb(151,157,231)">[Nano Records]</span>
+    <span class="genre-tag" style="background:rgb(177,210,184)">[Psy-Trance |  Psychedelic]</span>
+    <span class="label-tag" style="background:rgb(170,162,180)">[Nano Records]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Hypnocoustics, Mandala (UK) – Anjuna Touchdown  Original Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -2174,12 +2367,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/549294cb-1d9f-48c6-920c-96e8af51a99c.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/cda9862c-cf92-4d13-ac65-7e9277181f51.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(174,168,221)">[Amapiano]</span>
-    <span class="track-title">Tracy, Bongza, Mluusician, Thatohatsi, ShakaMan YKTV – Sgidla Vah  (feat. Thatohatsi &amp; Tracy) feat. Thatohatsi &amp; Tracy</span>
-    <span class="label-tag" style="background:rgb(153,174,221)">[Beyond Talent Agency]</span>
+    <span class="genre-tag" style="background:rgb(143,210,226)">[Amapiano]</span>
+    <span class="label-tag" style="background:rgb(162,155,143)">[Beyond Talent Agency]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Tracy, Bongza, Mluusician, Thatohatsi, ShakaMan YKTV – Sgidla Vah  (feat. Thatohatsi &amp; Tracy) feat. Thatohatsi &amp; Tracy</span>
   </div>
  </div>
  <div class="artwork-box"></div>
@@ -2196,12 +2391,14 @@ body {margin:0;background:#000;color:#ccc;font-family:Consolas;}
  data-artwork="https://geo-media.beatport.com/image_size/500x500/49251c7b-4497-4003-959b-1f295ab21881.jpg"
  data-label-artwork="https://geo-media.beatport.com/image_size/500x500/ef10b7f8-5371-437c-8d55-502ef3391607.jpg">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">2026-02-20</span>
-    <span class="genre-tag" style="background:rgb(187,236,217)">[Organic House]</span>
-    <span class="track-title">Mike Kohl – Round &amp; Round  Extended Mix</span>
-    <span class="label-tag" style="background:rgb(198,176,251)">[Sounds Of Sirin]</span>
+    <span class="genre-tag" style="background:rgb(168,167,249)">[Organic House]</span>
+    <span class="label-tag" style="background:rgb(223,186,186)">[Sounds Of Sirin]</span>
     
+  </div>
+  <div class="track-row2">
+    <span class="track-title">Mike Kohl – Round &amp; Round  Extended Mix</span>
   </div>
  </div>
  <div class="artwork-box"></div>
