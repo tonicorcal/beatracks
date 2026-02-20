@@ -333,13 +333,14 @@ body {{margin:0;background:#000;color:#ccc;font-family:Consolas;}}
 .track:hover {{background:#111;}}
 .hidden {{display:none;}}
 .duplicate {{background:yellow;color:#000; padding:0 3px; border-radius:3px; margin-left:5px; cursor:pointer;}}
-.song-line {{display:flex; width:100%; justify-content:flex-start; align-items:center;}}
-.track-left {{display:flex; align-items:center; gap:5px; flex-wrap: wrap;}}
-.date-tag {{padding:2px 6px; border-radius:5px; background:#666; font-weight:bold; color:#d0d0d0; margin-right:5px; cursor:pointer; flex-shrink:0;}}
-.genre-tag {{padding:2px 6px; border-radius:5px; color:#000; font-weight:bold; cursor:pointer; flex-shrink:0;}}
-.label-tag {{padding:2px 6px; border-radius:5px; color:#000; font-weight:bold; margin-left:5px; flex-shrink:0; cursor:pointer;}}
+.song-line {{display:flex; flex-direction:column; width:100%; gap:2px;}}
+.track-row1 {{display:flex; align-items:center; gap:5px;}}
+.track-row2 {{display:flex; align-items:center; gap:5px; padding-left:2px; overflow:hidden;}}
+.date-tag {{padding:2px 6px; border-radius:5px; background:#666; font-weight:bold; color:#d0d0d0; cursor:pointer; flex-shrink:0; font-size:12px;}}
+.genre-tag {{padding:2px 6px; border-radius:5px; color:#000; font-weight:bold; cursor:pointer; flex-shrink:0; font-size:12px;}}
+.label-tag {{padding:2px 6px; border-radius:5px; color:#000; font-weight:bold; flex-shrink:0; cursor:pointer; font-size:12px;}}
 .label-tag:hover {{outline:2px solid #fff;}}
-.track-title {{cursor:pointer; flex: none; overflow: hidden; text-overflow: ellipsis;}}
+.track-title {{cursor:pointer; color:#ccc; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:calc(100vw - 520px);}}
 .artwork-box {{max-height:0; overflow:hidden; transition:max-height .3s ease; margin-left:0; display:flex; gap:10px;}}
 .track.expanded .artwork-box {{max-height:420px;}}
 .artwork-box img {{width:400px;height:400px; object-fit:cover;}}
@@ -413,12 +414,14 @@ for chart_name, chart_data in sorted_charts:
  data-artwork="{escape(t['artwork'])}"
  data-label-artwork="{escape(t.get('label_img',''))}">
  <div class="song-line">
-  <div class="track-left">
+  <div class="track-row1">
     <span class="date-tag">{release_str}</span>
     <span class="genre-tag" style="background:{genre_colors[t['genre']]}">[{escape(t['genre'])}]</span>
-    <span class="track-title">{escape(t['artist'])} – {escape(t['title'])}</span>
     <span class="label-tag" style="background:{label_colors[t['label']]}">[{escape(t['label'])}]</span>
     {dup_html}
+  </div>
+  <div class="track-row2">
+    <span class="track-title">{escape(t['artist'])} – {escape(t['title'])}</span>
   </div>
  </div>
  <div class="artwork-box"></div>
