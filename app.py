@@ -334,7 +334,7 @@ body {{margin:0;background:#000;color:#ccc;font-family:Consolas;}}
 .hidden {{display:none;}}
 .duplicate {{background:yellow;color:#000; padding:0 3px; border-radius:3px; margin-left:5px; cursor:pointer;}}
 .song-line {{display:flex; width:100%; justify-content:flex-start; align-items:center;}}
-.track-left {{display:flex; align-items:center; gap:5px; white-space: nowrap;}}
+.track-left {{display:flex; align-items:center; gap:5px; flex-wrap: wrap;}}
 .date-tag {{padding:2px 6px; border-radius:5px; background:#666; font-weight:bold; color:#d0d0d0; margin-right:5px; cursor:pointer; flex-shrink:0;}}
 .genre-tag {{padding:2px 6px; border-radius:5px; color:#000; font-weight:bold; cursor:pointer; flex-shrink:0;}}
 .label-tag {{padding:2px 6px; border-radius:5px; color:#000; font-weight:bold; margin-left:5px; flex-shrink:0; cursor:pointer;}}
