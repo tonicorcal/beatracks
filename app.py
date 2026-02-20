@@ -399,6 +399,7 @@ for chart_name, chart_data in sorted_charts:
     for t in chart_tracks:
         release_str = t['release_str'] if t['release_str'] else "NONE"
         release_data_attr = t['release_dt'].strftime('%Y-%m-%d') if t['release_dt'] else ""
+        release_display = t['release_dt'].strftime('%d-%m-%y') if t['release_dt'] else release_str
         dup_html = '<span class="duplicate">⚠️</span>' if t['is_duplicate'] else ''
         all_charts_str = '|'.join(track_duplicates[f"{t['artist']}|{t['title']}"])
         html.append(f"""
@@ -414,7 +415,7 @@ for chart_name, chart_data in sorted_charts:
  data-label-artwork="{escape(t.get('label_img',''))}">
  <div class="song-line">
   <div class="track-left">
-    <span class="date-tag">{release_str}</span>
+    <span class="date-tag">{release_display}</span>
     <span class="genre-tag" style="background:{genre_colors[t['genre']]}">[{escape(t['genre'])}]</span>
     <span class="track-title">{escape(t['artist'])} – {escape(t['title'])}</span>
     <span class="label-tag" style="background:{label_colors[t['label']]}">[{escape(t['label'])}]</span>
